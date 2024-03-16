@@ -1,0 +1,877 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --main-text-color: #8FFF00; /* Default text color */
+    --secondary-text-color: #BEE38D;
+    --main-bg-color: #D1A3B7; /* Default background color */
+}
+
+body {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+
+.dark-mode {
+    --main-text-color: #000; /* Black text color */
+    --main-bg-color: #efefef; /* White background color */
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+
+/* Add other styles for dark mode with higher specificity */
+
+/* Example: */
+.dark-mode .container {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+  
+  /* Increase specificity for dark mode styles */
+  .dark-mode .container,
+  .dark-mode .column-left,
+  .dark-mode .column-mid,
+  .dark-mode .row-1,
+  .dark-mode .row-2,
+  .dark-mode .row-3,
+  .dark-mode .art,
+  .dark-mode .box,
+  .dark-mode .gallery-column-left-1,
+  .dark-mode .gallery-column-middle-1,
+  .dark-mode .gallery-column-right-1,
+  .dark-mode .photo-1,
+  .dark-mode .photo-2,
+  .dark-mode .photo-3,
+  .dark-mode .photo-4,
+  .dark-mode .photo-5,
+  .dark-mode .photo-6,
+  .dark-mode .photo-7,
+  .dark-mode .photo-8,
+  .dark-mode .photo-9,
+  .dark-mode .photo-10,
+  .dark-mode .text-overlay,
+  .dark-mode .text,
+  .dark-mode .exhibitions,
+  .dark-mode .contact,
+  .dark-mode .address-column,
+  .dark-mode .email-phone-column,
+  .dark-mode .email-button,
+  .dark-mode .phone-button,
+  .dark-mode .column-right,
+  .dark-mode .nav,
+  .dark-mode .nav a,
+  .dark-mode .contrast-button,
+  .dark-mode .footer,
+  .dark-mode .copyright-column,
+  .dark-mode .back-to-top-column {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+  }
+
+  a {
+    all: unset;
+}
+
+html {
+    scroll-behavior: smooth;
+    }
+
+.dropdown-menu {
+    position: fixed;
+    width: 100%;
+    display: none;
+    justify-content: flex-end; 
+    top: 68px;
+    right: 0;
+    background-color: #D1A3B7;
+    box-shadow: 0px 20px 20px #9248683c;
+    z-index: 9999;
+}
+
+.show {
+    display: block;
+}
+
+.menu-button {
+    position: fixed;
+    width: 100%;
+    display: none;
+    cursor: pointer;
+    background-color: #D1A3B7;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 24px;
+    box-shadow: 0px 3px 3px #9248683c;
+    z-index: 9998;
+}
+
+      .bar {
+        width: 44px;
+        height: 3px;
+        margin: 24px 0;
+        background-color: #8FFF00;
+        margin: 7px 0;
+        margin-left: auto;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .menu-button {
+          display: block;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .nav-link {
+            display: block;
+            text-align: right;
+            font-size: 1.8em;
+            padding: 32px;
+            border-top: 2px solid #bee38d44;
+            background-color: #D1A3B7;
+        }
+
+        .nav a{
+    color: #BEE38D;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    }
+
+.nav a:hover {
+    color: #8FFF00;
+    
+    }
+
+.nav a.active {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
+      }
+
+.container {
+    display: flex;
+    color: #8FFF00;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: #D1A3B7;
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .container {
+            display: flex;
+    color: #8FFF00;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: #D1A3B7;
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+        }
+    }
+      
+
+.column-left {
+    height: 100vh;
+    top: 0px;
+    overflow: visible;
+    flex: 12%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, height 2s ease-in-out 2s;
+    
+    }
+    .column-left.show{
+        opacity: 1;
+    }
+
+#logo {
+    height: 980px;
+    width: auto;
+    position: fixed;
+    top: 24px;
+    left: 8px;
+    z-index: 998; /* Adjust z-index as needed to ensure it's above all other elements */
+    overflow: visible;
+    }
+
+    #txt-logo {
+        height: 270px;
+        width: 520px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        /* Change the src attribute to the new image */
+        #txt-logo {
+          content: url(icons/txt-logo.png); 
+          height: auto; 
+          width: 90%;
+          display: block; /* Ensure the image behaves as a block element */
+          margin: 0 auto;
+        }
+      }
+    
+
+.column-mid {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    flex: 75%;
+    opacity: 1;
+    }
+
+
+.row-0 {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    color: #8FFF00;
+    margin-top: 180px; /* Make sure the unit 'px' is included */
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    .row-0 {
+        font-size: 1.2em;
+        display: flex;
+        width: 100%;
+        justify-content: left;
+        align-items: left;
+        margin-top: 82px;
+        padding: 0 20px;
+    }
+}
+
+.row-1 {
+    color: #BEE38D;
+    opacity: 0;
+    display: flex;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+    line-height: 3;
+
+    }
+
+    .row-1.show {
+        opacity: 1;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .row-1 {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+            padding: 0 30px;
+            line-height: 1.5;
+        }
+    }
+
+.row-2 {
+    display: flex;
+    margin-top: 0;
+    opacity: 0;
+    margin-bottom: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.9em;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+    line-height: 1.5;
+    }
+
+    .row-2.show{
+        opacity: 1;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .row-2 {
+            font-size: 1.5em;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            text-align: left;
+            padding: 0 30px;
+        }
+    }
+
+.row-3 {
+    display: flex;
+    margin-top: 0;
+    opacity: 0;
+    margin-bottom: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.9em;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+    line-height: 1.5;
+    }
+    .row-3.show{
+        opacity: 1;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .row-3 {
+            font-size: 1.5em;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            text-align: left;
+            padding: 0 30px;
+        }
+    }
+
+.art {
+    display: flex;
+    flex: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 164px;
+    padding-bottom: 164px;
+    overflow: hidden;
+}
+
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 164px;
+    padding-bottom: 164px;
+}
+  
+.gallery-column-left-1,
+.gallery-column-middle-1,
+.gallery-column-right-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32.5%;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    .box {
+      flex-direction: column; /* Change to vertical layout */
+      align-items: center;
+      padding-top: 42px;
+    padding-bottom: 42px; /* Center items horizontally */
+    }
+    
+    .gallery-column-left-1,
+    .gallery-column-middle-1,
+    .gallery-column-right-1 {
+      width: 100%; /* Occupy full width */
+      margin-bottom: 20px; /* Add spacing between columns */
+    }
+  }
+
+
+.gallery-column-left-1 img,
+.gallery-column-middle-1 img,
+.gallery-column-right-1 img {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: auto; 
+    position: relative;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: transform 0.15s ease-in;
+    }
+
+.photo-1,
+.photo-2,
+.photo-3,
+.photo-4,
+.photo-5,
+.photo-6,
+.photo-7,
+.photo-8,
+.photo-9,
+.photo-10,
+.photo-11,
+.photo-12,
+.photo-13,
+.photo-14,
+.photo-15,
+.photo-16,
+.photo-17 {
+    position: relative;
+    cursor: pointer;
+}
+
+.photo-1 img,
+.photo-2 img,
+.photo-3 img,
+.photo-4 img,
+.photo-5 img,
+.photo-6 img,
+.photo-7 img,
+.photo-8 img,
+.photo-9 img,
+.photo-10 img,
+.photo-11 img,
+.photo-12 img,
+.photo-13 img,
+.photo-14 img,
+.photo-15 img,
+.photo-16 img,
+.photo-17 img {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: auto; 
+    position: relative;
+}
+
+.photo-1:hover img,
+.photo-2:hover img,
+.photo-3:hover img,
+.photo-4:hover img,
+.photo-5:hover img,
+.photo-6:hover img,
+.photo-7:hover img,
+.photo-8:hover img,
+.photo-9:hover img,
+.photo-10:hover img,
+.photo-11:hover img,
+.photo-12:hover img,
+.photo-13:hover img,
+.photo-14:hover img,
+.photo-15:hover img,
+.photo-16:hover img,
+.photo-17:hover img {
+    transform: scale(1.0125); /* Adjust the scale factor as needed */
+   /* Add a smooth transition */
+}
+
+.text-overlay {
+    position: relative;
+    width: auto;
+    height: 100%;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out 0s;
+    z-index: 1;
+}
+
+.photo-1:hover .text-overlay,
+.photo-2:hover .text-overlay,
+.photo-3:hover .text-overlay,
+.photo-4:hover .text-overlay,
+.photo-5:hover .text-overlay,
+.photo-6:hover .text-overlay,
+.photo-7:hover .text-overlay,
+.photo-8:hover .text-overlay,
+.photo-9:hover .text-overlay,
+.photo-10:hover .text-overlay,
+.photo-11:hover .text-overlay,
+.photo-12:hover .text-overlay,
+.photo-13:hover .text-overlay,
+.photo-14:hover .text-overlay,
+.photo-15:hover .text-overlay,
+.photo-16:hover .text-overlay,
+.photo-17:hover .text-overlay {
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.text {
+    position: absolute;
+    align-items: flex-end;
+    bottom: 0;
+    left: 0;
+    padding: 0px 12px 0px 8px; /* Adjusted padding for consistency */
+    background-color: #D1A3B7;
+    display: flex; /* Ensures inline alignment of text and icon */
+    align-items: center; /* Aligns icon with text vertically */
+    gap: 3px; /* Adds some space between the icon and the text */
+    transition: opacity 0.35s ease-in-out, backdrop-filter 0.35s ease-in-out;
+    margin-bottom: 8px;
+}
+.camera-icon {
+    padding: 0;
+    width: auto; /* Set the width of the camera icon */
+    height: 50%; /* Maintain the aspect ratio */
+    vertical-align: middle; /* Align the icon vertically */
+}
+.icon img {
+    width: 85%;
+    height: auto;
+    margin-top: 10px; /* Move the icon down by 8px */
+}
+
+@media only screen and (max-width: 600px) {
+    .text-overlay {
+        opacity: 1; /* Always visible on mobile */
+        transition: none; /* No transition on mobile */
+    }
+    
+    .photo-1:hover .text-overlay,
+    .photo-2:hover .text-overlay,
+    .photo-3:hover .text-overlay,
+    .photo-4:hover .text-overlay,
+    .photo-5:hover .text-overlay,
+    .photo-6:hover .text-overlay,
+    .photo-7:hover .text-overlay,
+    .photo-8:hover .text-overlay,
+    .photo-9:hover .text-overlay,
+    .photo-10:hover .text-overlay,
+    .photo-11:hover .text-overlay,
+    .photo-12:hover .text-overlay,
+    .photo-13:hover .text-overlay,
+    .photo-14:hover .text-overlay,
+    .photo-15:hover .text-overlay,
+    .photo-16:hover .text-overlay,
+    .photo-17:hover .text-overlay {
+        opacity: 1; /* Always visible on mobile */
+        transition: none; /* No transition on mobile */
+    }
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+.modal-container.show {
+    display: block; /* Show the modal */
+}
+
+.modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    cursor: url('icons/close-icon.svg'), auto;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%; /* Adjust if necessary */
+    max-height: 100vh; /* Adjust if necessary */
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    overflow: visible; /* Changed from auto to hidden to prevent scrollbars */
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 100vh; /* Ensure the image does not exceed the viewport height */
+    object-fit: contain; /* Maintain aspect ratio */
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, .5);
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+.modal-container.show {
+    display: block; /* Show the modal */
+}
+
+.modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    cursor: url('icons/close-icon.svg'), auto;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%; /* Adjust if necessary */
+    max-height: 100vh; /* Adjust if necessary */
+    display: flex;
+    flex-direction: column; /* Ensure the description appears below the image */
+    overflow: visible; /* Changed from auto to hidden to prevent scrollbars */
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 80vh; /* Adjusted for the description */
+    object-fit: contain; /* Maintain aspect ratio */
+    margin-top: 12px; /* Add spacing between image and description */
+}
+
+.modal-description {
+    display: flex; /* Ensure flex layout for alignment */
+    align-items: center; /* Align items vertically */
+    justify-content: flex-start; /* Align items to the start of the container */
+    text-align: left; /* Align text to the left */
+}
+
+
+
+
+.exhibitions {
+        font-family: Helvetica, sans-serif;
+        padding-top: 164px;
+        padding-bottom: 164px;
+        font-size: 1.2em;
+        line-height: 1.5;;
+    }
+    
+    .light-green-text {
+        color: #8FFF00; /* Default text color for light green */
+    }
+    
+    .light-yellow-text {
+        color: #BEE38D; /* Default text color for light yellow */
+    }
+    
+    /* Dark mode styles */
+    .dark-mode .light-green-text {
+        color: #000000; /* Text color for light green in dark mode */
+    }
+    
+    .dark-mode .light-yellow-text {
+        color: #808080; /* Text color for light yellow in dark mode */
+    }
+
+    @media only screen and (max-width: 600px) {
+        .exhibitions {
+            font-size: 0.9em;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+            padding: 0 30px;
+            line-height: 1.5;
+        }
+    }
+
+.contact {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+    height: 90vh;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.9em;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    }
+
+
+.address-column,
+.email-column {  
+    width: 50%;
+    flex-direction: column;
+    height: 136px;
+    }  
+
+.copy-button {
+    color: #8FFF00;
+    font-size: 1em;
+    background-color: #00000000;
+    border: none;
+    display: block;
+    text-align: left;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 20px;
+    }
+        
+.copy-button:hover {
+    text-decoration: underline;
+    }
+    @media only screen and (max-width: 600px) {
+        .contact {
+          flex-direction: column; /* Change to vertical layout */
+          align-items: center; /* Center items horizontally */
+          text-align: center; /* Center text */
+          height: auto;
+          padding: 0 30px; /* Adjust height as needed */
+        }
+        
+        .address-column,
+        .email-column {
+          width: 100%; /* Occupy full width */
+          height: auto;
+          padding-top: 128px;
+          padding-bottom: 24px;
+          font-size: 0.8em;
+          text-align: left; /* Adjust height as needed */
+        }
+      
+        .copy-button {
+          padding-right: 0; /* Remove right padding */
+          padding-top: 24px;
+          padding-bottom: 30vh; /* Add some space between buttons */
+        }
+      }
+
+
+.column-right {
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    flex: 12%;
+    justify-content: space-between;
+    height: 100vh;
+    padding-top: 110px;
+    padding-bottom: 24px;
+    }
+
+
+.nav { 
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3em;
+    padding-right: 20px;
+    right: 0; /* Position the container at the right edge of the viewport */
+    top: 24px;
+    cursor: pointer;
+
+
+    }
+
+.nav a{
+    color: #BEE38D;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    }
+
+.nav a:hover {
+    color: #8FFF00;
+    
+    }
+
+.nav a.active {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
+
+
+    
+
+.contrast-button {
+    position: fixed;
+    align-self: flex-end;
+    margin-top: auto;
+    bottom: 24px;
+    border: none; 
+    font-size: 1.2em;
+    padding-right: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    }
+    .contrast-button img {
+        transition: transform 0.35s ease-in-out; /* Add transition for smooth animation */
+    }
+    
+    .contrast-button:hover img {
+        transform: rotate(180deg); /* Rotate the image 360 degrees on hover */
+    }
+
+    @media only screen and (max-width: 600px) {
+        .nav,
+        .column-left,
+        .column-right {
+          display: none;
+        }
+    }
+
+
+
+
+
+
+
+.footer {
+    display: flex;
+    height: 10%;
+    padding-top: px;
+    padding-bottom: 24px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    line-height: 1.5;
+    }
+
+    
+
+ .copyright-column {  
+    width: 50%;
+    flex-direction: column;
+    height: fit-content;
+    color: #BEE38D;
+    }
+
+.back-to-top-column {
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 20px;
+    color: #BEE38D;
+    transition: transform 0.35s ease-in-out;
+    cursor: pointer;
+     }
+
+
+.back-to-top-column :hover {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .footer {
+          display: flex;
+          height: 10%;
+          padding: 0 30px;
+          padding-bottom: 24px;
+          text-align: left;
+          justify-content: space-between;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 1em;
+          line-height: 1.5;
+        }
+}
+
+          
