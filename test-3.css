@@ -89,7 +89,7 @@ html {
     width: 100%;
     display: none;
     justify-content: flex-end; 
-    top: 68px;
+    top: 52px;
     right: 0;
     background-color: #D1A3B7;
     box-shadow: 0px 20px 20px #9248683c;
@@ -106,19 +106,19 @@ html {
     display: none;
     cursor: pointer;
     background-color: #D1A3B7;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 18px;
     box-shadow: 0px 3px 3px #9248683c;
     z-index: 9998;
 }
 
       .bar {
-        width: 44px;
+        width: 40px;
         height: 3px;
-        margin: 24px 0;
+        margin: 0;
         background-color: #8FFF00;
-        margin: 7px 0;
+        margin: 5px;
         margin-left: auto;
       }
 
@@ -249,7 +249,7 @@ html {
         justify-content: left;
         align-items: left;
         margin-top: 82px;
-        padding: 0 20px;
+        padding: 0 8px;
     }
 }
 
@@ -278,7 +278,7 @@ html {
             justify-content: left;
             align-items: center;
             text-align: left;
-            padding: 0 30px;
+            padding: 8px;
             line-height: 1.5;
         }
     }
@@ -305,7 +305,7 @@ html {
             justify-content: left;
             align-items: left;
             text-align: left;
-            padding: 0 30px;
+            padding: 8px;
         }
     }
 
@@ -318,6 +318,7 @@ html {
     font-size: 1.9em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
     line-height: 1.5;
+    
     }
     .row-3.show{
         opacity: 1;
@@ -330,7 +331,7 @@ html {
             justify-content: left;
             align-items: left;
             text-align: left;
-            padding: 0 30px;
+            padding: 8px;
         }
     }
 
@@ -677,7 +678,7 @@ html {
             justify-content: left;
             align-items: center;
             text-align: left;
-            padding: 0 30px;
+            padding: 8px;
             line-height: 1.5;
         }
     }
@@ -723,7 +724,7 @@ html {
           align-items: center; /* Center items horizontally */
           text-align: center; /* Center text */
           height: auto;
-          padding: 0 30px; /* Adjust height as needed */
+          padding: 8px; /* Adjust height as needed */
         }
         
         .address-column,
@@ -864,13 +865,14 @@ html {
         .footer {
           display: flex;
           height: 10%;
-          padding: 0 30px;
+          padding: 8px;
           padding-bottom: 24px;
           text-align: left;
           justify-content: space-between;
           font-family: Arial, Helvetica, sans-serif;
           font-size: 1em;
           line-height: 1.5;
+
         }
 }
 
