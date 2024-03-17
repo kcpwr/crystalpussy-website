@@ -418,8 +418,6 @@ html {
     cursor: pointer;
 }
 
-
-.photo-0 img,
 .photo-1 img,
 .photo-2 img,
 .photo-3 img,
@@ -573,7 +571,6 @@ html {
 .modal-container.show {
     display: block; /* Show the modal */
 }
-
 .modal-background {
     position: absolute;
     top: 0;
@@ -663,7 +660,7 @@ html {
 .exhibitions {
         font-family: Helvetica, sans-serif;
         padding-top: 164px;
-        padding-bottom: 164px;
+        padding-bottom: 128px;
         font-size: 1.2em;
         line-height: 1.5;;
     }
