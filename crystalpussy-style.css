@@ -214,7 +214,7 @@ html {
       @media only screen and (max-width: 600px) {
         /* Change the src attribute to the new image */
         #txt-logo {
-          content: url(icons/txt-logo.png); 
+          content: url(icons/txt-logo-lime.png); 
           height: auto; 
           width: 90%;
           display: block; /* Ensure the image behaves as a block element */
@@ -261,9 +261,9 @@ html {
     margin-top: 42px;
     margin-bottom: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
+    font-size: 2em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
-    line-height: 3;
+    line-height: 2.8;
 
     }
 
@@ -289,7 +289,7 @@ html {
     opacity: 0;
     margin-bottom: 42px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.1em;
+    font-size: 2em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
     line-height: 1.5;
     }
@@ -395,6 +395,7 @@ html {
     transition: transform 0.15s ease-in;
     }
 
+.photo-0,
 .photo-1,
 .photo-2,
 .photo-3,
@@ -416,6 +417,8 @@ html {
     cursor: pointer;
 }
 
+
+.photo-0 img,
 .photo-1 img,
 .photo-2 img,
 .photo-3 img,
@@ -471,6 +474,8 @@ html {
     z-index: 1;
 }
 
+
+.photo-0:hover .text-overlay,
 .photo-1:hover .text-overlay,
 .photo-2:hover .text-overlay,
 .photo-3:hover .text-overlay,
@@ -523,6 +528,8 @@ html {
         transition: none; /* No transition on mobile */
     }
     
+
+    .photo-0:hover .text-overlay,
     .photo-1:hover .text-overlay,
     .photo-2:hover .text-overlay,
     .photo-3:hover .text-overlay,
