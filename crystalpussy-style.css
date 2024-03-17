@@ -412,7 +412,9 @@ html {
 .photo-14,
 .photo-15,
 .photo-16,
-.photo-17 {
+.photo-17,
+.photo-18,
+.photo-19 {
     position: relative;
     cursor: pointer;
 }
@@ -435,7 +437,9 @@ html {
 .photo-14 img,
 .photo-15 img,
 .photo-16 img,
-.photo-17 img {
+.photo-17 img,
+.photo-18 img,
+.photo-19 img {
     width: 100%; 
     height: auto; 
     max-width: 100%; 
@@ -459,7 +463,9 @@ html {
 .photo-14:hover img,
 .photo-15:hover img,
 .photo-16:hover img,
-.photo-17:hover img {
+.photo-17:hover img,
+.photo-18:hover img,
+.photo-19:hover img {
     transform: scale(1.0125); /* Adjust the scale factor as needed */
    /* Add a smooth transition */
 }
@@ -492,7 +498,9 @@ html {
 .photo-14:hover .text-overlay,
 .photo-15:hover .text-overlay,
 .photo-16:hover .text-overlay,
-.photo-17:hover .text-overlay {
+.photo-17:hover .text-overlay,
+.photo-18:hover .text-overlay,
+.photo-19:hover .text-overlay {
     opacity: 1;
     transition-delay: 0s;
 }
@@ -529,7 +537,6 @@ html {
     }
     
 
-    .photo-0:hover .text-overlay,
     .photo-1:hover .text-overlay,
     .photo-2:hover .text-overlay,
     .photo-3:hover .text-overlay,
@@ -546,7 +553,9 @@ html {
     .photo-14:hover .text-overlay,
     .photo-15:hover .text-overlay,
     .photo-16:hover .text-overlay,
-    .photo-17:hover .text-overlay {
+    .photo-17:hover .text-overlay,
+    .photo-18:hover .text-overlay,
+    .photo-19:hover .text-overlay {
         opacity: 1; /* Always visible on mobile */
         transition: none; /* No transition on mobile */
     }
