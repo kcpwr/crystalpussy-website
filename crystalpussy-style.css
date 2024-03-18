@@ -33,6 +33,8 @@ body {
     background-color: var(--main-bg-color);
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
 }
+
+
   
   /* Increase specificity for dark mode styles */
   .dark-mode .container,
@@ -113,46 +115,61 @@ html {
     z-index: 9998;
 }
 
-      .bar {
-        width: 40px;
-        height: 3px;
-        margin: 0;
-        background-color: #8FFF00;
-        margin: 5px;
-        margin-left: auto;
-      }
+.dark-mode .menu-button {
+    background-color: #efefef; /* Dark mode background color */
+    box-shadow: 0px 3px 3px #0000004c; /* Dark mode box shadow color */
+    color: #000; /* Dark mode text color */
+}
 
-      @media only screen and (max-width: 600px) {
-        .menu-button {
-          display: block;
-        }
+.bar {
+    width: 40px;
+    height: 3px;
+    margin: 0;
+    background-color: #8FFF00;
+    margin: 5px;
+    margin-left: auto;
+    }
 
-        .nav {
-          display: none;
-        }
+    .dark-mode .bar {
+        background-color: #000000; /* Dark mode background color */
+    }
 
-        .nav-link {
-            display: block;
-            text-align: right;
-            font-size: 1.8em;
-            padding: 32px;
-            border-top: 2px solid #bee38d44;
-            background-color: #D1A3B7;
-        }
+@media only screen and (max-width: 600px) {
+.menu-button {
+    display: block;
+    }
 
-        .nav a{
+.nav-mobile {
+    display: none;
+    }
+
+.nav-link-mobile {
+    display: block;
+    text-align: right;
+    font-size: 1.8em;
+    padding: 32px;
+    border-top: 2px solid #bee38d44;
+    background-color: #D1A3B7;
+    }
+
+    .dark-mode .nav-link-mobile {
+        background-color: #efefef; /* Dark mode background color */
+
+    }
+
+.nav-mobile a{
     color: #BEE38D;
     text-decoration: none;
     padding: 10px;
     display: block;
     }
 
-.nav a:hover {
+.nav-mobile a:hover {
     color: #8FFF00;
     
     }
 
-.nav a.active {
+.nav-mobile a.active {
     color: #8FFF00;
     text-decoration: underline;
     }
@@ -169,9 +186,9 @@ html {
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
     }
     
-    @media only screen and (max-width: 600px) {
-        .container {
-            display: flex;
+@media only screen and (max-width: 600px) {
+.container {
+    display: flex;
     color: #8FFF00;
     flex-direction: column;
     justify-content: space-between;
@@ -242,16 +259,16 @@ html {
 }
 
 @media only screen and (max-width: 600px) {
-    .row-0 {
-        font-size: 1.2em;
-        display: flex;
-        width: 100%;
-        justify-content: left;
-        align-items: left;
-        margin-top: 82px;
-        padding: 0 8px;
+.row-0 {
+    font-size: 1.2em;
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    align-items: left;
+    margin-top: 82px;
+    padding: 0 8px;
     }
-}
+    }
 
 .row-1 {
     color: #BEE38D;
@@ -261,26 +278,26 @@ html {
     margin-top: 42px;
     margin-bottom: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
+    font-size: 1.5em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
     line-height: 2.8;
 
     }
 
-    .row-1.show {
-        opacity: 1;
+.row-1.show {
+    opacity: 1;
     }
 
-    @media only screen and (max-width: 600px) {
-        .row-1 {
-            font-size: 1.2em;
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            text-align: left;
-            padding: 8px;
-            line-height: 1.5;
-        }
+@media only screen and (max-width: 600px) {
+.row-1 {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    padding: 8px;
+    line-height: 1.5;
+    }
     }
 
 .row-2 {
@@ -289,24 +306,24 @@ html {
     opacity: 0;
     margin-bottom: 42px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
+    font-size: 2.1em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
     line-height: 1.5;
     }
 
-    .row-2.show{
-        opacity: 1;
+.row-2.show{
+    opacity: 1;
     }
 
-    @media only screen and (max-width: 600px) {
-        .row-2 {
-            font-size: 1.5em;
-            display: flex;
-            justify-content: left;
-            align-items: left;
-            text-align: left;
-            padding: 8px;
-        }
+ @media only screen and (max-width: 600px) {
+.row-2 {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    padding: 8px;
+    }
     }
 
 .row-3 {
@@ -320,19 +337,19 @@ html {
     line-height: 1.5;
     
     }
-    .row-3.show{
-        opacity: 1;
+.row-3.show{
+    opacity: 1;
     }
 
-    @media only screen and (max-width: 600px) {
-        .row-3 {
-            font-size: 1.5em;
-            display: flex;
-            justify-content: left;
-            align-items: left;
-            text-align: left;
-            padding: 8px;
-        }
+ @media only screen and (max-width: 600px) {
+.row-3 {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    padding: 8px;
+    }
     }
 
 .art {
@@ -343,7 +360,7 @@ html {
     padding-top: 164px;
     padding-bottom: 164px;
     overflow: hidden;
-}
+    }
 
 
 .box {
@@ -366,20 +383,20 @@ html {
 }
 
 @media only screen and (max-width: 600px) {
-    .box {
-      flex-direction: column; /* Change to vertical layout */
-      align-items: center;
-      padding-top: 42px;
+.box {
+    flex-direction: column; /* Change to vertical layout */
+    align-items: center;
+    padding-top: 42px;
     padding-bottom: 42px; /* Center items horizontally */
     }
     
-    .gallery-column-left-1,
-    .gallery-column-middle-1,
-    .gallery-column-right-1 {
-      width: 100%; /* Occupy full width */
-      margin-bottom: 20px; /* Add spacing between columns */
+.gallery-column-left-1,
+.gallery-column-middle-1,
+.gallery-column-right-1 {
+    width: 100%; /* Occupy full width */
+    margin-bottom: 20px; /* Add spacing between columns */
     }
-  }
+    }
 
 
 .gallery-column-left-1 img,
@@ -580,8 +597,12 @@ html {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);    
     cursor: url('icons/close-icon.svg'), auto;
+}
+.dark-mode .modal-background {
+    background-color: rgb(255, 255, 255);
+    cursor: url('icons/close-icon-dak.svg'), auto;
 }
 
 .modal-content {
@@ -602,6 +623,10 @@ html {
     object-fit: contain; /* Maintain aspect ratio */
     box-shadow: 0px 10px 50px rgba(0, 0, 0, .5);
 }
+.dark-mode .modal-content img {
+    box-shadow: 0px 10px 50px rgba(255, 255, 255, 0.5); /* White text color for dark mode */
+}
+
 
 .modal-description {
     display: flex; /* Ensure flex layout for alignment */
@@ -609,15 +634,15 @@ html {
     justify-content: flex-start; /* Align items to the start of the container */
     text-align: left; /* Align text to the left */
 }
-
-
-
+.dark-mode .modal-description {
+    color: #fff; /* White text color for dark mode */
+}
 
 .exhibitions {
         font-family: Helvetica, sans-serif;
-        padding-top: 164px;
+        padding-top: 64px;
         padding-bottom: 128px;
-        font-size: 1.2em;
+        font-size: 1.3em;
         line-height: 1.5;;
     }
     
@@ -671,7 +696,7 @@ html {
     }  
 
 .copy-button {
-    color: #8FFF00;
+    color: #BEE38D;
     font-size: 1em;
     background-color: #00000000;
     border: none;
@@ -680,36 +705,50 @@ html {
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+    }
+
+.dark-mode .copy-button {
+    color: #808080; /* Text color for light yellow in dark mode */
+    text-decoration: underline;
     }
         
 .copy-button:hover {
+    color: #8FFF00;
     text-decoration: underline;
     }
-    @media only screen and (max-width: 600px) {
-        .contact {
-          flex-direction: column; /* Change to vertical layout */
-          align-items: center; /* Center items horizontally */
-          text-align: center; /* Center text */
-          height: auto;
-          padding: 8px; /* Adjust height as needed */
-        }
+
+.copy-button .dark-mode:hover {
+    color: #000000;
+    text-decoration: underline;
+    }
+
+@media only screen and (max-width: 600px) {
+    .contact {
+    flex-direction: column; /* Change to vertical layout */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+    height: auto;
+    padding: 8px; /* Adjust height as needed */
+    }
         
-        .address-column,
-        .email-column {
-          width: 100%; /* Occupy full width */
-          height: auto;
-          padding-top: 128px;
-          padding-bottom: 24px;
-          font-size: 0.8em;
-          text-align: left; /* Adjust height as needed */
-        }
+.address-column,
+.email-column {
+    width: 100%; /* Occupy full width */
+    height: auto;
+    padding-top: 128px;
+    padding-bottom: 24px;
+    font-size: 0.8em;
+    text-align: left; /* Adjust height as needed */
+    }
       
-        .copy-button {
-          padding-right: 0; /* Remove right padding */
-          padding-top: 24px;
-          padding-bottom: 30vh; /* Add some space between buttons */
-        }
-      }
+.copy-button {
+    padding-right: 0; /* Remove right padding */
+    padding-top: 24px;
+    padding-bottom: 30vh; /* Add some space between buttons */
+    }
+    }
 
 
 .column-right {
@@ -723,7 +762,6 @@ html {
     padding-bottom: 24px;
     }
 
-
 .nav { 
     position: fixed;
     display: flex;
@@ -733,8 +771,6 @@ html {
     right: 0; /* Position the container at the right edge of the viewport */
     top: 24px;
     cursor: pointer;
-
-
     }
 
 .nav a{
@@ -754,9 +790,18 @@ html {
     text-decoration: underline;
     }
 
-
+.dark-mode .nav a {
+    color: #808080; /* Change text color for navigation links in dark mode */
+    }
     
-
+.dark-mode .nav a:hover {
+    color: #000000; /* Change hover color for navigation links in dark mode */
+    }
+    
+.dark-mode .nav a.active {
+    color: #000000; /* Change active link color in dark mode */
+    }
+    
 .contrast-button {
     position: fixed;
     align-self: flex-end;
@@ -768,27 +813,22 @@ html {
     background-color: transparent;
     cursor: pointer;
     }
-    .contrast-button img {
-        transition: transform 0.35s ease-in-out; /* Add transition for smooth animation */
+
+.contrast-button img {
+    transition: transform 0.35s ease-in-out; /* Add transition for smooth animation */
     }
     
-    .contrast-button:hover img {
-        transform: rotate(180deg); /* Rotate the image 360 degrees on hover */
+.contrast-button:hover img {
+    transform: rotate(180deg); /* Rotate the image 360 degrees on hover */
     }
 
-    @media only screen and (max-width: 600px) {
-        .nav,
-        .column-left,
-        .column-right {
-          display: none;
-        }
+@media only screen and (max-width: 600px) {
+    .nav,
+    .column-left,
+    .column-right {
+    display: none;
     }
-
-
-
-
-
-
+    }
 
 .footer {
     display: flex;
@@ -801,13 +841,15 @@ html {
     line-height: 1.5;
     }
 
-    
-
- .copyright-column {  
+.copyright-column {  
     width: 50%;
     flex-direction: column;
     height: fit-content;
     color: #BEE38D;
+    }
+
+.dark-mode .copyright-column {
+    color: #808080; /* Text color for light yellow in dark mode */
     }
 
 .back-to-top-column {
@@ -819,28 +861,37 @@ html {
     padding-right: 20px;
     color: #BEE38D;
     transition: transform 0.35s ease-in-out;
+    text-decoration: underline;
     cursor: pointer;
-     }
-
+    }
 
 .back-to-top-column :hover {
     color: #8FFF00;
     text-decoration: underline;
     }
 
-    @media only screen and (max-width: 600px) {
-        .footer {
-          display: flex;
-          height: 10%;
-          padding: 8px;
-          padding-bottom: 24px;
-          text-align: left;
-          justify-content: space-between;
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 1em;
-          line-height: 1.5;
+.dark-mode .back-to-top-column {
+    color: #808080; /* Text color for light yellow in dark mode */
+    text-decoration: underline;
+    }
 
-        }
+.dark-mode .back-to-top-column :hover{
+    color: #000; /* Text color for light yellow in dark mode */
+    text-decoration: underline;
+    }
+
+@media only screen and (max-width: 600px) {
+.footer {
+    display: flex;
+    height: 10%;
+    padding: 8px;
+    padding-bottom: 24px;
+    text-align: left;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+    }
 }
 
           
