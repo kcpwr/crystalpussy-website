@@ -130,8 +130,8 @@ html {
     margin-left: auto;
     }
 
-    .dark-mode .bar {
-        background-color: #000000; /* Dark mode background color */
+.dark-mode .bar {
+    background-color: #000000; /* Dark mode background color */
     }
 
 @media only screen and (max-width: 600px) {
@@ -152,9 +152,8 @@ html {
     background-color: #D1A3B7;
     }
 
-    .dark-mode .nav-link-mobile {
-        background-color: #efefef; /* Dark mode background color */
-
+.dark-mode .nav-link-mobile {
+    background-color: #efefef; /* Dark mode background color */
     }
 
 .nav-mobile a{
@@ -166,14 +165,13 @@ html {
 
 .nav-mobile a:hover {
     color: #8FFF00;
-    
     }
 
 .nav-mobile a.active {
     color: #8FFF00;
     text-decoration: underline;
     }
-      }
+    }
 
 .container {
     display: flex;
@@ -185,7 +183,31 @@ html {
     background-color: #D1A3B7;
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
     }
+ 
+.news-banner{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        height: fit-content;
+        background-color: #8FFF00; /* Adjust background color */
+        color: #7e5064; /* Adjust text color */
+        padding: 14px; /* Adjust padding as needed */
+        overflow: hidden; /* Ensure text overflow is hidden */
+        font-weight: bold;
+        z-index: 9999;
+      }
+
+      .news-text {
+        display: inline-block; /* Ensure the text scrolls as a single block */
+        white-space: nowrap; /* Prevent text from wrapping */
+        animation: marquee 30s linear infinite; /* Define the scrolling animation */
+      }
     
+      @keyframes marquee {
+        0% { transform: translateX(100%); } /* Start off-screen */
+        100% { transform: translateX(-100%); } /* Move completely off-screen */
+      }  
+
 @media only screen and (max-width: 600px) {
 .container {
     display: flex;
@@ -196,7 +218,7 @@ html {
     height: auto;
     background-color: #D1A3B7;
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-        }
+    }
     }
       
 
@@ -588,7 +610,11 @@ html {
 .modal-container.show {
     display: block; /* Show the modal */
 }
-
+@media only screen and (max-width: 600px) {
+    .modal-container {
+        display: none;
+    }
+}
 .modal-background {
     position: absolute;
     top: 0;
@@ -806,7 +832,7 @@ html {
     position: fixed;
     align-self: flex-end;
     margin-top: auto;
-    bottom: 24px;
+    bottom: 64px;
     border: none; 
     font-size: 1.2em;
     padding-right: 20px;
@@ -834,7 +860,7 @@ html {
     display: flex;
     height: 10%;
     padding-top: px;
-    padding-bottom: 24px;
+    padding-bottom: 64px;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
