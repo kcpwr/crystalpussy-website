@@ -23,10 +23,10 @@
   </div>
 
   <nav class="dropdown-menu">
-    <a href="#About" class="nav-link">About</a>
-    <a href="#Art" class="nav-link">Feed</a>
-    <a href="#Exhibitions" class="nav-link">Exhibitions</a>
-    <a href="#Contact" class="nav-link">Contact</a>
+    <a href="#About" class="nav-link-mobile">About</a>
+    <a href="#Art" class="nav-link-mobile">Feed</a>
+    <a href="#Exhibitions" class="nav-link-mobile">Exhibitions</a>
+    <a href="#Contact" class="nav-link-mobile">Contact</a>
   </nav>
   
 
@@ -139,7 +139,7 @@
                   <div class="icon">
                     <img src="icons/camera-icon.svg">
                   </div>
-                  <div class="description">Balance — stainless steel, ceramic, 2017</div>
+                  <div class="description">Twerk for art, Berlin 2021</div>
                 </div>
               </div>
             </div>
@@ -307,7 +307,7 @@
                 <div class="icon">
                   <img src="icons/camera-icon.svg">
                 </div>
-                <div class="description">Twerk for art, Berlin 2021</div>
+                <div class="description">Balance — stainless steel, ceramic, 2017</div>
               </div>
             </div>
           </div>
@@ -431,6 +431,26 @@
 
 </div>
 
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+  
+    function highlightNavLink() {
+        let index = sections.length;
+  
+        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+  
+        navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+    }
+  
+    highlightNavLink();
+    window.addEventListener('scroll', highlightNavLink);
+  });
+  
+  </script>
 
 <script>
 
@@ -442,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dropdownMenu.classList.toggle('show');
     });
 
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link-mobile');
     navLinks.forEach(function (link) {
         link.addEventListener('click', function () {
             // Check if the clicked element is not the hamburger menu button
@@ -466,22 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<script>document.addEventListener('DOMContentLoaded', function () {
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
 
-  function highlightNavLink() {
-      let index = sections.length;
-
-      while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
-
-      navLinks.forEach((link) => link.classList.remove('active'));
-      navLinks[index].classList.add('active');
-  }
-
-  highlightNavLink();
-  window.addEventListener('scroll', highlightNavLink);
-});</script>
 
 
 <script src="script.js"></script>
@@ -691,6 +696,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const photo17 = document.querySelector('.photo-17');
     photo17.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
+    const photo18 = document.querySelector('.photo-18');
+    photo18.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
+    const photo19 = document.querySelector('.photo-19');
+    photo19.addEventListener('click', function () {
         const imgSrc = this.querySelector('img').src;
         const description = this.querySelector('.text').innerText;
         const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
