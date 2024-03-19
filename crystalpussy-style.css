@@ -714,18 +714,18 @@ html {
     text-decoration: underline;
     cursor: pointer;
     }
+     
+.copy-button :hover {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
 
 .dark-mode .copy-button {
     color: #808080; /* Text color for light yellow in dark mode */
     text-decoration: underline;
     }
-        
-.copy-button:hover {
-    color: #8FFF00;
-    text-decoration: underline;
-    }
 
-.copy-button .dark-mode:hover {
+.copy-button .dark-mode :hover {
     color: #000000;
     text-decoration: underline;
     }
