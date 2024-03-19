@@ -841,12 +841,10 @@ html {
 .column-banner {
     height: 2200vh;
     position: fixed;
-    right: 0px;
+    right: 0;
     overflow: visible;
     text-align: center;
-    align-items: center;
-    flex: 5%;
-    text-color: var(--main-text-color);
+    color: var(--main-text-color);
     opacity: 1;
 
     }
@@ -855,11 +853,11 @@ html {
     height: fit-content;
     writing-mode: vertical-rl;
     text-orientation: mixed; /* Allow both upright and sideways orientation of characters */
-    font-size: 24px;
-    text-align: center; /* Set font size */
+    font-size: 24px; /* Set font size */
     line-height: 1,5; /* Set line height */
     margin: 0; /* Remove default margin */
-    padding: 28px; /* Remove default padding */
+    padding-right: 28px;
+    display: inline-block; /* Remove default padding */
     animation: moveText 25s linear infinite; /* Adjusted animation duration */
     }
         
