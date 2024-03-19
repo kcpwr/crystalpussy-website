@@ -725,7 +725,7 @@ html {
     text-decoration: underline;
     }
 
-.copy-button .dark-mode :hover {
+.dark-mode .copy-button :hover {
     color: #000000;
     text-decoration: underline;
     }
