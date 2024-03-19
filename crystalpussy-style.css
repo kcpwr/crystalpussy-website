@@ -221,7 +221,7 @@ html {
     overflow: visible;
     }
 
-      @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
         /* Change the src attribute to the new image */
         #txt-logo {
           content: url(icons/txt-logo-lime.png); 
