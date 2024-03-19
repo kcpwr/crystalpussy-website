@@ -33,8 +33,6 @@ body {
     background-color: var(--main-bg-color);
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
 }
-
-
   
   /* Increase specificity for dark mode styles */
   .dark-mode .container,
@@ -173,6 +171,8 @@ html {
     }
     }
 
+
+
 .container {
     display: flex;
     color: #8FFF00;
@@ -182,31 +182,7 @@ html {
     height: auto;
     background-color: #D1A3B7;
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-    }
- 
-.news-banner{
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        height: fit-content;
-        background-color: #8FFF00; /* Adjust background color */
-        color: #7e5064; /* Adjust text color */
-        padding: 14px; /* Adjust padding as needed */
-        overflow: hidden; /* Ensure text overflow is hidden */
-        font-weight: bold;
-        z-index: 9999;
-      }
-
-      .news-text {
-        display: inline-block; /* Ensure the text scrolls as a single block */
-        white-space: nowrap; /* Prevent text from wrapping */
-        animation: marquee 30s linear infinite; /* Define the scrolling animation */
-      }
-    
-      @keyframes marquee {
-        0% { transform: translateX(100%); } /* Start off-screen */
-        100% { transform: translateX(-100%); } /* Move completely off-screen */
-      }  
+    }      
 
 @media only screen and (max-width: 600px) {
 .container {
@@ -226,7 +202,7 @@ html {
     height: 100vh;
     top: 0px;
     overflow: visible;
-    flex: 12%;
+    flex: 3%;
     opacity: 0;
     transition: opacity 2s ease-in-out, height 2s ease-in-out 2s;
     
@@ -240,15 +216,10 @@ html {
     width: auto;
     position: fixed;
     top: 24px;
-    left: 8px;
+    left: 0px;
     z-index: 998; /* Adjust z-index as needed to ensure it's above all other elements */
     overflow: visible;
     }
-
-    #txt-logo {
-        height: 270px;
-        width: 520px;
-      }
 
       @media only screen and (max-width: 600px) {
         /* Change the src attribute to the new image */
@@ -266,7 +237,7 @@ html {
     display: flex;
     flex-direction: column;
     height: fit-content;
-    flex: 75%;
+    flex: 65%;
     opacity: 1;
     }
 
@@ -276,9 +247,13 @@ html {
     width: 100%;
     justify-content: left;
     color: #8FFF00;
-    margin-top: 180px; /* Make sure the unit 'px' is included */
+    margin-top: 64px; /* Make sure the unit 'px' is included */
     margin-bottom: 0px;
 }
+#txt-logo {
+    height: 320px;
+    width: 660px;
+  }
 
 @media only screen and (max-width: 600px) {
 .row-0 {
@@ -297,10 +272,10 @@ html {
     opacity: 0;
     display: flex;
     text-align: left;
-    margin-top: 42px;
+    margin-top: 64px;
     margin-bottom: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
+    font-size: 1.em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
     line-height: 2.8;
 
@@ -312,7 +287,7 @@ html {
 
 @media only screen and (max-width: 600px) {
 .row-1 {
-    font-size: 1.2em;
+    font-size: 1.1em;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -328,7 +303,7 @@ html {
     opacity: 0;
     margin-bottom: 42px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.1em;
+    font-size: 2.2em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
     line-height: 1.5;
     }
@@ -354,7 +329,7 @@ html {
     opacity: 0;
     margin-bottom: 42px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.1em;
+    font-size: 2.2em;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
     line-height: 1.5;
     
@@ -610,11 +585,7 @@ html {
 .modal-container.show {
     display: block; /* Show the modal */
 }
-@media only screen and (max-width: 600px) {
-    .modal-container {
-        display: none;
-    }
-}
+
 .modal-background {
     position: absolute;
     top: 0;
@@ -664,11 +635,20 @@ html {
     color: #fff; /* White text color for dark mode */
 }
 
+@media only screen and (max-width: 600px) {
+    .modal-container,
+    .modal-content,
+    .modal-content img,
+    .modal-background {
+    display: none;
+    }
+    }
+
 .exhibitions {
         font-family: Helvetica, sans-serif;
         padding-top: 64px;
         padding-bottom: 128px;
-        font-size: 1.3em;
+        font-size: 1.4em;
         line-height: 1.5;;
     }
     
@@ -792,17 +772,16 @@ html {
     position: fixed;
     display: flex;
     flex-direction: column;
-    font-size: 1.3em;
-    padding-right: 20px;
-    right: 0; /* Position the container at the right edge of the viewport */
-    top: 24px;
+    font-size: 1.5em;
+    top: 42px;
+    right: 82px;
     cursor: pointer;
     }
 
 .nav a{
     color: #BEE38D;
     text-decoration: none;
-    padding: 10px;
+    padding: 20px;
     display: block;
     }
 
@@ -832,15 +811,17 @@ html {
     position: fixed;
     align-self: flex-end;
     margin-top: auto;
-    bottom: 64px;
+    bottom: 42px;
+    right: 102px;
     border: none; 
     font-size: 1.2em;
-    padding-right: 20px;
     background-color: transparent;
     cursor: pointer;
     }
 
 .contrast-button img {
+    width: 32px;
+    height: auto;
     transition: transform 0.35s ease-in-out; /* Add transition for smooth animation */
     }
     
@@ -856,11 +837,65 @@ html {
     }
     }
 
+
+.column-banner {
+    height: 160vh;
+    position: fixed;
+    right: 42px;
+    padding: 24px;
+    overflow: visible;
+    flex: 5%;
+    text-color: var(--main-text-color);
+    opacity: 1;
+
+    }
+    
+.vertical-text {
+    height: fit-content;
+    writing-mode: vertical-rl;
+    text-orientation: mixed; /* Allow both upright and sideways orientation of characters */
+    font-size: 24px; /* Set font size */
+    line-height: 1.5; /* Set line height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    animation: moveText 25s linear infinite; /* Adjusted animation duration */
+    }
+        
+@keyframes moveText {
+    0% {
+    transform: translate3d(0%, 70%, 0) scale3d(1, 1, 1) /* Starting position at the bottom */
+    }
+    100% {
+    transform: translate3d(0%, -100%, 0) scale3d(1, 1, 1)  /* Ending position at the top */
+    }
+    }
+    
+@media only screen and (max-width: 600px) {
+    .column-banner {
+    display: none;
+    }
+    }
+
+    .button-link {
+        text-decoration: none;
+        cursor: pointer;
+        color: inherit; /* Inherit text color */
+      }
+      
+      .button-link:hover {
+        text-decoration: underline; /* Add underline on hover */
+      }
+      
+      .button-text {
+        margin: 0; /* Remove default margin */
+      }
+      
+
 .footer {
     display: flex;
     height: 10%;
-    padding-top: px;
-    padding-bottom: 64px;
+    padding-top: 64px;
+    padding-bottom: 54px;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
