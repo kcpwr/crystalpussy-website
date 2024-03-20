@@ -368,6 +368,7 @@ html {
     align-items: center;
     padding-top: 164px;
     padding-bottom: 164px;
+    overflow: hidden;
 }
   
 .gallery-column-left-1,
@@ -391,12 +392,11 @@ html {
 .gallery-column-left-1,
 .gallery-column-middle-1,
 .gallery-column-right-1 {
-    width: 100%; /* Occupy full width */
-    margin-bottom: 20px; /* Add spacing between columns */
+
+    overflow: hidden;
     }
     }
-
-
+    
 .gallery-column-left-1 img,
 .gallery-column-middle-1 img,
 .gallery-column-right-1 img {
@@ -484,11 +484,11 @@ html {
 
 .text-overlay {
     position: relative;
-    width: auto;
+    width: 100%;
     height: 20px%;
     font-size: 0.8em;
     opacity: 0;
-    transition: opacity 0.15s ease-in-out 0s;
+    transition: opacity 0.3s ease-in-out 0s;
     z-index: 1;
 }
 
@@ -518,9 +518,10 @@ html {
 
 .text {
     position: absolute;
+    width: 100%;
     align-items: flex-end;
     height: 32px;
-    bottom: 0px;
+    bottom: 1px;
     left: 0;
     padding: 0px 12px 0px 8px; /* Adjusted padding for consistency */
     background-color: #00000060;
@@ -529,7 +530,7 @@ html {
     display: flex; /* Ensures inline alignment of text and icon */
     align-items: center; /* Aligns icon with text vertically */
     gap: 3px; /* Adds some space between the icon and the text */
-    transition: opacity 0.35s ease-in-out, backdrop-filter 0.35s ease-in-out;
+    transition: opacity 0.1.5s ease-in-out, backdrop-filter 0.1.5s ease-in-out;
     margin-bottom: 13px;
 }
 .camera-icon {
