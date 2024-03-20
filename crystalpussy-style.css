@@ -200,9 +200,10 @@ html {
 
 .column-left {
     height: 100vh;
+    flex-direction: column;
     top: 0px;
-    overflow: visible;
     flex: 3%;
+    overflow: visible;
     opacity: 0;
     transition: opacity 2s ease-in-out, height 2s ease-in-out 2s;
     
@@ -217,7 +218,7 @@ html {
     position: fixed;
     top: 24px;
     left: 0px;
-    z-index: 998; /* Adjust z-index as needed to ensure it's above all other elements */
+    z-index: 2; /* Adjust z-index as needed to ensure it's above all other elements */
     overflow: visible;
     }
 
@@ -236,8 +237,8 @@ html {
 .column-mid {
     display: flex;
     flex-direction: column;
-    height: fit-content;
     flex: 65%;
+    height: fit-content;
     opacity: 1;
     }
 
@@ -429,7 +430,7 @@ html {
 .photo-18,
 .photo-19 {
     position: relative;
-    cursor: pointer;
+    cursor: url('icons/enlarge-icon.svg'), auto;
 }
 
 .photo-1 img,
@@ -484,7 +485,7 @@ html {
 .text-overlay {
     position: relative;
     width: auto;
-    height: 100%;
+    height: 20px%;
     font-size: 0.8em;
     opacity: 0;
     transition: opacity 0.15s ease-in-out 0s;
@@ -518,15 +519,18 @@ html {
 .text {
     position: absolute;
     align-items: flex-end;
-    bottom: 0;
+    height: 32px;
+    bottom: 0px;
     left: 0;
     padding: 0px 12px 0px 8px; /* Adjusted padding for consistency */
-    background-color: #D1A3B7;
+    background-color: #00000060;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);   
     display: flex; /* Ensures inline alignment of text and icon */
     align-items: center; /* Aligns icon with text vertically */
     gap: 3px; /* Adds some space between the icon and the text */
     transition: opacity 0.35s ease-in-out, backdrop-filter 0.35s ease-in-out;
-    margin-bottom: 8px;
+    margin-bottom: 13px;
 }
 .camera-icon {
     padding: 0;
@@ -602,6 +606,49 @@ html {
     cursor: url('icons/close-icon-dak.svg'), auto;
 }
 
+.vimeo-button {
+    position: absolute;
+    top: 0px;
+    right: 8px;
+    cursor: pointer;
+    z-index: 1; /* Ensure the button appears above the modal image */
+}
+
+.vimeo-button a {
+    position: relative; /* Ensure pseudo-element is positioned relative to the link */
+}
+
+.vimeo-button a:hover::after {
+    content: ''; /* Create the pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: 12px; /* Adjust the position to align with the bottom of the link */
+    width: 100%;
+    height: 2px; /* Adjust the height as needed */
+    background-color: #8FFF00; /* Set the color of the underline */
+}
+
+.vimeo-button-modal {
+    position: absolute;
+    top: 8px; /* Adjust top positioning */
+    right: 8px; /* Adjust right positioning */
+    z-index: 1; /* Ensure the button appears above the modal image */
+}
+
+.vimeo-button-modal a {
+    display: block; /* Make the link occupy the entire button area */
+}
+
+.vimeo-button-modal a:hover::after {
+    content: ''; /* Create the pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* Adjust the position to align with the bottom of the link */
+    width: 100%;
+    height: 2px; /* Adjust the height as needed */
+    background-color: #8FFF00; /* Set the color of the underline */
+}
+
 .modal-content {
     position: absolute;
     top: 50%;
@@ -615,7 +662,7 @@ html {
 }
 
 .modal-content img {
-    max-width: 90%;
+    max-width: 100%;
     max-height: 90vh; /* Ensure the image does not exceed the viewport height */
     object-fit: contain; /* Maintain aspect ratio */
     box-shadow: 0px 10px 50px rgba(0, 0, 0, .5);
@@ -631,6 +678,7 @@ html {
     justify-content: flex-start; /* Align items to the start of the container */
     text-align: left; /* Align text to the left */
 }
+
 .dark-mode .modal-description {
     color: #fff; /* White text color for dark mode */
 }
@@ -787,7 +835,6 @@ html {
 
 .nav a:hover {
     color: #8FFF00;
-    
     }
 
 .nav a.active {
@@ -822,11 +869,8 @@ html {
 .contrast-button img {
     width: 32px;
     height: auto;
+    color: #BEE38D;
     transition: transform 0.35s ease-in-out; /* Add transition for smooth animation */
-    }
-    
-.contrast-button:hover img {
-    transform: rotate(180deg); /* Rotate the image 360 degrees on hover */
     }
 
 @media only screen and (max-width: 600px) {
@@ -836,7 +880,6 @@ html {
     display: none;
     }
     }
-
 
 .column-banner {
     height: 2200vh;
@@ -860,7 +903,15 @@ html {
     display: inline-block; /* Remove default padding */
     animation: moveText 25s linear infinite; /* Adjusted animation duration */
     }
-        
+
+    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+        .column-banner {
+            padding-right: 28px; /* Safari-specific padding */
+        }
+    }
+
+    
+
 @keyframes moveText {
     0% {
     transform: translate3d(0%, 70%, 0) scale3d(1, 1, 1) /* Starting position at the bottom */
