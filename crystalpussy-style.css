@@ -249,10 +249,13 @@ html {
     color: #8FFF00;
     margin-top: 64px; /* Make sure the unit 'px' is included */
     margin-bottom: 0px;
+    left: 0;
 }
 #txt-logo {
-    height: 220px;
-    width: 480px;
+    height: 150px;
+    width: 320px;
+    justify-content: left;
+    align-items: left;
   }
 
 @media only screen and (max-width: 600px) {
@@ -899,25 +902,17 @@ html {
     z-index: 9995;
     }
     
-.vertical-text {
-    height: fit-content;
-    writing-mode: vertical-rl;
-    text-orientation: mixed; /* Allow both upright and sideways orientation of characters */
-    font-size: 24px; /* Set font size */
-    line-height: 1,5; /* Set line height */
-    margin: 0; /* Remove default margin */
-    padding-right: 28px;
-    display: inline-block; /* Remove default padding */
-    animation: moveText 25s linear infinite; /* Adjusted animation duration */
+    .vertical-text {
+        height: fit-content;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-size: 24px;
+        line-height: 1.5; /* Corrected line-height value */
+        margin: 0;
+        padding: 26px; /* Adjusted padding */
+        display: inline-block;
+        animation: moveText 25s linear infinite;
     }
-
-    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
-        .column-banner {
-            padding-right: 28px; /* Safari-specific padding */
-        }
-    }
-
-    
 
 @keyframes moveText {
     0% {
@@ -927,6 +922,12 @@ html {
     transform: translate3d(0%, -100%, 0) scale3d(1, 1, 1)  /* Ending position at the top */
     }
     }
+    
+    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+        .column-banner {
+            padding-right: 28px; /* Safari-specific padding */
+            }
+        } 
 
     @media only screen and (max-width: 600px) {
         .vertical-text {
@@ -936,7 +937,7 @@ html {
             font-size: 24px; /* Set font size */
             line-height: 1,5; /* Set line height */
             margin: 0; /* Remove default margin */
-            padding-right: 26px;
+            padding: 26px;
             display: inline-block; /* Remove default padding */
             animation: moveText 25s linear infinite; /* Adjusted animation duration */
             }
@@ -954,8 +955,8 @@ html {
       }
       
       .button-text {
-        margin: 0; /* Remove default margin */
-      }
+        margin: 0; /* Corrected margin property */
+    }
 
       
 .footer {
