@@ -392,7 +392,8 @@ html {
 .gallery-column-left-1,
 .gallery-column-middle-1,
 .gallery-column-right-1 {
-
+    width: 100%; 
+    height: auto; 
     overflow: hidden;
     }
     }
