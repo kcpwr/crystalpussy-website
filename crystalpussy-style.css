@@ -529,7 +529,7 @@ html {
     bottom: 1px;
     left: 0;
     padding: 0px 12px 0px 8px; /* Adjusted padding for consistency */
-    background-color: #00000032;
+    background-color: #0000004f;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);  
@@ -537,7 +537,7 @@ html {
     display: flex; /* Ensures inline alignment of text and icon */
     align-items: center; /* Aligns icon with text vertically */
     gap: 5px; /* Adds some space between the icon and the text */
-    transition: opacity 0.1.5s ease-in-out, backdrop-filter 0.1.5s ease-in-out;
+    transition: opacity 0.15s ease-in-out, backdrop-filter 0.15s ease-in-out;
     margin-bottom: 13px;
 }
 .camera-icon {
