@@ -933,6 +933,8 @@ html {
         .vertical-text {
             height: fit-content;
             writing-mode: vertical-rl;
+            align-items: center;
+            justify-content: center;
             text-orientation: mixed; /* Allow both upright and sideways orientation of characters */
             font-size: 24px; /* Set font size */
             line-height: 1.5; /* Set line height */
