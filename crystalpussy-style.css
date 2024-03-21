@@ -89,11 +89,11 @@ html {
     width: 100%;
     display: none;
     justify-content: flex-end; 
-    top: 52px;
+    bottom: 52px;
     right: 0;
     background-color: #D1A3B7;
     box-shadow: 0px 20px 20px #9248683c;
-    z-index: 9999;
+    z-index: 9996;
 }
 
 .show {
@@ -110,8 +110,12 @@ html {
     padding-bottom: 12px;
     padding-right: 18px;
     box-shadow: 0px 3px 3px #9248683c;
-    z-index: 9998;
+    z-index: 9997;
 }
+
+
+
+
 
 .dark-mode .menu-button {
     background-color: #efefef; /* Dark mode background color */
@@ -188,7 +192,7 @@ html {
     color: #8FFF00;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    width:92%;
     height: auto;
     background-color: #D1A3B7;
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
@@ -293,7 +297,6 @@ html {
     text-align: left;
     padding: 8px;
     line-height: 1.5;
-    widows: 2;
     }
     }
 
@@ -896,7 +899,7 @@ html {
     text-align: center;
     color: var(--main-text-color);
     opacity: 1;
-
+    z-index: 9999;
     }
     
 .vertical-text {
@@ -927,12 +930,21 @@ html {
     transform: translate3d(0%, -100%, 0) scale3d(1, 1, 1)  /* Ending position at the top */
     }
     }
+
+    @media only screen and (max-width: 600px) {
+        .vertical-text {
+            height: fit-content;
+            writing-mode: vertical-rl;
+            text-orientation: mixed; /* Allow both upright and sideways orientation of characters */
+            font-size: 24px; /* Set font size */
+            line-height: 1,5; /* Set line height */
+            margin: 0; /* Remove default margin */
+            padding-right: 12px;
+            display: inline-block; /* Remove default padding */
+            animation: moveText 25s linear infinite; /* Adjusted animation duration */
+            }
+         }
     
-@media only screen and (max-width: 600px) {
-    .column-banner {
-    display: none;
-    }
-    }
 
     .button-link {
         text-decoration: none;
@@ -947,8 +959,8 @@ html {
       .button-text {
         margin: 0; /* Remove default margin */
       }
-      
 
+      
 .footer {
     display: flex;
     height: 10%;
