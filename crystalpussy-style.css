@@ -247,15 +247,15 @@ html {
 
 .row-0 {
     display: flex;
-    width: 100%;
+    width: 90%;
     justify-content: left;
     color: #8FFF00;
     margin-top: 64px; /* Make sure the unit 'px' is included */
     margin-bottom: 0px;
 }
 #txt-logo {
-    height: 320px;
-    width: 660px;
+    height: 270px;
+    width: 590px;
   }
 
 @media only screen and (max-width: 600px) {
