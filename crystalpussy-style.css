@@ -937,7 +937,7 @@ html {
             font-size: 24px; /* Set font size */
             line-height: 1.5; /* Set line height */
             margin: 0 auto; /* Remove default margin */
-            padding-right: 12px;
+            padding-bottom: 12px;
             display: inline-block; /* Remove default padding */
             animation: moveText 25s linear infinite; /* Adjusted animation duration */
             }
