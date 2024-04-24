@@ -497,7 +497,8 @@ html {
 .photo-19
 .photo-20
 .photo-21
-.photo-22 {
+.photo-22
+.photo-23 {
     position: relative;
     cursor: url('icons/enlarge-icon.svg'), auto;
 }
@@ -523,7 +524,8 @@ html {
 .photo-19 img
 .photo-20 img
 .photo-21 img
-.photo-22 img {
+.photo-22 img
+.photo-23 img {
     width: 100%; 
     height: auto; 
     max-width: 100%; 
@@ -552,7 +554,8 @@ html {
 .photo-19:hover img
 .photo-20:hover img
 .photo-21:hover img
-.photo-22:hover img {
+.photo-22:hover img
+.photo-23:hover img {
     transform: scale(1.0125); /* Adjust the scale factor as needed */
    /* Add a smooth transition */
 }
@@ -589,7 +592,8 @@ html {
 .photo-19:hover .text-overlay
 .photo-20:hover .text-overlay
 .photo-21:hover .text-overlay
-.photo-22:hover .text-overlay {
+.photo-22:hover .text-overlay
+.photo-23:hover .text-overlay {
     opacity: 1;
     transition-delay: 0s;
 }
