@@ -65,14 +65,14 @@
           <div class="gallery-column-left-1">
 
 
-            <div class="photo-1" data-description="The ablutions — Berlin, 2023">
+            <div class="photo-20" data-description="Untitled, 2024">
               <img src="photo-gallery/20.MP4" height="100%" width="100%" alt="photo-1">
               <div class="text-overlay">
                   <div class="text">
                    <div class="icon">
                     <img src="icons/camera-icon.svg">
                   </div>
-                  <div class="description">The ablutions — Berlin, 2023</div>
+                  <div class="description">Untitled, 2024</div>
                 </div>
               </div>
             </div>
@@ -767,6 +767,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const photo19 = document.querySelector('.photo-19');
     photo19.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
+    const photo20 = document.querySelector('.photo-20');
+    photo20.addEventListener('click', function () {
         const imgSrc = this.querySelector('img').src;
         const description = this.querySelector('.text').innerText;
         const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
