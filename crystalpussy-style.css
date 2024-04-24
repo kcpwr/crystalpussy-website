@@ -522,7 +522,8 @@ html {
 .photo-17 img,
 .photo-18 img,
 .photo-19 img
-.photo-20 img {
+.photo-20 img
+.photo-22 img {
     width: 100%; 
     height: auto; 
     max-width: 100%; 
@@ -549,7 +550,8 @@ html {
 .photo-17:hover img,
 .photo-18:hover img,
 .photo-19:hover img
-.photo-20:hover img {
+.photo-20:hover img
+.photo-22:hover img {
     transform: scale(1.0125); /* Adjust the scale factor as needed */
    /* Add a smooth transition */
 }
@@ -584,7 +586,8 @@ html {
 .photo-17:hover .text-overlay,
 .photo-18:hover .text-overlay,
 .photo-19:hover .text-overlay
-.photo-20:hover .text-overlay {
+.photo-20:hover .text-overlay
+.photo-22:hover .text-overlay {
     opacity: 1;
     transition-delay: 0s;
 }
@@ -646,7 +649,8 @@ html {
     .photo-17:hover .text-overlay,
     .photo-18:hover .text-overlay,
     .photo-19:hover .text-overlay
-    .photo-20:hover .text-overlay {
+    .photo-20:hover .text-overlay
+    .photo-22:hover .text-overlay {
         opacity: 1; /* Always visible on mobile */
         transition: none; /* No transition on mobile */
     }
