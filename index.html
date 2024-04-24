@@ -156,8 +156,8 @@
 
         <div class="gallery-column-middle-1">
 
-          <div class="photo-19" data-description="Untitled, 2024">
-            <img src="photo-gallery/19.MP4" height="100%" width="100%" alt="photo-1">
+          <div class="photo-20" data-description="Untitled, 2024">
+            <img src="photo-gallery/20.gif" height="100%" width="100%" alt="photo-1">
             <div class="text-overlay">
                 <div class="text">
                  <div class="icon">
@@ -789,6 +789,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const photo20 = document.querySelector('.photo-20');
     photo20.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
+    const photo21 = document.querySelector('.photo-21');
+    photo21.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
+    const photo22 = document.querySelector('.photo-22');
+    photo22.addEventListener('click', function () {
         const imgSrc = this.querySelector('img').src;
         const description = this.querySelector('.text').innerText;
         const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
