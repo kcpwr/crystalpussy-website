@@ -900,6 +900,17 @@ document.addEventListener('DOMContentLoaded', function () {
         modalContainer.style.display = 'block';
     });
 
+    const photo29 = document.querySelector('.photo-29');
+    photo29.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
+
     modalBackground.addEventListener('click', function () {
         modalContainer.style.display = 'none';
         // Remove Vimeo button when modal is closed
