@@ -66,6 +66,19 @@
 
 
 
+
+            <div class="photo-28" data-description="Birth days by Remi Ugarte Vallerios — Berlin, 2021">
+              <img src="photo-gallery/27-Teenage dream — Mix technique, 2024.gif" height="100%" width="100%" alt="photo-28">
+              <div class="text-overlay">
+                  <div class="text">
+                   <div class="icon">
+                    <img src="icons/camera-icon.svg">
+                  </div>
+                  <div class="description">Birth days by Remi Ugarte Vallerios — Berlin, 2021</div>
+                </div>
+              </div>
+            </div>
+
             <div class="photo-27" data-description="Open Studio Exhibition — Vevey, 2024">
               <img src="photo-gallery/27-Teenage dream — Mix technique, 2024.gif" height="100%" width="100%" alt="photo-27">
               <div class="text-overlay">
@@ -169,7 +182,7 @@
 
         <div class="gallery-column-middle-1">
 
-          <div class="photo-21" data-description="Faith. Hope. Love — Cast bronze with red patina, 2020">
+          <div class="photo-21" data-description="Faith. Hope. Love — Cast bronze with red patina, 2021">
             <img src="photo-gallery/26-Faith. Hope. Love — Cast bronze with red patina.gif" height="100%" width="100%" alt="photo-21">
             <div class="text-overlay">
                 <div class="text">
@@ -275,6 +288,19 @@
         </div>
 
         <div class="gallery-column-right-1">
+
+
+          <div class="photo-29" data-description="Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024">
+            <img src="photo-gallery/29-Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024" height="100%" width="100%" alt="photo-29">
+            <div class="text-overlay">
+              <div class="text">
+                <div class="icon">
+                  <img src="icons/camera-icon.svg">
+                </div>
+                <div class="description">Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024</div>
+              </div>
+            </div>
+          </div>
 
           <div class="photo-22" data-description="Bitch - Acrylic on canvas, 2024">
             <img src="photo-gallery/22-Bitch - Acrylic on canvas, 2024.png" height="100%" width="100%" alt="photo-1">
@@ -854,6 +880,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const photo27 = document.querySelector('.photo-27');
     photo27.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
+    const photo28 = document.querySelector('.photo-28');
+    photo28.addEventListener('click', function () {
         const imgSrc = this.querySelector('img').src;
         const description = this.querySelector('.text').innerText;
         const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
