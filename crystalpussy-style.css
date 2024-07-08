@@ -427,7 +427,7 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;;
+    align-items: flex-start;
     padding-top: 164px;
     padding-bottom: 164px;
     overflow: hidden;
@@ -446,7 +446,7 @@ html {
 @media only screen and (max-width: 600px) {
 .box {
     flex-direction: column; /* Change to vertical layout */
-    align-items: center;
+    align-items: flex-start;
     padding-top: 42px;
     padding-bottom: 42px; /* Center items horizontally */
     }
