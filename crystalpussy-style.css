@@ -497,7 +497,8 @@ html {
 .photo-27,
 .photo-28,
 .photo-29,
-.photo-22 {
+.photo-22
+.photo-30 {
     position: relative;
     cursor: url('icons/enlarge-icon.svg'), auto;
 }
@@ -526,7 +527,8 @@ html {
 .photo-27 img,
 .photo-28 img,
 .photo-29 img,
-.photo-22 img {
+.photo-22 img,
+.photo-30 {
     width: 100%; 
     height: auto; 
     max-width: 100%; 
@@ -558,7 +560,8 @@ html {
 .photo-27:hover img,
 .photo-28:hover img,
 .photo-29:hover img,
-.photo-22:hover img {
+.photo-22:hover img,
+.photo-30:hover img {
     transform: scale(1.0125); 
 }
 
@@ -597,7 +600,8 @@ html {
 .photo-22:hover .text-overlay,
 .photo-28:hover .text-overlay,
 .photo-29:hover .text-overlay,
-.photo-27:hover .text-overlay {
+.photo-27:hover .text-overlay
+.photo-30:hover .text-overlay {
     opacity: 1;
     transition-delay: 0s;
 }
@@ -664,7 +668,8 @@ html {
     .photo-22:hover .text-overlay,
     .photo-28:hover .text-overlay,
     .photo-29:hover .text-overlay,
-    .photo-27:hover .text-overlay {
+    .photo-27:hover .text-overlay,
+    .photo-30:hover .text-overlay {
         opacity: 1; /* Always visible on mobile */
         transition: none; /* No transition on mobile */
     }
