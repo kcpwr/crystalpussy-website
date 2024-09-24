@@ -660,6 +660,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalImage = document.getElementById('modal-image');
     const modalDescription = document.getElementById('modal-description');
     
+    const photo32 = document.querySelector('.photo-32');
+    photo29.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
     const photo31 = document.querySelector('.photo-31');
     photo29.addEventListener('click', function () {
         const imgSrc = this.querySelector('img').src;
