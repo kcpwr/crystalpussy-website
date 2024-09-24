@@ -502,7 +502,7 @@ html {
 .photo-31,
 .photo-33 {
     position: relative;
-    cursor: url('icons/enlarge-icon.svg'), auto;
+
 }
 
 .photo-1 img,
@@ -572,7 +572,7 @@ html {
 }
 
 .text-overlay {
-    position: relative;
+    position: bottom;
     width: 100%;
     height: 20px;
     font-size: 0.8em;
@@ -692,7 +692,6 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
     z-index: 999;
     transition: opacity 0.3s ease;
 }
