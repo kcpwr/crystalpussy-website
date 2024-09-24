@@ -678,7 +678,7 @@ html {
     .photo-29:hover .text-overlay,
     .photo-27:hover .text-overlay,
     .photo-30:hover .text-overlay,
-    .photo-31:hover .text-overlay
+    .photo-31:hover .text-overlay,
     .photo-33:hover .text-overlay {
         opacity: 1; /* Always visible on mobile */
         transition: none; /* No transition on mobile */
