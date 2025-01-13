@@ -85,7 +85,7 @@
   <div class="overlay" id="age-popup">
     <div class="popup">
       <h2>Age advisory</h2>
-      <p>This content is intended for viewers who are at least 18 years old. Viewer discretion advised.</p>
+      <p>Content intended for viewers who are at least 18 years old. Viewer discretion advised.</p>
       <button id="confirm">Let's go</button>
       <button id="exit">Exit</button>
     </div>
@@ -139,6 +139,17 @@
 
           <div class="gallery-column-left-1">
 
+            <div class="photo-34" data-description="Untitled, 2024">
+                <img src="photo-gallery/34-Untitled 2024-2.png" height="100%" width="100%" alt="Untitled, 2024">
+                <div class="text-overlay">
+                    <div class="text">
+                     <div class="icon">
+                      <img src="icons/camera-icon.svg">
+                    </div>
+                    <div class="description">Untitled, 2024</div>
+                  </div>
+                </div>
+              </div>
 
             <div class="photo-33" data-description="Boss bitch - Prague, 2024">
               <img src="photo-gallery/33-Boss bitch - Prague 2024-2.png" height="100%" width="100%" alt="Boss bitch - Prague, 2024">
@@ -735,6 +746,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalImage = document.getElementById('modal-image');
     const modalDescription = document.getElementById('modal-description');
     
+    const photo34 = document.querySelector('.photo-34');
+    photo33.addEventListener('click', function () {
+        const imgSrc = this.querySelector('img').src;
+        const description = this.querySelector('.text').innerText;
+        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
+        modalImage.src = imgSrc;
+        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
+        modalContainer.style.display = 'block';
+    });
+
     const photo33 = document.querySelector('.photo-33');
     photo33.addEventListener('click', function () {
         const imgSrc = this.querySelector('img').src;
