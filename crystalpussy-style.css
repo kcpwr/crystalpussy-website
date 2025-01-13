@@ -167,7 +167,7 @@ html {
     }
 
 .dark-mode .nav-link-mobile {
-    background-color: #efefef; /* Dark mode background color */
+    background-color: #efefef; 
     }
 
 .nav-mobile a{
@@ -427,7 +427,7 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     padding-top: 164px;
     padding-bottom: 164px;
     overflow: hidden;
