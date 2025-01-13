@@ -600,6 +600,12 @@ html {
 .photo-28:hover .text-overlay,
 .photo-29:hover .text-overlay,
 .photo-27:hover .text-overlay,
+.photo-28:hover .text-overlay,
+.photo-29:hover .text-overlay,
+.photo-30:hover .text-overlay,
+.photo-31:hover .text-overlay,
+.photo-32:hover .text-overlay,
+.photo-33:hover .text-overlay,
 .photo-34:hover .text-overlay {
     opacity: 1;
     transition-delay: 0s;
