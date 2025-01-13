@@ -427,7 +427,7 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding-top: 164px;
     padding-bottom: 164px;
     overflow: hidden;
@@ -446,7 +446,7 @@ html {
 @media only screen and (max-width: 600px) {
 .box {
     flex-direction: column; /* Change to vertical layout */
-    align-items: flex-start;
+    align-items: center;
     padding-top: 42px;
     padding-bottom: 42px; /* Center items horizontally */
     }
@@ -497,12 +497,9 @@ html {
 .photo-27,
 .photo-28,
 .photo-29,
-.photo-22,
-.photo-30,
-.photo-31,
-.photo-33 {
+.photo-22 {
     position: relative;
-
+    cursor: url('icons/enlarge-icon.svg'), auto;
 }
 
 .photo-1 img,
@@ -530,9 +527,7 @@ html {
 .photo-28 img,
 .photo-29 img,
 .photo-22 img,
-.photo-30 img,
-.photo-31 img,
-.photo-33 img {
+.photo-23 img {
     width: 100%; 
     height: auto; 
     max-width: 100%; 
@@ -565,14 +560,12 @@ html {
 .photo-28:hover img,
 .photo-29:hover img,
 .photo-22:hover img,
-.photo-30:hover img,
-.photo-31:hover img,
-.photo-33:hover img {
+.photo-23:hover img {
     transform: scale(1.0125); 
 }
 
 .text-overlay {
-    position: bottom;
+    position: relative;
     width: 100%;
     height: 20px;
     font-size: 0.8em;
@@ -607,9 +600,7 @@ html {
 .photo-28:hover .text-overlay,
 .photo-29:hover .text-overlay,
 .photo-27:hover .text-overlay,
-.photo-30:hover .text-overlay,
-.photo-31:hover .text-overlay,
-.photo-33:hover .text-overlay {
+.photo-34:hover .text-overlay {
     opacity: 1;
     transition-delay: 0s;
 }
@@ -677,9 +668,7 @@ html {
     .photo-28:hover .text-overlay,
     .photo-29:hover .text-overlay,
     .photo-27:hover .text-overlay,
-    .photo-30:hover .text-overlay,
-    .photo-31:hover .text-overlay,
-    .photo-33:hover .text-overlay {
+    .photo-34:hover .text-overlay {
         opacity: 1; /* Always visible on mobile */
         transition: none; /* No transition on mobile */
     }
@@ -712,7 +701,7 @@ html {
     cursor: url('icons/close-icon.svg'), auto;
 }
 .dark-mode .modal-background {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgb(255, 255, 255);
     cursor: url('icons/close-icon-dak.svg'), auto;
 }
 
