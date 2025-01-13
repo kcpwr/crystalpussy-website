@@ -426,23 +426,23 @@ html {
 .box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
+    justify-content: space-between; 
+    align-items: flex-start; 
     padding-top: 164px;
     padding-bottom: 164px;
     overflow: hidden;
-}
+    }
   
-.gallery-column-left-1,
-.gallery-column-middle-1,
-.gallery-column-right-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: start; 
-    align-items: start;
-    width: 32.5%;
-    overflow: hidden;
-}
+    .gallery-column-left-1,
+    .gallery-column-middle-1,
+    .gallery-column-right-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Align items inside each column to the top */
+        align-items: flex-start; /* Align items horizontally to the left */
+        width: 32.5%; /* Ensure even column widths */
+        overflow: hidden;
+    }
 
 @media only screen and (max-width: 600px) {
 .box {
