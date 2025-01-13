@@ -55,12 +55,15 @@
             }
         
             .popup button {
+              flex: 1; /* Makes buttons grow to fill available space equally */
               padding: 15px;
               margin: 5px;
               border: none;
               font-size: 1rem;
               cursor: pointer;
-              width: 160px;
+              min-width: 160px; /* Ensures buttons don't get too small */
+              max-width: 100%; /* Prevents buttons from exceeding parent width */
+              box-sizing: border-box; /* Includes padding in width/height calculations */
             }
         
             .popup button#confirm {
