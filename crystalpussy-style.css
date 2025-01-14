@@ -433,23 +433,23 @@ html {
     overflow: hidden;
     }
   
-    .gallery-column-left-1,
-    .gallery-column-middle-1,
-    .gallery-column-right-1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Align items inside each column to the top */
-        align-items: flex-start; /* Align items horizontally to the left */
-        width: 32.5%; /* Ensure even column widths */
-        overflow: hidden;
+.gallery-column-left-1,
+.gallery-column-middle-1,
+.gallery-column-right-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    width: 32.5%; 
+    overflow: hidden;
     }
 
 @media only screen and (max-width: 600px) {
 .box {
-    flex-direction: column; /* Change to vertical layout */
+    flex-direction: column; 
     align-items: center;
     padding-top: 42px;
-    padding-bottom: 42px; /* Center items horizontally */
+    padding-bottom: 42px; 
     }
     
 .gallery-column-left-1,
