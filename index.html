@@ -647,6 +647,14 @@ html {
         transition: none; 
     }
 }
+.photo-8,
+.photo-10,
+.photo-18
+ {
+  position: relative; /* Add this line */
+  display: inline-block; /* Or 'block' depending on layout */
+  width: 100%; /* Ensure container spans image width */
+}
 
 
 .vimeo-button {
@@ -1331,23 +1339,24 @@ html {
 
                     <div class="photo-8" data-description="You don't have to be cool II — Berlin, 2023">
                         <img src="photo-gallery/8-You don't have to be cool II — Berlin, 2023.gif" height="100%" width="100%" alt="photo-8">
-
-                            <div class="vimeo-button">
-                                <a href="https://vimeo.com/886890976">
-                                <img src="icons/vimeo-ico.svg" alt="See on Vimeo" class="vimeo-icon"> 
-                                </a>
+            
+                          <div class="vimeo-button">
+                            <a href="https://vimeo.com/886890976">
+                              <img src="icons/vimeo-icon.svg" alt="See on Vimeo" class="vimeo-icon"> 
+                            </a>
+                          </div>
+            
+                          <div class="text-overlay">
+                            <div class="text">
+                              <div class="icon">
+                                <img src="icons/camera-icon.svg">
+                              </div>
+                              <div class="description">You don't have to be cool II — Berlin, 2023
+                              </div>
                             </div>
-
-                            <div class="text-overlay">
-                                <div class="text">
-                                    <div class="icon">
-                                        <img src="icons/camera-ico.svg">
-                                    </div>
-                                    <div class="description">You don't have to be cool II — Berlin, 2023
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
+                          </div>
+            
+                      </div>
 
           <div class="photo-9" data-description="Palm tree — painted stainless steel, 2017">
             <img src="photo-gallery/9-Palm tree — painted stainless steel, 2017.png" height="100%" width="100%" alt="photo-9">
