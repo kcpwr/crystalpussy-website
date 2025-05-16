@@ -11,15 +11,11 @@
    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
 
    <link rel="stylesheet" 
-         href="crystalpussy-style.css">
+         href="1-style.css">
 
 
          <style>
-            body {
-              margin: 0;
-              font-family: Arial, sans-serif;
-              background-color: #D1A3B7;
-            }
+
         
             .overlay-1 {
               position: fixed;
@@ -36,22 +32,24 @@
             }
         
             .popup-1 {
-              background: #D1A3B7;
-              padding: 15px;
-              text-align: center;
-              box-shadow: 0 24px 28px rgba(0, 0, 0, 0.5);
-              max-width: 400px;
-              width: 90%;
+                background: #D1A3B7;
+                padding: clamp(12px, 1.5vw + 8px, 20px);
+                text-align: center;
+                box-shadow: 0 0 20px 20px #D1A3B7;
+                width: min(90%, 400px);
+                max-width: min(90vw, 400px);
+                border-radius: 12px;
+                width: 90%;
             }
         
             .popup-1 h2 {
-              margin: 0 0 15px;
-              font-size: 1,5rem;
+              margin: clamp(12px, 1.5vw + 8px, 20px);
+              font-size: clamp(2rem, 1.75vw, 3rem);
             }
         
             .popup-1 p {
-              font-size: 1,5rem;
-              margin: 0 0 15px;
+                font-size: clamp(1rem, 0.5vw, 1.5rem);
+                margin: clamp(12px, 1.5vw + 8px, 20px);
             }
         
             .popup-1 button {
@@ -59,7 +57,7 @@
               padding: 15px;
               border: none;
               width: 48%;
-              font-size: 1rem;
+              font-size: clamp(1rem, 0.5vw, 1.5rem);
               cursor: pointer;
               max-width: 100%; 
               box-sizing: border-box; 
@@ -78,7 +76,965 @@
             .hidden {
               display: none;
             }
-          </style>
+
+
+            * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+
+
+:root {
+    --main-text-color: #8FFF00; 
+    --secondary-text-color: #BEE38D;
+    --main-bg-color: #D1A3B7;
+}
+
+body {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+
+.dark-mode {
+    --main-text-color: #000; 
+    --main-bg-color: #efefef; 
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+
+
+.dark-mode .container {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+  
+  .dark-mode .container,
+  .dark-mode .column-left,
+  .dark-mode .column-mid,
+  .dark-mode .row-1,
+  .dark-mode .row-2,
+  .dark-mode .row-3,
+  .dark-mode .art,
+  .dark-mode .box,
+  .dark-mode .gallery-column-left-1,
+  .dark-mode .gallery-column-middle-1,
+  .dark-mode .gallery-column-right-1,
+  .dark-mode .photo-1,
+  .dark-mode .photo-2,
+  .dark-mode .photo-3,
+  .dark-mode .photo-4,
+  .dark-mode .photo-5,
+  .dark-mode .photo-6,
+  .dark-mode .photo-7,
+  .dark-mode .photo-8,
+  .dark-mode .photo-9,
+  .dark-mode .photo-10,
+  .dark-mode .text-overlay,
+  .dark-mode .text,
+  .dark-mode .exhibitions,
+  .dark-mode .contact,
+  .dark-mode .address-column,
+  .dark-mode .email-phone-column,
+  .dark-mode .email-button,
+  .dark-mode .phone-button,
+  .dark-mode .column-right,
+  .dark-mode .nav,
+  .dark-mode .nav a,
+  .dark-mode .contrast-button,
+  .dark-mode .footer,
+  .dark-mode .copyright-column,
+  .dark-mode .back-to-top-column {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+  }
+
+  a {
+    all: unset;
+}
+
+html {
+    scroll-behavior: smooth;
+    }
+
+.dropdown-menu {
+    position: fixed;
+    width: 100%;
+    display: none;
+    justify-content: flex-end; 
+    top: 52px;
+    right: 0;
+    background-color: #D1A3B7;
+    box-shadow: 0px 20px 20px #9248683c;
+    z-index: 9996;
+}
+
+.show {
+    display: block;
+}
+
+.menu-button {
+    position: fixed;
+    width: 100%;
+    display: none;
+    cursor: pointer;
+    background-color: #D1A3B7;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 18px;
+    box-shadow: 0px 3px 3px #9248683c;
+    z-index: 9997;
+}
+
+
+.dark-mode .menu-button {
+    background-color: #efefef; /* Dark mode background color */
+    box-shadow: 0px 3px 3px #0000004c; /* Dark mode box shadow color */
+    color: #000; /* Dark mode text color */
+}
+
+.temp-logo {
+    position: fixed;
+    height: 42px;
+    width: auto;
+    top: 8px; /* Adjust as needed */
+    left: 16px; /* Adjust as needed */
+    z-index: 9999; /* Ensure it's above other content */
+}
+
+@media only screen and (min-width: 601px) {
+    .temp-logo {
+        display: none;
+    }
+}
+
+        
+
+.bar {
+    width: 40px;
+    height: 3px;
+    margin: 0;
+    background-color: #8FFF00;
+    margin: 5px;
+    margin-left: auto;
+    }
+
+.dark-mode .bar {
+    background-color: #000000; /* Dark mode background color */
+    }
+
+@media only screen and (max-width: 600px) {
+.menu-button {
+    display: block;
+    }
+
+.nav-mobile {
+    display: none;
+    }
+
+.nav-link-mobile {
+    display: block;
+    text-align: right;
+    font-size: clamp(1.25rem, 0.9vw + 1.1rem, 1.75rem);
+    padding: 32px;
+    border-top: 2px solid #bee38d44;
+    background-color: #D1A3B7;
+    }
+
+.dark-mode .nav-link-mobile {
+    background-color: #efefef; 
+    }
+
+.nav-mobile a{
+    color: #BEE38D;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    }
+
+.nav-mobile a:hover {
+    color: #8FFF00;
+    }
+
+.nav-mobile a.active {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
+    }
+
+.container {
+    display: flex;
+    color: #8FFF00;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: #D1A3B7;
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+    }      
+
+@media only screen and (max-width: 600px) {
+.container {
+    display: flex;
+    color: #8FFF00;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 87%;
+    height: auto;
+    background-color: #D1A3B7;
+    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+    }
+    }
+      
+
+.column-left {
+    height: 100vh;
+    flex-direction: column;
+    top: 0px;
+    flex: 3%;
+    overflow: visible;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, height 2s ease-in-out 2s;
+    
+    }
+    .column-left.show{
+        opacity: 1;
+    }
+
+#logo {
+    height: 980px;
+    width: auto;
+    position: fixed;
+    top: 24px;
+    left: 0px;
+    z-index: 2; /* Adjust z-index as needed to ensure it's above all other elements */
+    overflow: visible;
+    }
+
+
+.column-mid {
+    display: flex;
+    flex-direction: column;
+    flex: 65%;
+    height: fit-content;
+    opacity: 1;
+    }
+
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        .column-mid {
+            flex: 60%;
+            height: auto;
+            padding-left: 32px;
+        }
+        }
+
+.row-0 {
+    display: flex;
+    width: 70%;
+    justify-content: left;
+    align-items: left;
+    color: #8FFF00;
+    margin-top: 64px; /* Make sure the unit 'px' is included */
+    margin-bottom: 0px;
+    left: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .row-0 {
+
+        width: 40%;
+        height: auto;
+        justify-content: left;
+        align-items: left;
+        margin-top: 82px;
+        padding: 0 8px;
+        }
+        }
+
+        
+
+#txt-logo {
+    height: auto;
+    width: 540px;
+    justify-content: left;
+    align-items: left;
+    }
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        #txt-logo {
+            content: url('icons/logo-520px.png');
+            width: 320px;
+        }
+     }
+
+     @media only screen and (max-width: 600px) {
+        #txt-logo {
+            width: 320px;
+        }
+    }
+
+.row-1 {
+    width: 100%;
+    color: #BEE38D;
+    opacity: 0;
+    display: flex;
+    text-align: left;
+    margin-top: 64px;
+    margin-bottom: 0px;
+    font-size: clamp(1rem, 0.5vw, 1.25rem);
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+    line-height: 2.8;
+    }
+
+.row-1.show {
+    opacity: 1;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+    .row-1 {
+            font-size: clamp(.65rem, 0.75vw, 1rem);
+            margin-top: 32px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+            padding: 8px;
+            line-height: 1.5;
+
+        }
+        }
+
+.row-2 {
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+    opacity: 0;
+    margin-bottom: 42px;
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+    line-height: 1.5;
+
+    }
+
+.row-2.show{
+    opacity: 1;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .row-2 {
+            font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+                line-height: 1.3;
+                display: flex;
+                justify-content: left;
+                align-items: left;
+                text-align: left;
+                padding: 8px;
+            }
+            }
+
+.row-3 {
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+    opacity: 0;
+    margin-bottom: 42px;
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+    line-height: 1.5;
+    
+    }
+.row-3.show{
+    opacity: 1;
+    }
+            
+    @media only screen and (max-width: 600px) {
+   .row-3 {
+               font-size: 1.5em;
+               display: flex;
+               justify-content: left;
+               align-items: left;
+               text-align: left;
+               padding: 8px;
+            }
+            }
+
+.art {
+    display: flex;
+    flex: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 164px;
+    padding-bottom: 164px;
+    overflow: hidden;
+    }
+
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    padding-top: 164px;
+    padding-bottom: 164px;
+    overflow: hidden;
+    }
+  
+.gallery-column-left-1,
+.gallery-column-middle-1,
+.gallery-column-right-1 {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    width: 34%; 
+    overflow: hidden;
+    }
+
+@media only screen and (max-width: 600px) {
+.box {
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 42px;
+    padding-bottom: 42px; 
+    }
+    
+.gallery-column-left-1,
+.gallery-column-middle-1,
+.gallery-column-right-1 {
+    width: 100%; 
+    height: auto; 
+    overflow: hidden;
+    }
+    }
+    
+.gallery-column-left-1 img,
+.gallery-column-middle-1 img,
+.gallery-column-right-1 img {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: auto; 
+    position: relative;
+    overflow: hidden;
+
+    }
+    
+.text-overlay {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out 0s;
+    z-index: 1;
+}
+
+
+.photo-1:hover .text-overlay,
+.photo-2:hover .text-overlay,
+.photo-3:hover .text-overlay,
+.photo-4:hover .text-overlay,
+.photo-5:hover .text-overlay,
+.photo-6:hover .text-overlay,
+.photo-7:hover .text-overlay,
+.photo-8:hover .text-overlay,
+.photo-9:hover .text-overlay,
+.photo-10:hover .text-overlay,
+.photo-11:hover .text-overlay,
+.photo-12:hover .text-overlay,
+.photo-13:hover .text-overlay,
+.photo-14:hover .text-overlay,
+.photo-15:hover .text-overlay,
+.photo-16:hover .text-overlay,
+.photo-17:hover .text-overlay,
+.photo-18:hover .text-overlay,
+.photo-19:hover .text-overlay,
+.photo-20:hover .text-overlay,
+.photo-21:hover .text-overlay,
+.photo-22:hover .text-overlay,
+.photo-28:hover .text-overlay,
+.photo-29:hover .text-overlay,
+.photo-27:hover .text-overlay,
+.photo-28:hover .text-overlay,
+.photo-30:hover .text-overlay,
+.photo-31:hover .text-overlay,
+.photo-32:hover .text-overlay,
+.photo-33:hover .text-overlay,
+.photo-34:hover .text-overlay {
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.text {
+    position: absolute;
+    width: 100%;
+    align-items: flex-end;
+    font-size: clamp(0.75rem, 0.3vw + 0.7rem, 0.75rem);
+    height: clamp(16px, 4vh, 32px);
+    bottom: 0px;
+    left: 0;
+    gap: 5px;
+    padding: 0px 12px 0px 4px; 
+    background-color: #D1A3B7;
+    color: #8FFF00; 
+    display: flex; 
+    align-items: center; 
+    transition: opacity 0.15s ease-in-out, backdrop-filter 0.15s ease-in-out;
+
+}
+.camera-icon {
+    padding: 0;
+    width: auto;
+    vertical-align: middle;
+}
+.icon img {
+
+    height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .text-overlay {
+        opacity: 1;
+        transition: none;
+    }
+    
+
+    .photo-1:hover .text-overlay,
+    .photo-2:hover .text-overlay,
+    .photo-3:hover .text-overlay,
+    .photo-4:hover .text-overlay,
+    .photo-5:hover .text-overlay,
+    .photo-6:hover .text-overlay,
+    .photo-7:hover .text-overlay,
+    .photo-8:hover .text-overlay,
+    .photo-9:hover .text-overlay,
+    .photo-10:hover .text-overlay,
+    .photo-11:hover .text-overlay,
+    .photo-12:hover .text-overlay,
+    .photo-13:hover .text-overlay,
+    .photo-14:hover .text-overlay,
+    .photo-15:hover .text-overlay,
+    .photo-16:hover .text-overlay,
+    .photo-17:hover .text-overlay,
+    .photo-18:hover .text-overlay,
+    .photo-19:hover .text-overlay,
+    .photo-20:hover .text-overlay,
+    .photo-21:hover .text-overlay,
+    .photo-22:hover .text-overlay,
+    .photo-28:hover .text-overlay,
+    .photo-29:hover .text-overlay,
+    .photo-27:hover .text-overlay,
+    .photo-34:hover .text-overlay {
+        opacity: 1; 
+        transition: none; 
+    }
+}
+
+
+.vimeo-button {
+    position: absolute;
+    top: 0px;
+    right: 8px;
+    cursor: pointer;
+    z-index: 1; /* Ensure the button appears above the modal image */
+}
+
+.vimeo-button a {
+    position: relative; /* Ensure pseudo-element is positioned relative to the link */
+}
+
+.vimeo-button a:hover::after {
+    content: ''; /* Create the pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: 12px; /* Adjust the position to align with the bottom of the link */
+    width: 100%;
+    height: 2px; /* Adjust the height as needed */
+    background-color: #8FFF00; /* Set the color of the underline */
+}
+
+.vimeo-button-modal {
+    position: absolute;
+    top: 8px; /* Adjust top positioning */
+    right: 8px; /* Adjust right positioning */
+    z-index: 1; /* Ensure the button appears above the modal image */
+}
+
+.vimeo-button-modal a {
+    display: block; /* Make the link occupy the entire button area */
+}
+
+.vimeo-button-modal a:hover::after {
+    content: ''; /* Create the pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* Adjust the position to align with the bottom of the link */
+    width: 100%;
+    height: 2px; /* Adjust the height as needed */
+    background-color: #8FFF00; /* Set the color of the underline */
+}
+
+.exhibitions {
+        padding-top: 64px;
+        padding-bottom: 128px;
+        font-size: clamp(1rem, 0.6vw + 0.9rem, 1.25rem);
+        line-height: 1.5;
+    }
+    
+    .light-green-text {
+        color: #8FFF00; /* Default text color for light green */
+    }
+    
+    .light-yellow-text {
+        color: #BEE38D; /* Default text color for light yellow */
+    }
+    
+    /* Dark mode styles */
+    .dark-mode .light-green-text {
+        color: #000000; /* Text color for light green in dark mode */
+    }
+    
+    .dark-mode .light-yellow-text {
+        color: #808080; /* Text color for light yellow in dark mode */
+    }
+
+            
+    @media only screen and (max-width: 600px) {
+        .exhibitions {
+            font-size: 0.9em;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+            padding: 8px;
+            line-height: 1.5;
+        }
+    }
+
+.contact {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+    height: 90vh;
+    text-align: left;
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    }
+
+
+.address-column,
+.email-column {  
+    width: 50%;
+    flex-direction: column;
+    height: 136px;
+    }  
+
+.copy-button {
+    color: #BEE38D;
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+    background-color: #00000000;
+    border: none;
+    display: block;
+    text-align: left;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+    }
+     
+.copy-button :hover {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
+
+.dark-mode .copy-button {
+    color: #808080; /* Text color for light yellow in dark mode */
+    text-decoration: underline;
+    }
+
+.dark-mode .copy-button :hover {
+    color: #000000;
+    text-decoration: underline;
+    }
+
+@media only screen and (max-width: 1024px) {
+    .contact {
+    flex-direction: column; /* Change to vertical layout */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+    height: auto;
+    padding: 8px; /* Adjust height as needed */
+    }
+        
+.address-column,
+.email-column {
+    width: 100%; /* Occupy full width */
+    height: auto;
+    padding-top: 128px;
+    padding-bottom: 24px;
+    font-size: 0.8em;
+    text-align: left; /* Adjust height as needed */
+    }
+      
+.copy-button {
+    padding-right: 0; /* Remove right padding */
+    padding-top: 24px;
+    padding-bottom: 30vh; /* Add some space between buttons */
+    }
+    }
+
+
+.column-right {
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    flex: 12%;
+    justify-content: space-between;
+    height: 100vh;
+    padding-top: 110px;
+    padding-bottom: 24px;
+    }
+
+
+    
+    @media only screen and (max-width: 1024px) {
+        .column-left {
+        display: none;
+        }
+        }
+
+.nav { 
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(1rem, 0.35vw + 1.1rem, 1.75rem);
+    top: 42px;
+    right: 82px;
+    cursor: pointer;
+    }
+
+.nav a{
+    color: #BEE38D;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    }
+
+.nav a:hover {
+    color: #8FFF00;
+    }
+
+.nav a.active {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
+
+.dark-mode .nav a {
+    color: #808080; /* Change text color for navigation links in dark mode */
+    }
+    
+.dark-mode .nav a:hover {
+    color: #000000; /* Change hover color for navigation links in dark mode */
+    }
+    
+.dark-mode .nav a.active {
+    color: #000000; /* Change active link color in dark mode */
+    }
+    
+.contrast-button {
+    position: fixed;
+    align-self: flex-end;
+    margin-top: auto;
+    bottom: 42px;
+    right: 102px;
+    border: none; 
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+    background-color: transparent;
+    cursor: pointer;
+    }
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        .contrast-button {
+            right: 62px;
+            bottom: 24px;
+        }
+         }
+
+.contrast-button img {
+    width: 32px;
+    height: auto;
+    color: #BEE38D;
+    transition: transform 0.35s ease-in-out; 
+    }
+
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        .contrast-button img{
+            width: 24px;
+            height: auto;
+        }
+        }
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .nav{
+        top: 12px;
+        font-size: clamp(1.125rem, 0.8vw + 1rem, 1.5rem);
+        padding: 10px;
+        right: 42px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .column-left {
+    display: none;
+    }
+    }
+
+@media only screen and (max-width: 600px) {
+    .nav,
+    .column-left,
+    .column-right {
+    display: none;
+    }
+    }
+
+.column-banner {
+    height: 2200vh;
+    position: fixed;
+    right: 0;
+    overflow: visible;
+    text-align: center;
+    color: var(--main-text-color);
+    opacity: 1;
+    z-index: 9995;
+    }
+    
+    .vertical-text {
+        height: fit-content;
+        width: 80px;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-size: clamp(1rem, 0.35vw + 1.1rem, 1.75rem);
+        line-height: 1.5; /* Corrected line-height value */
+        margin: 0;
+        padding: 26px; /* Adjusted padding */
+        display: inline-block;
+        animation: moveText 25s linear infinite;
+    }
+
+@keyframes moveText {
+    0% {
+    transform: translate3d(0%, 70%, 0) scale3d(1, 1, 1) /* Starting position at the bottom */
+    }
+    100% {
+    transform: translate3d(0%, -100%, 0) scale3d(1, 1, 1)  /* Ending position at the top */
+    }
+    }
+    
+    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+        .vertical-text {
+            padding-right: 28px; /* Safari-specific padding */
+            }
+            } 
+
+
+    @media only screen and (max-width: 600px) {
+        .vertical-text {
+            height: fit-content;
+            writing-mode: vertical-rl;
+            align-items: center;
+            justify-content: center;
+            text-orientation: mixed; 
+            font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+            line-height: 1.5; 
+            margin: 0 auto; 
+            padding-bottom: 12px;
+            display: inline-block; 
+            animation: moveText 25s linear infinite; 
+            }
+         }
+    
+
+    .button-link {
+        text-decoration: none;
+        cursor: pointer;
+        color: inherit; 
+      }
+      
+      .button-link:hover {
+        text-decoration: underline; 
+      }
+      
+      .button-text {
+        margin: 0; 
+    }
+
+      
+.footer {
+    display: flex;
+    height: 10%;
+    padding-top: 64px;
+    padding-bottom: 54px;
+    text-align: left;
+    font-size:  clamp(0.875rem, 0.4vw + 0.8rem, 1.0625rem); 
+    line-height: 1.5;
+    }
+
+.copyright-column {  
+    width: 50%;
+    flex-direction: column;
+    height: fit-content;
+    color: #BEE38D;
+    }
+
+.dark-mode .copyright-column {
+    color: #808080; 
+    }
+
+.back-to-top-column {
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 20px;
+    color: #BEE38D;
+    transition: transform 0.35s ease-in-out;
+    text-decoration: underline;
+    cursor: pointer;
+    }
+
+.back-to-top-column :hover {
+    color: #8FFF00;
+    text-decoration: underline;
+    }
+
+.dark-mode .back-to-top-column {
+    color: #808080; 
+    text-decoration: underline;
+    }
+
+.dark-mode .back-to-top-column :hover{
+    color: #000; 
+    text-decoration: underline;
+    }
+
+@media only screen and (max-width: 1024px) {
+.footer {
+    display: flex;
+    height: 10%;
+    padding: 8px;
+    padding-bottom: 52px;
+    text-align: left;
+    justify-content: space-between;
+    line-height: 1.5;
+    }
+}
+</style>
         
 </head>
 
@@ -150,73 +1106,81 @@
                   <div class="row-1">BORN '91 IN POSNAN, POLAND. LIVES&nbsp;AND&nbsp;WORKS&nbsp;IN&nbsp;SWITZERLAND.</div>
                   <div class="row-2">As a queer-feminist artist, I delve deep into the symbolism of the vagina, interpreting it as a potent emblem of creativity and knowledge. My artistic vision extends across diverse mediums, including site-specific installations, sculpture, paintings, and live performances. In my work I integrate materials such as plastic, wood, and found objects, I create evocative pieces that resonate with&nbsp;viewers.</div>
                   <div class="row-3">I skillfully blend elements of minimalism with hints of kitsch aesthetics and subtle influences from street art, resulting in compositions that captivate and provoke thought. Drawing from my background in art education and therapy, I approach my practice with a profound belief in the transformative power of art and creativity, aiming to ignite introspection and dialogue through my&nbsp;work.</div>
-         </section>  
+        </section>  
 
-         <section id="Art">
-                  <div class="box">
+        <section id="Art">
+            <div class="box">
+                <div class="gallery-column-left-1">
 
-          <div class="gallery-column-left-1">
+                    <div class="photo-34" data-description="Untitled, 2025">
+                        <img src="photo-gallery/34-Untitled 2024.gif" height="100%" width="100%" alt="Untitled, 2025">
 
-            <div class="photo-34" data-description="Untitled, 2025">
-                <img src="photo-gallery/34-Untitled 2024.gif" height="100%" width="100%" alt="Untitled, 2025">
-                <div class="text-overlay">
-                    <div class="text">
-                     <div class="icon">
-                      <img src="icons/camera-icon.svg">
+                            <div class="text-overlay">
+                                <div class="text">
+                                    <div class="icon">
+                                        <img src="icons/camera-icon.svg">
+                                    </div>
+                                    <div class="description">Untitled, 2025
+                                    </div>
+                                </div>
+                            </div>
                     </div>
-                    <div class="description">Untitled, 2025</div>
-                  </div>
-                </div>
-              </div>
 
-            <div class="photo-33" data-description="Boss bitch - Prague, 2024">
-              <img src="photo-gallery/33-Boss bitch - Prague 2024-2.png" height="100%" width="100%" alt="Boss bitch - Prague, 2024">
-              <div class="text-overlay">
-                  <div class="text">
-                   <div class="icon">
-                    <img src="icons/camera-icon.svg">
-                  </div>
-                  <div class="description">Boss bitch - Prague, 2024</div>
-                </div>
-              </div>
-            </div>
+                    <div class="photo-33" data-description="Boss bitch - Prague, 2024">
+                        <img src="photo-gallery/33-Boss bitch - Prague 2024-2.png" height="100%" width="100%" alt="Boss bitch - Prague, 2024">
 
-            <div class="photo-30" data-description="The art of Beauty - Posnan, 2024">
-              <img src="photo-gallery/30-The art of beauty - Posnan 2024.png" height="100%" width="100%" alt="photo-30">
-              <div class="text-overlay">
-                  <div class="text">
-                   <div class="icon">
-                    <img src="icons/camera-icon.svg">
-                  </div>
-                  <div class="description">The art of beauty - Posnan, 2024</div>
-                </div>
-              </div>
-            </div>
+                            <div class="text-overlay">
+                                <div class="text">
+                                    <div class="icon">
+                                        <img src="icons/camera-icon.svg">
+                                    </div>
+                                    <div class="description">Boss bitch - Prague, 2024                                        
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
 
+                    <div class="photo-30" data-description="The art of Beauty - Posnan, 2024">
+                        <img src="photo-gallery/30-The art of beauty - Posnan 2024.png" height="100%" width="100%" alt="photo-30">
+              
+                            <div class="text-overlay">
+                                <div class="text">
+                                    <div class="icon">
+                                        <img src="icons/camera-icon.svg">
+                                    </div>
+                                    <div class="description">The art of beauty - Posnan, 2024
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
 
-            <div class="photo-27" data-description="Open Studio Exhibition — Vevey, 2024">
-              <img src="photo-gallery/27-Teenage dream — Mix technique, 2024.gif" height="100%" width="100%" alt="photo-27">
-              <div class="text-overlay">
-                  <div class="text">
-                   <div class="icon">
-                    <img src="icons/camera-icon.svg">
-                  </div>
-                  <div class="description">Open Studio Exhibition — Vevey, 2024</div>
-                </div>
-              </div>
-            </div>
+                    <div class="photo-27" data-description="Open Studio Exhibition — Vevey, 2024">
+                        <img src="photo-gallery/27-Teenage dream — Mix technique, 2024.gif" height="100%" width="100%" alt="photo-27">
 
-            <div class="photo-20" data-description="Open Studio Exhibition — Vevey, 2024">
-              <img src="photo-gallery/25-Open Studio Exhibition — Vevey, 2024.gif" height="100%" width="100%" alt="photo-20">
-              <div class="text-overlay">
-                  <div class="text">
-                   <div class="icon">
-                    <img src="icons/camera-icon.svg">
-                  </div>
-                  <div class="description">Open Studio Exhibition — Vevey, 2024</div>
-                </div>
-              </div>
-            </div>
+                            <div class="text-overlay">
+                                <div class="text">
+                                    <div class="icon">
+                                        <img src="icons/camera-icon.svg">
+                                    </div>
+                                    <div class="description">Open Studio Exhibition — Vevey, 2024
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="photo-20" data-description="Open Studio Exhibition — Vevey, 2024">
+                        <img src="photo-gallery/25-Open Studio Exhibition — Vevey, 2024.gif" height="100%" width="100%" alt="photo-20">
+                            
+                            <div class="text-overlay">
+                                <div class="text">
+                                    <div class="icon">
+                                        <img src="icons/camera-icon.svg">
+                                    </div>
+                                    <div class="description">Open Studio Exhibition — Vevey, 2024
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
 
 
           <div class="photo-1" data-description="The ablutions — Berlin, 2023">
@@ -278,15 +1242,9 @@
                 </div>
               </div>
             </div>
-
-
-
-            
-
         </div>
 
-        <div class="gallery-column-middle-1">
-
+    <div class="gallery-column-middle-1">
           <div class="photo-6" data-description="Boss bitch - Prague, 2024">
             <img src="photo-gallery/19-Twerk for art, Berlin 2020.gif" height="100%" width="100%" alt="photo-6">
             <div class="text-overlay">
@@ -299,17 +1257,18 @@
             </div>
           </div>
 
-          <div class="photo-29" data-description="Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024">
-            <img src="photo-gallery/29-Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024.JPG" height="100%" width="100%" alt="photo-29">
-            <div class="text-overlay">
-              <div class="text">
-                <div class="icon">
-                  <img src="icons/camera-icon.svg">
-                </div>
-                <div class="description">Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024</div>
-              </div>
-            </div>
-          </div>
+                        <div class="photo-29" data-description="Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024">
+                            <img src="photo-gallery/29-Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024.JPG" height="100%" width="100%" alt="photo-29">
+                                <div class="text-overlay">
+                                    <div class="text">
+                                        <div class="icon">
+                                            <img src="icons/camera-icon.svg">
+                                        </div>
+                                        <div class="description">Good girl — Untergeschlossen Pandora — Berlin, Germany, 2024
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
 
           <div class="photo-21" data-description="Faith. Hope. Love — Cast bronze with red patina, 2021">
             <img src="photo-gallery/26-Faith. Hope. Love — Cast bronze with red patina.gif" height="100%" width="100%" alt="photo-21">
@@ -411,14 +1370,9 @@
               </div>
             </div>
           </div>
-
-          
-
-        </div>
+    </div>
 
         <div class="gallery-column-right-1">
-
-
           <div class="photo-28" data-description="Birth days by Remi Ugarte Vallerios — Berlin, 2021">
             <img src="photo-gallery/28-Birth days by Remi Ugarte Vallerios — Berlin, 2021.jpg" height="100%" width="100%" alt="photo-28">
             <div class="text-overlay">
@@ -533,19 +1487,13 @@
               </div>
             </div>
           </div>
-
-
-
         </div>
-
-                  </div>
+</div>
          </section>
 
               <div class="modal-container" id="modal-container">
-              <div class="modal-background" id="modal-background"></div>
               <div class="modal-content" id="modal-content">
-              <img id="modal-image" src="" alt="Modal Image">
-              <div class="description" id="modal-description"></div>
+
             
 </div>
          </div>
@@ -627,7 +1575,6 @@
 
     <div class="column-right">
        <nav class="nav">
-
         <a href="#About" class="nav-link">About</a>
         <a href="#Art" class="nav-link">Feed</a>
         <a href="#Exhibitions" class="nav-link">Exhibitions</a>
@@ -699,9 +1646,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link-mobile');
     navLinks.forEach(function (link) {
         link.addEventListener('click', function () {
-            // Check if the clicked element is not the hamburger menu button
             if (!this.classList.contains('menu-button')) {
-                dropdownMenu.classList.remove('show'); // Hide the dropdown menu
+                dropdownMenu.classList.remove('show'); 
             }
         });
     });
@@ -734,394 +1680,21 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.row-2').classList.add('show');
       document.querySelector('.row-3').classList.add('show');
       
-  }, 500); // 500 milliseconds delay
+  }, 500); 
 });
 
 
   function copyEmailToClipboard() {
-      // Create a temporary text area element to use for copying
       var tempInput = document.createElement('textarea');
-      // Set its value to the email address
       tempInput.value = 'crystal.puss.art@gmail.com';
-      // Append it to the body
       document.body.appendChild(tempInput);
-      // Select its content
       tempInput.select();
-      // Execute the copy command
       document.execCommand('copy');
-      // Remove the temporary input from the document
       document.body.removeChild(tempInput);
-      
-      // Alert or indicate to the user that the email has been copied
       alert('Email copied to clipboard!');
   }
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const modalContainer = document.getElementById('modal-container');
-    const modalBackground = document.getElementById('modal-background');
-    const modalContent = document.getElementById('modal-content');
-    const modalImage = document.getElementById('modal-image');
-    const modalDescription = document.getElementById('modal-description');
-    
-    const photo34 = document.querySelector('.photo-34');
-    photo33.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo33 = document.querySelector('.photo-33');
-    photo33.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo31 = document.querySelector('.photo-31');
-    photo31.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo30 = document.querySelector('.photo-30');
-    photo30.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo1 = document.querySelector('.photo-1');
-    photo1.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; 
-        modalContainer.style.display = 'block';
-    });
-
-    const photo2 = document.querySelector('.photo-2');
-    photo2.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo3 = document.querySelector('.photo-3');
-    photo3.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo4 = document.querySelector('.photo-4');
-    photo4.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo5 = document.querySelector('.photo-5');
-    photo5.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo6 = document.querySelector('.photo-6');
-    photo6.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo7 = document.querySelector('.photo-7');
-    photo7.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo8 = document.querySelector('.photo-8');
-    photo8.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-
-        const vimeoButton = document.createElement('div');
-        vimeoButton.className = 'vimeo-button-modal';
-        vimeoButton.innerHTML = `
-            <a href="https://vimeo.com/886890976">
-                <img src="icons/vimeo-icon.svg" alt="See on Vimeo" class="vimeo-icon"> 
-            </a>
-        `;
-        modalContent.appendChild(vimeoButton);
-    });
-
-    const photo9 = document.querySelector('.photo-9');
-    photo9.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo10 = document.querySelector('.photo-10');
-    photo10.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-
-        const vimeoButton = document.createElement('div');
-        vimeoButton.className = 'vimeo-button-modal';
-        vimeoButton.innerHTML = `
-            <a href="https://vimeo.com/886838395">
-                <img src="icons/vimeo-icon.svg" alt="See on Vimeo" class="vimeo-icon"> 
-            </a>
-        `;
-        modalContent.appendChild(vimeoButton);
-    });
-
-    const photo11 = document.querySelector('.photo-11');
-    photo11.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo12 = document.querySelector('.photo-12');
-    photo12.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo13 = document.querySelector('.photo-13');
-    photo13.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo14 = document.querySelector('.photo-14');
-    photo14.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo15 = document.querySelector('.photo-15');
-    photo15.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo16 = document.querySelector('.photo-16');
-    photo16.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo17 = document.querySelector('.photo-17');
-    photo17.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo18 = document.querySelector('.photo-18');
-    photo18.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-
-        const vimeoButton = document.createElement('div');
-        vimeoButton.className = 'vimeo-button-modal';
-        vimeoButton.innerHTML = `
-            <a href="https://vimeo.com/user192634080">
-                <img src="icons/vimeo-icon.svg" alt="See on Vimeo" class="vimeo-icon"> 
-            </a>
-        `;
-        modalContent.appendChild(vimeoButton);
-    });
-    
-
-    const photo19 = document.querySelector('.photo-19');
-    photo19.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo20 = document.querySelector('.photo-20');
-    photo20.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo21 = document.querySelector('.photo-21');
-    photo21.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo22 = document.querySelector('.photo-22');
-    photo22.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo24 = document.querySelector('.photo-24');
-    photo24.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo27 = document.querySelector('.photo-27');
-    photo27.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo28 = document.querySelector('.photo-28');
-    photo28.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-    const photo29 = document.querySelector('.photo-29');
-    photo29.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        const description = this.querySelector('.text').innerText;
-        const iconHTML = '<img src="icons/camera-icon.svg" alt="Camera Icon" style="margin-right: 8px;">';
-        modalImage.src = imgSrc;
-        modalDescription.innerHTML = iconHTML + description; // Append icon HTML to description
-        modalContainer.style.display = 'block';
-    });
-
-
-    modalBackground.addEventListener('click', function () {
-        modalContainer.style.display = 'none';
-        // Remove Vimeo button when modal is closed
-        const vimeoButtonModal = document.querySelector('.vimeo-button-modal');
-        if (vimeoButtonModal) {
-            modalContent.removeChild(vimeoButtonModal);
-        }
-    });
-
-    closeModal.addEventListener('click', function () {
-        modalContainer.style.display = 'none';
-        // Remove Vimeo button when modal is closed
-        const vimeoButtonModal = document.querySelector('.vimeo-button-modal');
-        if (vimeoButtonModal) {
-            modalContent.removeChild(vimeoButtonModal);
-        }
-    });
-
-
-    modalBackground.addEventListener('click', function () {
-        modalContainer.style.display = 'none';
-    });
-
-    closeModal.addEventListener('click', function () {
-        modalContainer.style.display = 'none';
-    });
-
-    
-});
 
 </script>
 
