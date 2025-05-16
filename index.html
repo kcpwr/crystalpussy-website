@@ -33,12 +33,12 @@
         
             .popup-1 {
                 background: #D1A3B7;
-                padding: clamp(12px, 1.5vw + 8px, 20px);
+                padding: clamp(14px, 2vw + 4px, 20px);
                 text-align: center;
-                box-shadow: 0 0 20px 20px #D1A3B7;
+                box-shadow: 0 0 30px 40px #D1A3B7;
                 width: min(90%, 400px);
                 max-width: min(90vw, 400px);
-                border-radius: 12px;
+                border-radius: 60px;
                 width: 90%;
             }
         
@@ -55,22 +55,38 @@
             .popup-1 button {
               flex: 1; 
               padding: 15px;
+              font-weight: 600;
               border: none;
               width: 48%;
+              gap: 10px;
               font-size: clamp(1rem, 0.5vw, 1.5rem);
               cursor: pointer;
               max-width: 100%; 
+              border-radius: 10px;
+              border: 1px solid #8FFF00;
               box-sizing: border-box; 
             }
         
             .popup-1 button#confirm {
-              background-color: #8FFF00;
-              color: #D1A3B7;
+                background-color: #D1A3B7;
+                color: #8FFF00;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+            }
+            .popup-1 button#confirm:hover {
+                background-color: #8FFF00; 
+                color: #D1A3B7;
+                box-shadow: 0 0 8px #8FFF00;
             }
         
             .popup-1 button#exit {
-              background-color: #8FFF00;
-              color: #D1A3B7;
+                background-color: #D1A3B7;
+                color: #8FFF00;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+            }
+            .popup-1 button#exit:hover {
+                background-color: #8FFF00; 
+                color: #D1A3B7;
+                box-shadow: 0 0 8px #8FFF00; 
             }
         
             .hidden {
