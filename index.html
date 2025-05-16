@@ -38,7 +38,7 @@
                 box-shadow: 0 0 30px 40px #D1A3B7;
                 width: min(90%, 400px);
                 max-width: min(90vw, 400px);
-                border-radius: 60px;
+                border-radius: 40px;
                 width: 90%;
             }
         
@@ -531,8 +531,7 @@ html {
 .gallery-column-left-1 img,
 .gallery-column-middle-1 img,
 .gallery-column-right-1 img {
-    width: 100%; 
-    max-width: 100%; 
+
     position: relative;
     overflow: hidden;
 
@@ -584,29 +583,31 @@ html {
 
 .text {
     position: absolute;
-    width: 100%;
-    align-items: flex-end;
-    font-size: clamp(0.75rem, 0.3vw + 0.7rem, 0.75rem);
-    height: clamp(16px, 4vh, 32px);
-    bottom: 0px;
-    left: 0;
+    max-width: 90%;
+    min-width: 40px; /* Prevents collapse on empty content */
+    width: max-content; /* Allows horizontal expansion */
+    height: auto; /* Remove fixed height */
+    min-height: clamp(16px, 4vh, 32px); /* Minimum height */
+    bottom: 12px;
+    left: 10px;
+    padding: 8px; 
     gap: 5px;
-    padding: 0px 12px 0px 4px; 
     background-color: #D1A3B7;
     color: #8FFF00; 
-    display: flex; 
-    align-items: center; 
-    transition: opacity 0.15s ease-in-out, backdrop-filter 0.15s ease-in-out;
-
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    font-size: clamp(0.75rem, 0.3vw + 0.7rem, 0.75rem);
+    transition: all 0.15s ease-in-out;
+    white-space: normal; /* Allows text wrapping */
+    word-wrap: break-word; /* Breaks long words */
+    overflow: visible; /* Shows overflow content */
 }
 .camera-ico {
     padding: 0;
-    width: auto;
-    vertical-align: middle;
 }
 .icon img {
-
-    height: auto;
+    min-height: clamp(12px, 2vh, 24px)
 }
 
 @media only screen and (max-width: 600px) {
