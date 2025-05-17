@@ -29,6 +29,9 @@
               align-items: center;
               z-index: 9999;
               backdrop-filter: blur(8px); 
+              transition: 
+                    opacity 0.4s ease-in-out,
+                    backdrop-filter 0.4s ease-in-out;
             }
         
             .popup-1 {
@@ -40,6 +43,11 @@
                 max-width: min(90vw, 400px);
                 border-radius: 40px;
                 width: 90%;
+                transform: scale(1);
+                opacity: 1;
+                transition: 
+                    transform 0.3s ease-in-out,
+                    opacity 0.3s ease-in-out;
             }
         
             .popup-1 h2 {
@@ -88,7 +96,15 @@
                 color: #D1A3B7;
                 box-shadow: 0 0 8px #8FFF00; 
             }
-        
+            .overlay-1.fade-out {
+  opacity: 0;
+  backdrop-filter: blur(0);
+}
+
+.popup-1.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
             .hidden {
               display: none;
             }
@@ -531,10 +547,8 @@ html {
 .gallery-column-left-1 img,
 .gallery-column-middle-1 img,
 .gallery-column-right-1 img {
-
     position: relative;
     overflow: hidden;
-
     }
     
 .text-overlay {
@@ -1645,19 +1659,51 @@ html {
 
 
 <script>
-
-const popup = document.getElementById('age-popup');
+    const overlay = document.querySelector('.overlay-1');
+    const popup = document.querySelector('.popup-1');
     const confirmButton = document.getElementById('confirm');
     const exitButton = document.getElementById('exit');
+    
 
-    confirmButton.addEventListener('click', () => {
-      popup.classList.add('hidden');
-    });
+    function closePopup() {
 
-    exitButton.addEventListener('click', () => {
-      window.location.href = 'https://www.google.com';
+      overlay.classList.add('fade-out');
+      popup.classList.add('fade-out');
+      
+
+      setTimeout(() => {
+        overlay.remove();
+
+      }, 400); 
+    }
+    
+    confirmButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      closePopup();
     });
-</script>
+    
+    exitButton.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      overlay.classList.add('fade-out');
+      popup.classList.add('fade-out');
+      
+      setTimeout(() => {
+        window.location.href = 'https://www.google.com';
+      }, 350); 
+    });
+    
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closePopup();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePopup();
+      }
+    });
+    </script>
 
 <script>
 
