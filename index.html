@@ -791,7 +791,7 @@ html {
     }
 
 .dark-mode .copy-button {
-    color: #808080; /* Text color for light yellow in dark mode */
+    color: #808080; 
     text-decoration: underline;
     }
 
@@ -802,27 +802,27 @@ html {
 
 @media only screen and (max-width: 1024px) {
     .contact {
-    flex-direction: column; /* Change to vertical layout */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center text */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     height: auto;
-    padding: 8px; /* Adjust height as needed */
+    padding: 8px;
     }
         
 .address-column,
 .email-column {
-    width: 100%; /* Occupy full width */
+    width: 100%;
     height: auto;
     padding-top: 128px;
     padding-bottom: 24px;
     font-size: 0.8em;
-    text-align: left; /* Adjust height as needed */
+    text-align: left;
     }
       
 .copy-button {
-    padding-right: 0; /* Remove right padding */
+    padding-right: 0;
     padding-top: 24px;
-    padding-bottom: 30vh; /* Add some space between buttons */
+    padding-bottom: 30vh;
     }
     }
 
@@ -873,15 +873,15 @@ html {
     }
 
 .dark-mode .nav a {
-    color: #808080; /* Change text color for navigation links in dark mode */
+    color: #808080;
     }
     
 .dark-mode .nav a:hover {
-    color: #000000; /* Change hover color for navigation links in dark mode */
+    color: #000000;
     }
     
 .dark-mode .nav a.active {
-    color: #000000; /* Change active link color in dark mode */
+    color: #000000;
     }
     
 .contrast-button {
@@ -956,25 +956,25 @@ html {
         writing-mode: vertical-rl;
         text-orientation: mixed;
         font-size: clamp(1rem, 0.35vw + 1.1rem, 1.75rem);
-        line-height: 1.5; /* Corrected line-height value */
+        line-height: 1.5;
         margin: 0;
-        padding: 26px; /* Adjusted padding */
+        padding: 26px;
         display: inline-block;
         animation: moveText 25s linear infinite;
     }
 
 @keyframes moveText {
     0% {
-    transform: translate3d(0%, 70%, 0) scale3d(1, 1, 1) /* Starting position at the bottom */
+    transform: translate3d(0%, 70%, 0) scale3d(1, 1, 1)
     }
     100% {
-    transform: translate3d(0%, -100%, 0) scale3d(1, 1, 1)  /* Ending position at the top */
+    transform: translate3d(0%, -100%, 0) scale3d(1, 1, 1)
     }
     }
     
     @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
         .vertical-text {
-            padding-right: 28px; /* Safari-specific padding */
+            padding-right: 28px;
             }
             } 
 
@@ -1149,6 +1149,34 @@ html {
             <div class="box">
                 <div class="gallery-column-left-1">
 
+                    <div class="photo-A11" data-description="A11-Artist_s Representation, Roseville, 2025">
+                        <img src="photo-gallery/A11-Artist_s Representation, Roseville, 2025.jpeg" height="100%" width="100%" alt="Untitled, 2025">
+
+                            <div class="text-overlay">
+                                <div class="text">
+                                    <div class="icon">
+                                        <img src="icons/camera-ico.svg">
+                                    </div>
+                                    <div class="description">Artist's Representation — Roseville '25
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="photo-A10" data-description="A10-Cocon, Festival HORS LIT XI, La Maladaire, 2025">
+                        <img src="photo-gallery/A10-Cocon, Festival HORS LIT XI, La Maladaire, 2025.jpeg" height="100%" width="100%" alt="Untitled, 2025">
+
+                            <div class="text-overlay">
+                                <div class="text">
+                                    <div class="icon">
+                                        <img src="icons/camera-ico.svg">
+                                    </div>
+                                    <div class="description">Cocon, Festival HORS LIT XI — La Maladaire '25
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
                     <div class="photo-34" data-description="Untitled, 2025">
                         <img src="photo-gallery/ug-pandora-womensworld-25.gif" height="100%" width="100%" alt="Untitled, 2025">
 
@@ -1286,6 +1314,33 @@ html {
 
     <div class="gallery-column-middle-1">
 
+        <div class="photo-B11" data-description="-">
+            <img src="photo-gallery/B11-Boss Bitch Camping Reception, Festival HORS LIT XI,  La Maladaire, 2025.01.jpeg" height="100%" width="100%" alt="Untitled, 2025">
+
+                <div class="text-overlay">
+                    <div class="text">
+                        <div class="icon">
+                            <img src="icons/camera-ico.svg">
+                        </div>
+                        <div class="description">Boss Bitch Camping Reception, Festival HORS LIT XI — La Maladaire '25
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="photo-B10" data-description="Lokum Stonwell, Przesiew II, 2025">
+            <img src="photo-gallery/B10-Lokum Stonwell, Przesiew II, 2025.jpeg" height="100%" width="100%" alt="Untitled, 2025">
+
+                <div class="text-overlay">
+                    <div class="text">
+                        <div class="icon">
+                            <img src="icons/camera-ico.svg">
+                        </div>
+                        <div class="description">Lokum Stonwell — Przesiew II '25
+                        </div>
+                    </div>
+                </div>
+        </div>
 
             <div class="photo-34" data-description="Untitled, 2025">
                 <img src="photo-gallery/34-Untitled 2024.gif" height="100%" width="100%" alt="Untitled, 2025">
@@ -1361,17 +1416,16 @@ html {
                             </a>
                           </div>
             
-                          <div class="text-overlay">
-                            <div class="text">
-                              <div class="icon">
-                                <img src="icons/camera-icon.svg">
-                              </div>
-                              <div class="description">You don't have to be cool II — Berlin '23
-                              </div>
-                            </div>
+                <div class="text-overlay">
+                    <div class="text">
+                        <div class="icon">
+                         <img src="icons/camera-icon.svg">
                           </div>
-            
-                      </div>
+                      <div class="description">You don't have to be cool II — Berlin '23
+                  </div>
+                </div>
+            </div>
+          </div>
 
           <div class="photo-9" data-description="Palm tree — painted stainless steel, 2017">
             <img src="photo-gallery/9-Palm tree — painted stainless steel, 2017.png" height="100%" width="100%" alt="photo-9">
@@ -1384,8 +1438,6 @@ html {
               </div>
             </div>
           </div>
-
-
           
 
           <div class="photo-10" data-description="Pussy on fire, 2021">
@@ -1397,6 +1449,7 @@ html {
               </a>
             </div>
             
+
             <div class="text-overlay">
               <div class="text">
                 <div class="icon">
@@ -1430,9 +1483,38 @@ html {
               </div>
             </div>
           </div>
-    </div>
+        </div>
 
         <div class="gallery-column-right-1">
+
+            <div class="photo-C11" data-description="-">
+                <img src="photo-gallery/C11-Boss Bitch Camping Reception, Festival HORS LIT XI,  La Maladaire, 2025.02" height="100%" width="100%" alt="Untitled, 2025">
+
+                    <div class="text-overlay">
+                        <div class="text">
+                            <div class="icon">
+                                <img src="icons/camera-ico.svg">
+                            </div>
+                            <div class="description">Boss Bitch Camping Reception, Festival HORS LIT XI — La Maladaire '25
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="photo-C10" data-description="Untitled, 2025">
+                <img src="photo-gallery/C10-Untiteld, 2025.jpeg" height="100%" width="100%" alt="Untitled, 2025">
+
+                    <div class="text-overlay">
+                        <div class="text">
+                            <div class="icon">
+                                <img src="icons/camera-ico.svg">
+                            </div>
+                            <div class="description">Untiteld '25
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
           <div class="photo-28" data-description="Birth days by Remi Ugarte Vallerios — Berlin, 2021">
             <img src="photo-gallery/28-Birth days by Remi Ugarte Vallerios — Berlin, 2021.jpg" height="100%" width="100%" alt="photo-28">
             <div class="text-overlay">
