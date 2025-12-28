@@ -507,6 +507,7 @@ html {
 
 
 .box {
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
@@ -514,7 +515,18 @@ html {
     padding-top: 164px;
     padding-bottom: 164px;
     overflow: hidden;
+    filter: grayscale(0%); /* Standard: alle Bilder farbig */
+    transition: filter 0.3s ease;
     }
+
+.box:hover img {
+    filter: grayscale(100%); /* Wenn man über die Galerie fährt → alle Bilder grau */
+}
+
+/* Das Bild, das gerade gehovert wird → wieder farbig */
+.box .photo-A11:hover img {
+    filter: grayscale(0%);
+}
   
 .gallery-column-left-1,
 .gallery-column-middle-1,
@@ -638,33 +650,33 @@ html {
     }
     
 
-    .photo-1:hover .text-overlay,
-    .photo-2:hover .text-overlay,
-    .photo-3:hover .text-overlay,
-    .photo-4:hover .text-overlay,
-    .photo-5:hover .text-overlay,
-    .photo-6:hover .text-overlay,
-    .photo-7:hover .text-overlay,
-    .photo-8:hover .text-overlay,
-    .photo-9:hover .text-overlay,
-    .photo-10:hover .text-overlay,
-    .photo-11:hover .text-overlay,
-    .photo-12:hover .text-overlay,
-    .photo-13:hover .text-overlay,
-    .photo-14:hover .text-overlay,
-    .photo-15:hover .text-overlay,
-    .photo-16:hover .text-overlay,
-    .photo-17:hover .text-overlay,
-    .photo-18:hover .text-overlay,
-    .photo-19:hover .text-overlay,
-    .photo-20:hover .text-overlay,
-    .photo-21:hover .text-overlay,
-    .photo-22:hover .text-overlay,
-    .photo-28:hover .text-overlay,
-    .photo-29:hover .text-overlay,
-    .photo-27:hover .text-overlay,
-    .photo-34:hover .text-overlay,
-    photo-A11:hover .text-overlay,
+.photo-1:hover .text-overlay,
+.photo-2:hover .text-overlay,
+.photo-3:hover .text-overlay,
+.photo-4:hover .text-overlay,
+.photo-5:hover .text-overlay,
+.photo-6:hover .text-overlay,
+.photo-7:hover .text-overlay,
+.photo-8:hover .text-overlay,
+.photo-9:hover .text-overlay,
+.photo-10:hover .text-overlay,
+.photo-11:hover .text-overlay,
+.photo-12:hover .text-overlay,
+.photo-13:hover .text-overlay,
+.photo-14:hover .text-overlay,
+.photo-15:hover .text-overlay,
+.photo-16:hover .text-overlay,
+.photo-17:hover .text-overlay,
+.photo-18:hover .text-overlay,
+.photo-19:hover .text-overlay,
+.photo-20:hover .text-overlay,
+.photo-21:hover .text-overlay,
+.photo-22:hover .text-overlay,
+.photo-28:hover .text-overlay,
+.photo-29:hover .text-overlay,
+.photo-27:hover .text-overlay,
+.photo-34:hover .text-overlay,
+.photo-A11:hover .text-overlay,
 .photo-A10:hover .text-overlay,
 .photo-B11:hover .text-overlay,
 .photo-B10:hover .text-overlay,
