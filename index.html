@@ -505,7 +505,6 @@ html {
     overflow: hidden;
     }
 
-
 .box {
     
     display: flex;
@@ -515,19 +514,9 @@ html {
     padding-top: 164px;
     padding-bottom: 164px;
     overflow: hidden;
-    filter: grayscale(0%); /* Standard: alle Bilder farbig */
-    transition: filter 0.3s ease;
+    cursor: pointer;
     }
-
-.box:hover img {
-    filter: grayscale(100%); /* Wenn man über die Galerie fährt → alle Bilder grau */
-}
-
-/* Das Bild, das gerade gehovert wird → wieder farbig */
-.box .photo-A11:hover img {
-    filter: grayscale(0%);
-}
-  
+ 
 .gallery-column-left-1,
 .gallery-column-middle-1,
 .gallery-column-right-1 {
