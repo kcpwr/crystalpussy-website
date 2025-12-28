@@ -505,8 +505,7 @@ html {
     overflow: hidden;
     }
 
-.box {
-    
+.box {  
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
@@ -516,7 +515,52 @@ html {
     overflow: hidden;
     cursor: pointer;
     }
- 
+ /* LIGHTBOX OVERLAY */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+/* ACTIVE */
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* IMAGE */
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    border-radius: 6px;
+}
+
+/* CLOSE BUTTON */
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 42px;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2);
+}
+
 .gallery-column-left-1,
 .gallery-column-middle-1,
 .gallery-column-right-1 {
@@ -1821,7 +1865,36 @@ html {
   });
   
   </script>
-
+<script>
+    const images = document.querySelectorAll('.box img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    
+    // Open
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.classList.add('active');
+            lightboxImg.src = img.src;
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Close on background click
+    lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    </script>
+    
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
