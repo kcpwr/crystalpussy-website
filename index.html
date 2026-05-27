@@ -1789,32 +1789,42 @@ html {
   
   </script>
 <script>
-    const images = document.querySelectorAll('.box img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.lightbox-close');
+    document.addEventListener('DOMContentLoaded', () => {
     
-    // Open
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            lightbox.classList.add('active');
-            lightboxImg.src = img.src;
-            document.body.style.overflow = 'hidden';
+        const images = document.querySelectorAll('.box img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+    
+        // Stop if elements missing
+        if (!lightbox || !lightboxImg || !closeBtn) {
+            console.error('Lightbox elements missing');
+            return;
+        }
+    
+        // Open
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+                document.body.style.overflow = 'hidden';
+            });
         });
-    });
     
-    // Close
-    closeBtn.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    
-    // Close on background click
-    lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) {
+        // Close button
+        closeBtn.addEventListener('click', () => {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
-        }
+        });
+    
+        // Background click
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    
     });
     </script>
     
