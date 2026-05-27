@@ -413,12 +413,13 @@ html {
     width: 100%;
     display: flex;
     margin-top: clamp(20px, 5vw, 40px);
+    margin-right: clamp(12px, 8vw, 120px);
+    margin-left: clamp(12px, 8vw, 120px);
     opacity: 0;
     margin-bottom: 42px;
-    /* Pure viewport-based scaling */
-    font-size: calc(16px + 2vw);
+    font-size: clamp(1rem, 2.5vw + 0.5rem, 3rem);
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
-    line-height: 1.4;
+    line-height: clamp(1.2, 1.5vw + 0.8, 1.4);
 }
 
 .row-1.show {
