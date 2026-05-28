@@ -33,61 +33,111 @@ transition: opacity 0.4s ease-in-out,
 backdrop-filter 0.4s ease-in-out;
 }
         
-            .popup-1 {
-                background: #D1A3B7;
-                padding: clamp(14px, 2vw + 4px, 20px);
-                text-align: center;
-                box-shadow: 0 0 30px 40px #D1A3B7;
-                width: min(90%, 400px);
-                max-width: min(90vw, 400px);
-                border-radius: 40px;
-                width: 90%;
-                transform: scale(1);
-                opacity: 1;
-                transition: 
-                    transform 0.3s ease-in-out,
-                    opacity 0.3s ease-in-out;
-            }
+.popup-1 {
+    background: #D1A3B7;
+    display: grid;
+    padding: clamp(10px, 1.5vw + 4px, 16px);
+    text-align: center;
+    box-shadow: 0 0 20px 20px #D1A3B7;
+    width: calc(100% - 40px);
+    max-width: 80%;
+    border-radius: clamp(30px, 5vw, 60px);
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    opacity: 1;
+    gap: clamp(24px, 3vw, 48px);
+    transition: 
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.5vw, 10px);
+}
+
+.popup-icon {
+    flex-shrink: 0; 
+}
+
+    .popup-icon img {
+    width: clamp(75px, 8vw, 120px);
+    padding: clamp(4px, 1.15vw, 14px);
+    height: auto;
+    display: block;
+    height: auto;
+    display: block;
+}
+
+
+.popup-text {
+    display: grid;
+    gap: clamp(8px, 1.5vw, 16px);
+    font-size: clamp(1rem, 2vw, 3.5rem);
+    font-weight: 550;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
         
-            .popup-1 h2 {
-              margin: clamp(12px, 1.5vw + 8px, 20px);
-              font-size: clamp(2rem, 1.75vw, 3rem);
+
+.popup-1 .h3 {
+    color: #8FFF00;
+    
+}
+
+.popup-1 .h4 {
+    color: #BEE38D;
+}
+
+            .popup-buttons   {
+                display: flex;
+                flex-direction: row;
+                gap: clamp(12px, 3vw, 20px);
+                align-items: center;
+                justify-content: center;
+                flex-wrap: nowrap;
+                width: fill;
             }
-        
-            .popup-1 p {
-                font-size: clamp(1rem, 0.5vw, 1.5rem);
-                margin: clamp(12px, 1.5vw + 8px, 20px);
-            }
-        
+
             .popup-1 button {
-              flex: 1; 
-              padding: 15px;
-              font-weight: 600;
-              border: none;
-              width: 48%;
-              gap: 10px;
-              font-size: clamp(1rem, 0.5vw, 1.5rem);
-              cursor: pointer;
-              max-width: 100%; 
-              border-radius: 20px;
-              border: 1px solid #8FFF00;
-              box-sizing: border-box; 
+                padding: clamp(14px, 2.5vw, 20px) clamp(24px, 5vw, 40px);
+                font-size: clamp(1.1rem, 2.5vw + 0.7rem, 1.5rem);
+                font-weight: 600;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                gap: clamp(6px, 1.5vw, 12px);
+                cursor: pointer;
+                width: clamp(100%, 200px);
+                border-radius: 30px;
+                background: white;
+                transition: all 0.2s ease;
+                box-sizing: border-box;
+                width: 100%;
             }
         
             .popup-1 button#confirm {
-                background-color: #D1A3B7;
-                color: #8FFF00;
+                background-color: #BEE38D;
+                color: #D1A3B7;
                 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
             }
             .popup-1 button#confirm:hover {
                 background-color: #8FFF00; 
                 color: #D1A3B7;
+                border: 1px solid #8FFF00;
                 box-shadow: 0 0 8px #8FFF00;
             }
         
             .popup-1 button#exit {
                 background-color: #D1A3B7;
                 color: #8FFF00;
+                border: 1px solid #BEE38D;
                 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
             }
             .popup-1 button#exit:hover {
@@ -1099,30 +1149,24 @@ html {
 
 <body>
 
-  <div class="overlay-1" id="age-popup">
-
-    <div class="popup-1">
-
-      <h2>       
-        <div class="age-column">
-          <h2>18+</h2>
+    <div class="overlay-1" id="age-popup">
+        <div class="popup-1">
+            <div class="popup-content">
+                <div class="popup-icon">
+                    <img src="icon_eye_crystall.png" alt="icon">
+                </div>
+                <div class="popup-text">
+                    <div class="h3">Contains nudity. Viewer discretion advised.</div>
+                    <div class="h4">Contenu de la nudité. Discrétion conseillée.</div>
+                </div>
+                
+            </div>
+            <div class="popup-buttons">
+                <button id="confirm">Enter</button>
+                <button id="exit">Exit</button>
+            </div> 
         </div>
-
-        <div class="text-column">
-          <span class="light-green-text">AGE ADVISORY</span>
-          <span class="light-yellow-text">AVERTISSEMENT</span>
-        </div>  
-      </h2>
-
-      <p>
-        <span class="light-green-text">Explicit content. Viewer discretion advised.</span><br>
-        <span class="light-yellow-text"><br>Contenu explicite. La discrétion du spectateur est conseillée.</span>
-      </p>
-
-      <button id="confirm">Enter 18+</button>
-      <button id="exit">Exit</button>
     </div>
-  </div>
 
   
   
