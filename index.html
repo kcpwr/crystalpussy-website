@@ -393,7 +393,6 @@ html {
     color: #8FFF00;
     flex-direction: column;
     justify-content: space-between;
-    width: 87%;
     height: auto;
     background-color: #D1A3B7;
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
@@ -486,17 +485,16 @@ html {
         }
     }
 
-    .row-1 {
-    width: clamp(85%, 80% + 2vw, 87%);
+
+.row-1 {
     display: flex;
-    margin-top: clamp(30px, 5vw, 64px);
-    margin-right: clamp(128px, 2vw, 360px);
-    margin-left: clamp(16px, 1vw, 32px);
-    margin-bottom: clamp(20px, 5vw, 48px);
+    margin: clamp(20px, 3vw, 40px) 0;
     font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
     line-height: 1.6;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
 }
+
+
 
 .row-1.show {
     opacity: 1;
@@ -504,11 +502,15 @@ html {
 
 
 .row-2 {
-    width: clamp(85%, 80% + 2vw, 87%);
     display: flex;
-    margin-top: clamp(30px, 5vw, 64px);
-    margin-left: clamp(16px, 1vw, 32px);
-    margin-bottom: clamp(20px, 5vw, 48px);
+    margin: clamp(20px, 3vw, 40px) 0;
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+    line-height: 1.6;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+}
+.row-2 {
+    display: flex;
+    margin: clamp(20px, 3vw, 40px) 0;
     font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
     line-height: 1.6;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
@@ -520,12 +522,8 @@ html {
 
 
 .row-3 {
-    width: clamp(85%, 80% + 2vw, 87%);
     display: flex;
-    margin-top: clamp(30px, 5vw, 64px);
-    margin-right: clamp(128px, 2vw, 360px);
-    margin-left: clamp(16px, 1vw, 32px);
-    margin-bottom: clamp(20px, 5vw, 48px);
+    margin: clamp(20px, 3vw, 40px) 0;
     font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
     line-height: 1.6;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
@@ -541,8 +539,6 @@ html {
     flex: wrap;
     justify-content: center;
     align-items: center;
-    padding-top: 164px;
-    padding-bottom: 164px;
     overflow: hidden;
     }
 
@@ -551,12 +547,11 @@ html {
     flex-direction: row;
     justify-content: space-between; 
     align-items: flex-start; 
-    padding-top: 164px;
-    padding-bottom: 164px;
+    padding: clamp(80px, 15vw, 164px) 0;
     overflow: hidden;
     cursor: pointer;
     }
- /* LIGHTBOX OVERLAY */
+
 .lightbox {
     position: fixed;
     inset: 0;
@@ -571,13 +566,11 @@ html {
     z-index: 9999;
 }
 
-/* ACTIVE */
 .lightbox.active {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* IMAGE */
 .lightbox-img {
     max-width: 90vw;
     max-height: 90vh;
@@ -586,7 +579,6 @@ html {
     border-radius: 6px;
 }
 
-/* CLOSE BUTTON */
 .lightbox-close {
     position: absolute;
     top: 30px;
@@ -618,8 +610,7 @@ html {
 .box {
     flex-direction: column; 
     align-items: center;
-    padding-top: 42px;
-    padding-bottom: 42px; 
+    padding: clamp(80px, 15vw, 164px) 0;
     }
     
 .gallery-column-left-1,
@@ -815,9 +806,17 @@ html {
     background-color: #8FFF00; /* Set the color of the underline */
 }
 
+.about {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
+    font-size: clamp(1rem, calc(0.6vw + 0.9rem), 1.25rem);
+    line-height: 1.5;
+}
+    
+
 .exhibitions {
-        padding-top: 64px;
-        padding-bottom: 128px;
+    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
         font-size: clamp(1rem, 0.6vw + 0.9rem, 1.25rem);
         line-height: 1.5;
     }
@@ -847,14 +846,14 @@ html {
             justify-content: left;
             align-items: center;
             text-align: left;
-            padding: 8px;
             line-height: 1.5;
         }
     }
 
 .contact {
     display: flex;
-    justify-content: center; /* Horizontally center the content */
+    justify-content: center;
+    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
     align-items: center;
     height: 90vh;
     text-align: left;
@@ -906,7 +905,6 @@ html {
     align-items: center;
     text-align: center;
     height: auto;
-    padding: 8px;
     }
         
 .address-column,
@@ -941,7 +939,8 @@ html {
 
     
     @media only screen and (max-width: 1024px) {
-        .column-left {
+        .column-left,
+        .column-right {
         display: none;
         }
         }
@@ -1025,11 +1024,7 @@ html {
     }
 }
 
-@media only screen and (max-width: 1024px) {
-    .column-left {
-    display: none;
-    }
-    }
+
 
 @media only screen and (max-width: 600px) {
     .nav,
@@ -1113,8 +1108,7 @@ html {
 .footer {
     display: flex;
     height: 10%;
-    padding-top: 64px;
-    padding-bottom: 54px;
+    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
     text-align: left;
     font-size:  clamp(0.875rem, 0.4vw + 0.8rem, 1.0625rem); 
     line-height: 1.5;
@@ -1163,7 +1157,6 @@ html {
 .footer {
     display: flex;
     height: 10%;
-    padding: 8px;
     padding-bottom: 52px;
     text-align: left;
     justify-content: space-between;
@@ -1230,7 +1223,7 @@ html {
     </div>
 
     <div class="column-mid">
-         <section id="About">  
+         <section id="About" class="about">  
                   <div class="row-0">
                        <img src="icons/pussy-logo-lime.png" id="txt-logo" alt="Logo Crystal Pussy">
                   </div>   
