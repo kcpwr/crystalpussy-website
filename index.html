@@ -48,12 +48,19 @@ backdrop-filter 0.4s ease-in-out;
     transform: translateX(-50%);
     z-index: 1000;
     opacity: 1;
-    gap: clamp(24px, 3vw, 48px);
+    gap: clamp(20px, 2vw, 46px);
     transition: 
         transform 0.3s ease-in-out,
         opacity 0.3s ease-in-out;
 }
-
+@media (min-width: 768px) {
+    .popup-1 {
+        display: grid;
+        grid-template-columns: auto 1fr; 
+        align-items: center;
+        gap: clamp(20px, 2.5vw, 30px);
+    }
+}
 /* Smaller width only on big screens */
 @media (min-width: 1024px) {
     .popup-1 {
@@ -84,7 +91,7 @@ backdrop-filter 0.4s ease-in-out;
 .popup-text {
     display: grid;
     gap: clamp(8px, 1.5vw, 16px);
-    font-size: clamp(1rem, 2vw, 2.5rem);
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
     font-weight: 550;
     letter-spacing: 0.5px;
     text-align: left;
@@ -98,6 +105,7 @@ backdrop-filter 0.4s ease-in-out;
 
 .popup-1 .h4 {
     color: #BEE38D;
+    width: 100%;
 }
 
 .popup-buttons   {
@@ -107,11 +115,21 @@ gap: clamp(12px, 3vw, 20px);
 align-items: center;
 justify-content: center;
 flex-wrap: nowrap;
-width: fill;
+width: 100%;
 }
 
+@media (min-width: 768px) {
+    .popup-1-buttons {
+    display: grid;  
+    flex-direction: column;
+    grid-template-columns: auto 1fr; 
+    align-items: center;
+    width: 100%;
+    
+    }
+}
             .popup-1 button {
-                padding: clamp(14px, 2.5vw, 20px) clamp(24px, 5vw, 40px);
+                padding: clamp(14px, 2.5vw, 20px) 0;
                 font-size: clamp(1.1rem, 2.5vw + 0.7rem, 1.25rem);
                 font-weight: 600;
                 display: flex;
@@ -132,7 +150,9 @@ width: fill;
             .popup-1 button#confirm {
                 background-color: #BEE38D;
                 color: #D1A3B7;
+                border: 1px solid #BEE38D;
                 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+                
             }
             .popup-1 button#confirm:hover {
                 background-color: #8FFF00; 
@@ -1150,6 +1170,7 @@ html {
     line-height: 1.5;
     }
 }
+
 </style>
         
 </head>
