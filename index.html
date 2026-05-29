@@ -44,8 +44,7 @@ backdrop-filter 0.4s ease-in-out;
     border-radius: clamp(30px, 5vw, 60px);
     position: fixed;
     bottom: 45px;
-    left: 50%;
-    transform: translateX(-50%);
+
     z-index: 1000;
     opacity: 1;
     gap: clamp(20px, 2vw, 46px);
@@ -128,24 +127,24 @@ width: 100%;
     
     }
 }
-            .popup-1 button {
-                padding: clamp(14px, 2.5vw, 20px) 0;
-                font-size: clamp(1.1rem, 2.5vw + 0.7rem, 1.25rem);
-                font-weight: 600;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                border: none;
-                gap: clamp(6px, 1.5vw, 12px);
-                cursor: pointer;
-                width: clamp(100%, 200px);
-                border-radius: 30px;
-                background: white;
-                transition: all 0.2s ease;
-                box-sizing: border-box;
-                width: 100%;
-            }
+.popup-1 button {
+    font-size: clamp(1.1rem, 2.5vw + 0.7rem, 1.15rem);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    gap: clamp(6px, 1.5vw, 12px);
+    cursor: pointer;
+    border-radius: 30px;
+    background: white;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    padding: clamp(14px, 2vw, 20px) clamp(24px, 2vw, 24px);
+    min-width: 0;
+    flex: 1; 
+    text-align: center;
+}
         
             .popup-1 button#confirm {
                 background-color: #BEE38D;
@@ -182,9 +181,10 @@ box-shadow: 0 0 8px #8FFF00;
   opacity: 0;
   transform: scale(0.95);
 }
-            .hidden {
-              display: none;
-            }
+
+.hidden {
+    display: none;
+}
 
 
             * {
