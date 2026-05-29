@@ -437,7 +437,7 @@ html {
         .column-mid {
             flex: 60%;
             height: auto;
-            padding-left: 32px;
+            padding-left: clamp(16px, 3vw, 32px);
         }
         }
 
@@ -540,6 +540,7 @@ html {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding-right: clamp(16px, 3vw, 32px);
     }
 
 .box {  
