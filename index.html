@@ -34,32 +34,26 @@ backdrop-filter 0.4s ease-in-out;
 .popup-1 {
     background: rgba(209, 163, 183, 0.5);
     backdrop-filter: blur(8px);
-    -webkit-mask: 
-        linear-gradient(to bottom, transparent, black 20%, black 100%),
-        linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-composite: intersect;
-    mask: 
-        linear-gradient(to bottom, transparent, black 20%, black 100%),
-        linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    mask-composite: intersect;
-    display: grid;
-    padding: clamp(32px, 6vw + 15px, 72px) clamp(20px, 5vw, 48px) clamp(32px, 6vw + 15px, 72px) clamp(20px, 5vw, 48px);
+    -webkit-mask: linear-gradient(to bottom, transparent, black 15%, black 100%);
+    mask: linear-gradient(to bottom, transparent, black 15%, black 100%);
+    display: flex;
+    padding: clamp(32px, 6vw + 15px, 72px) clamp(16px, 5vw, 48px);
     width: calc(100% - 40px);
-    max-width: 80%;
-    border-radius: clamp(30px, 5vw, 60px);
+    max-width: 100%;
     position: fixed;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
     opacity: 1;
-    gap: clamp(32px, 4vw, 64px);
+    gap: clamp(24px, 3vw, 48px);
     transition: 
         transform 0.3s ease-in-out,
         opacity 0.3s ease-in-out;
 }
 @media (max-width: 767px) {
     .popup-1 {
+        display: grid;
         width: 100%;
         max-width: 100%;
         left: 0;
@@ -96,6 +90,7 @@ backdrop-filter 0.4s ease-in-out;
 
 
 .popup-text {
+    flex: 1;
     display: grid;
     gap: clamp(8px, 1.5vw, 16px);
     font-size: clamp(1rem, 1.25vw, 1.5rem);
@@ -117,6 +112,7 @@ backdrop-filter 0.4s ease-in-out;
 
 .popup-buttons   {
 display: flex;
+flex: 1;
 flex-direction: row;
 gap: clamp(12px, 3vw, 20px);
 align-items: center;
@@ -169,7 +165,7 @@ width: 100%;
             }
         
             .popup-1 button#exit {
-                background-color: #D1A3B7;
+                background: rgba(209, 163, 183, 0);
                 color: #8FFF00;
                 border: 1px solid #BEE38D;
                 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
