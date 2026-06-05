@@ -53,7 +53,9 @@ backdrop-filter 0.4s ease-in-out;
 @media (max-width: 767px) {
     .popup-1 {
         display: grid;
-        width: 100%;
+        width: 100%; /* Ensure width is automatic */
+    max-width: 90%;
+    box-sizing: border-box;
         padding: clamp(8px, 1.25vw, 16px);
     }
 }
