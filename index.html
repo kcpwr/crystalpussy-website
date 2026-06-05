@@ -32,45 +32,37 @@ transition: opacity 0.4s ease-in-out,
 backdrop-filter 0.4s ease-in-out;
 }
 .popup-1 {
-    background: rgba(209, 163, 183, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-mask: linear-gradient(to bottom, transparent, black 30%, black 100%);
-    mask: linear-gradient(to bottom, transparent, black 30%, black 100%);
+    background: #8FFF00; 
     display: flex;
-    padding: clamp(32px, 6vw + 15px, 72px) clamp(16px, 5vw, 48px) clamp(16px, 3vw + 8px, 32px) clamp(16px, 5vw, 48px);
-    width: 100%;
-    max-width: 100%;
+    padding: clamp(2px, 1.15vw, 8px);
     position: fixed;
-    bottom: 0px;
-    left: 0;
+    flex-direction: row;
+    bottom: clamp(10px, 5vw, 60px);
+    left: clamp(10px, 5vw, 60px);
+    right: clamp(10px, 5vw, 60px);
     z-index: 1000;
     opacity: 1;
-    gap: clamp(24px, 3vw, 48px);
-    transition: 
-        transform 0.3s ease-in-out,
-        opacity 0.3s ease-in-out;
+    gap: 8px;
+    transition: all 0.3s ease-in-out;
+    pointer-events: auto;
+    box-shadow: 0 0 6px 12px #8FFF00; 
+    border-radius: 38px;
+    width: auto; 
+    max-width: fit-content;
 }
 
-/* Mobile stays full width */
 @media (max-width: 767px) {
     .popup-1 {
-        display: grid;
-        width: 100%;
-        left: 0;
-        transform: translateX(0);
-        bottom: 0;
-        border-radius: clamp(20px, 4vw, 30px) clamp(20px, 4vw, 30px) 0 0;
+        display: row;
+
     }
 }
 
 /* Large screens: 85% width and centered */
 @media (min-width: 1024px) {
     .popup-1 {
-        width: 85%;
-        max-width: 85%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: clamp(30px, 5vw, 60px);
+
+
     }
 }
 
@@ -86,8 +78,8 @@ backdrop-filter 0.4s ease-in-out;
 }
 
     .popup-icon img {
-    width: clamp(75px, 8vw, 120px);
-    padding: clamp(4px, 1.15vw, 14px);
+    width: clamp(65px, 8vw, 80px);
+    padding: clamp(4px, 1vw, 8px);
     height: auto;
     display: block;
     height: auto;
@@ -98,29 +90,31 @@ backdrop-filter 0.4s ease-in-out;
 .popup-text {
     flex: 1;
     display: grid;
-    gap: clamp(8px, 1.5vw, 16px);
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
-    font-weight: 550;
-    letter-spacing: 0.5px;
+    gap: clamp(4px, 1.25vw, 6px);
+    letter-spacing: 0.25px;
     text-align: left;
 }
         
 
 .popup-1 .h3 {
-    color: #8FFF00;
+    color: #D1A3B7;
+    font-size: clamp(1rem, 1.25vw, 1.45rem);
+    font-weight: 650;
     
 }
 
 .popup-1 .h4 {
-    color: #BEE38D;
+    color: #D1A3B7;
     width: 100%;
+    font-size: clamp(0.75rem, 0.9vw, 1rem);
+    font-weight: 450;
 }
 
 .popup-buttons   {
 display: flex;
 flex: 1;
 flex-direction: row;
-gap: clamp(12px, 3vw, 20px);
+gap: clamp(8px, 1.5vw, 12px);
 align-items: center;
 justify-content: center;
 flex-wrap: nowrap;
@@ -133,12 +127,12 @@ width: 100%;
     flex-direction: column;
     grid-template-columns: auto 1fr; 
     align-items: center;
-    width: 100%;
+    width: 30%;
     
     }
 }
 .popup-1 button {
-    font-size: clamp(1.1rem, 2.5vw + 0.7rem, 1.15rem);
+    font-size: clamp(0.9rem, 1.8vw + 0.3rem, 0.95rem);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -150,11 +144,12 @@ width: 100%;
     background: white;
     transition: all 0.2s ease;
     box-sizing: border-box;
-    padding: clamp(14px, 2vw, 20px) clamp(24px, 2vw, 24px);
+    padding: clamp(10px, 1.5vw, 14px) clamp(28px, 2vw, 36px);
     min-width: 0;
     flex: 1; 
     text-align: center;
 }
+   
         
             .popup-1 button#confirm {
                 background-color: #BEE38D;
