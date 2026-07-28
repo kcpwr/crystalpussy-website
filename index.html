@@ -17,64 +17,34 @@
          <style>
 
         
-.overlay-1 {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.0);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 9999;
-transition: opacity 0.4s ease-in-out,
-backdrop-filter 0.4s ease-in-out;
-}
+
 .popup-1 {
-    background: #8FFF00; 
+    background-color: rgba(143, 255, 0, 0.25);
     display: flex;
-    padding: clamp(2px, 1.15vw, 8px);
     position: fixed;
     flex-direction: row;
-    bottom: clamp(10px, 5vw, 60px);
-    left: clamp(10px, 5vw, 60px);
-    right: clamp(10px, 5vw, 60px);
+    left: 50%;
+    transform: translate(-50%);
     z-index: 1000;
     opacity: 1;
-    gap: 8px;
     transition: all 0.3s ease-in-out;
     pointer-events: auto;
-    box-shadow: 0 0 6px 12px #8FFF00; 
-    border-radius: 38px;
-    width: auto; 
-    max-width: fit-content;
-}
-@media (max-width: 767px) {
-    .popup-1 {
-        display: grid;
-        width: 100%; /* Ensure width is automatic */
-        max-width: 90%;
-        box-sizing: border-box;
-        padding: clamp(12px, 1.25vw, 18px);
-        border-radius: 32px;
-    }
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    
+    /* fluid properties */
+    bottom: clamp(24px, 2.5vw, 32px);
+    gap: clamp(8px, 5vw, 64px);
+    border-radius: clamp(24px, 4vw, 38px);
+    width: clamp(320px, 50vw, 480px);
+    max-width: clamp(500px, 90vw, 1400px);
+
+    
 }
 
-/* Large screens: 85% width and centered */
-@media (min-width: 1024px) {
-    .popup-1 {
-        width: 85%;
-        max-width: 85%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: clamp(30px, 5vw, 60px);
-    }
-}
 .popup-content {
     display: flex;
     align-items: center;
-    gap: clamp(10px, 1.5vw, 10px);
 }
 
 .popup-icon {
@@ -82,8 +52,8 @@ backdrop-filter 0.4s ease-in-out;
 }
 
     .popup-icon img {
-    width: clamp(65px, 8vw, 80px);
-    padding: clamp(4px, 1vw, 8px);
+    width: clamp(22px, 7vw, 50px);
+    padding: clamp(4px, 1.5vw, 10px);
     height: auto;
     display: block;
     height: auto;
@@ -93,24 +63,30 @@ backdrop-filter 0.4s ease-in-out;
 .popup-text {
     flex: 1;
     display: grid;
-    gap: clamp(4px, 1.25vw, 6px);
     letter-spacing: 0.25px;
+    gap: clamp(0px, 0.5vw, 4px);
     text-align: left;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
 }
         
-
 .popup-1 .h3 {
-    color: #D1A3B7;
-    font-size: clamp(1.15rem, 1.5vw, 1.6rem);
+    color: #8FFF00; 
+    font-size: clamp(0.9rem, 1.1vw, 1.65rem);
     font-weight: 650;
+    width: auto; 
+    max-width: fit-content;
 }
 
 .popup-1 .h4 {
-    color: #D1A3B7;
+    color: #8FFF00; 
     width: 100%;
-    font-size: clamp(0.85rem, 1.1vw, 1.15rem);
+    font-size: clamp(0.65rem, 0.75vw, 1.2rem);
     font-weight: 450;
+    width: auto; 
+    max-width: fit-content;
 }
+
 
 .popup-buttons   {
 display: flex;
@@ -118,7 +94,7 @@ flex: 1;
 flex-direction: row;
 gap: clamp(8px, 1.5vw, 12px);
 align-items: center;
-justify-content: center;
+justify-content: right;
 flex-wrap: nowrap;
 width: 100%;
 }
@@ -129,7 +105,7 @@ width: 100%;
     flex-direction: column;
     grid-template-columns: auto 1fr; 
     align-items: center;
-    width: 100%;
+    max-width: 128px;
     
     }
 }
@@ -144,39 +120,28 @@ width: 100%;
     cursor: pointer;
     border-radius: 30px;
     background: white;
-    transition: all 0.2s ease;
+    transition: all 0.1s ease;
     box-sizing: border-box;
-    padding: clamp(10px, 1.5vw, 14px) clamp(28px, 2vw, 36px);
-    min-width: 0;
+    padding: clamp(10px, 1.5vw, 14px) clamp(28px, 2.75vw, 72px);
+    max-width: 164px;
+    height: 100%;
     flex: 1; 
     text-align: center;
 }
         
             .popup-1 button#confirm {
-                background-color: #D1A3B7;
+                background-color: rgba(143, 255, 0, 0.5);
                 color: #8FFF00; 
-                border: 1px solid #D1A3B7;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
                 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
                 
             }
             .popup-1 button#confirm:hover {
                 background-color: #8FFF00; 
                 color: #D1A3B7;
-                border: 1px solid #8FFF00;
-                box-shadow: 0 0 8px #8FFF00;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0);
+                box-shadow: 0 0 8px #8FFF00; 
             }
-        
-            .popup-1 button#exit {
-                background: rgba(209, 163, 183, 0);
-                color: #D1A3B7;
-                border: 1px solid #D1A3B7;
-                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
-            }
-            .popup-1 button#exit:hover {
-                background-color: #8FFF00; 
-color: #D1A3B7;
-box-shadow: 0 0 8px #8FFF00; 
-}
 
 .overlay-1.fade-out {
   opacity: 0;
@@ -1178,24 +1143,67 @@ html {
 
 <body>
 
-    <div class="overlay-1" id="age-popup">
+    <div class="overlay-1" id="age-popup" style="display: none;">
         <div class="popup-1">
             <div class="popup-content">
                 <div class="popup-icon">
-                    <img src="icons/icon_eye_crystall_pink.png" alt="icon">
+                    <img src="/zuzanna 02/icon_eye_crystall_pink.png" alt="icon">
                 </div>
                 <div class="popup-text">
                     <div class="h3">Contains nudity.</div>
                     <div class="h4">Viewer discretion advised.</div>
                 </div>
-                
             </div>
             <div class="popup-buttons">
-                <button id="confirm">Continue</button>
-                <button id="exit">Exit</button>
+                <button id="confirm">Got it!</button>
+               
             </div> 
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if popup has been shown before
+            const popupShown = localStorage.getItem('agePopupShown');
+            
+            console.log('Popup shown status:', popupShown); // Debug log
+            
+            if (!popupShown) {
+                // Show the popup
+                document.getElementById('age-popup').style.display = 'flex';
+                console.log('Popup displayed');
+            } else {
+                console.log('Popup already shown, keeping hidden');
+            }
+            
+            // Handle confirm button click
+            const confirmBtn = document.getElementById('confirm');
+            if (confirmBtn) {
+                // Remove any existing event listeners to prevent duplicates
+                const newConfirmBtn = confirmBtn.cloneNode(true);
+                confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+                
+                newConfirmBtn.addEventListener('click', function() {
+                    console.log('Confirm button clicked');
+                    
+                    // Hide the popup
+                    document.getElementById('age-popup').style.display = 'none';
+                    
+                    // Save to localStorage
+                    localStorage.setItem('agePopupShown', 'true');
+                    console.log('Saved to localStorage:', localStorage.getItem('agePopupShown'));
+                    
+                    // Verify it was saved
+                    const saved = localStorage.getItem('agePopupShown');
+                    if (saved === 'true') {
+                        console.log('Successfully saved!');
+                    } else {
+                        console.error('Failed to save to localStorage');
+                    }
+                });
+            }
+        });
+    </script>
 
   
   
@@ -1243,6 +1251,19 @@ html {
         <section id="Art">
             <div class="box">
                 <div class="gallery-column-left-1">
+
+
+                    <div class="photo-A111" data-description="A112-Atelier Roseville, Vevey, 2026">
+                        <img src="photo-gallery/A11.2-Atelier-Roseville_2026_Vevey.jpg" height="100%" width="100%" alt="Atelier Roseville, 2026, Vevey.jpg">
+    
+                            <div class="text-overlay">
+                                <div class="text">
+    
+                                    <div class="description">Atelier Roseville — Vevey '26
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
 
                   <div class="photo-A111" data-description="A111-Boss Bitch, Berlin, 2026">
                     <img src="photo-gallery/A11.1-Boss_bitch_Women's World_2026_berlin.JPEG" height="100%" width="100%" alt="Boss Bitch, Berlin, 2026">
@@ -1745,9 +1766,7 @@ html {
 
     </nav>
 
-    <button class="contrast-button" id="color-toggle">
-      <img src="icons/high-contrast.svg" height="16px" width="16px" alt="High Contrast Button">
-    </button>
+
     </div>
 
     <div class="column-banner">
@@ -1931,7 +1950,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 </script>
+<script>
+    const overlay = document.querySelector('.overlay-1');
+    const popup = document.querySelector('.popup-1');
+    const confirmButton = document.getElementById('confirm');
+    const exitButton = document.getElementById('exit');
+    
 
+    function closePopup() {
+
+      overlay.classList.add('fade-out');
+      popup.classList.add('fade-out');
+      
+
+      setTimeout(() => {
+        overlay.remove();
+
+      }, 400); 
+    }
+    
+    confirmButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      closePopup();
+    });
+    
+    exitButton.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      overlay.classList.add('fade-out');
+      popup.classList.add('fade-out');
+      
+      setTimeout(() => {
+        window.location.href = 'https://www.google.com';
+      }, 350); 
+    });
+    
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closePopup();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePopup();
+      }
+    });
+    </script>
 
 
 </body>
