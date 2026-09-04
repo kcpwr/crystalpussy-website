@@ -308,44 +308,9 @@ html {
     background-color: #000000; /* Dark mode background color */
     }
 
-@media only screen and (max-width: 600px) {
-.menu-button {
-    display: block;
-    }
 
-.nav-mobile {
-    display: none;
-    }
 
-.nav-link-mobile {
-    display: block;
-    text-align: right;
-    font-size: clamp(1.25rem, 0.9vw + 1.1rem, 1.75rem);
-    padding: 32px;
-    border-top: 2px solid #bee38d44;
-    background-color: #D1A3B7;
-    }
 
-.dark-mode .nav-link-mobile {
-    background-color: #efefef; 
-    }
-
-.nav-mobile a{
-    color: #BEE38D;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-    }
-
-.nav-mobile a:hover {
-    color: #8FFF00;
-    }
-
-.nav-mobile a.active {
-    color: #8FFF00;
-    text-decoration: underline;
-    }
-    }
 
 .container {
     display: flex;
@@ -371,16 +336,17 @@ html {
     }
       
 
-.column-left {
+    .column-left {
+    position: absolute;  
     height: 100vh;
     flex-direction: column;
     top: 0px;
-    flex: 3%;
+    left: 0;
+    flex: 3; 
     overflow: visible;
     opacity: 0;
     transition: opacity 2s ease-in-out, height 2s ease-in-out 2s;
-    
-    }
+}
     .column-left.show{
         opacity: 1;
     }
@@ -391,8 +357,6 @@ html {
     position: fixed;
     top: 24px;
     left: 0px;
-    z-index: 2; /* Adjust z-index as needed to ensure it's above all other elements */
-    overflow: visible;
     }
 
 
@@ -436,26 +400,6 @@ html {
 
         
 
-#txt-logo {
-    height: auto;
-    width: 540px;
-    justify-content: left;
-    align-items: left;
-    }
-    @media only screen and (min-width: 601px) and (max-width: 1024px) {
-        #txt-logo {
-            content: url('icons/logo-520px.png');
-            width: 320px;
-        }
-     }
-
-     @media only screen and (max-width: 600px) {
-        #txt-logo {
-            width: 320px;
-        }
-    }
-
-
 .row-1 {
     display: flex;
     margin: clamp(20px, 3vw, 40px) 0;
@@ -464,7 +408,13 @@ html {
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
 }
 
-
+.row-1-small {
+    display: flex;
+    margin: clamp(20px, 3vw, 40px) 0;
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+    line-height: 1.6;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+}
 
 .row-1.show {
     opacity: 1;
@@ -478,13 +428,7 @@ html {
     line-height: 1.6;
     transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
 }
-.row-2 {
-    display: flex;
-    margin: clamp(20px, 3vw, 40px) 0;
-    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
-    line-height: 1.6;
-    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
-}
+
 
 .row-2.show{
     opacity: 1;
@@ -778,20 +722,70 @@ html {
     background-color: #8FFF00; /* Set the color of the underline */
 }
 
+.start {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(60px, 10vw, 120px);
+  gap: 40px;
+  padding: 0 clamp(16px, 6vw, 128px) 0;
+  align-items: center;
+}
+
+.start #txt-logo,
+.start .row-1 {
+    width: 100%;
+    line-height: 1.5;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+
+/* Hide the element by default on larger screens */
+.row-1-small {
+    display: none;
+}
+/* Your new tablet/mobile styles */
+@media (max-width: 992px) {
+    .start #txt-logo {
+        flex: none;       /* Disables the equal 50/50 split */
+        width: 75vw;      /* Fills 75% of the viewport width */
+        
+        /* Adds proportional padding that shrinks beautifully with the screen */
+        padding: 4vw;     
+        box-sizing: border-box; /* Prevents padding from making the width larger than 75vw */
+    }
+}
+
+@media (max-width: 992px) {
+    .row-1 {
+        display: none; 
+    }
+}
+
+@media (max-width: 992px) {
+    .row-1-small {
+        display: block;
+    }
+}
+
+
 .about {
+
     display: flex;
     flex-direction: column;
-    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
+    padding: 0 clamp(16px, 6vw, 128px) 0;
     font-size: clamp(1rem, calc(0.6vw + 0.9rem), 1.25rem);
     line-height: 1.5;
 }
     
 
 .exhibitions {
-    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
-        font-size: clamp(1rem, 0.6vw + 0.9rem, 1.25rem);
-        line-height: 1.5;
-    }
+    padding: 0 clamp(16px, 6vw, 128px) 0;
+
+    font-size: clamp(1rem, calc(0.6vw + 0.9rem), 1.25rem);
+    line-height: 1.5;
+}
     
     .light-green-text {
         color: #8FFF00; /* Default text color for light green */
@@ -825,7 +819,7 @@ html {
 .contact {
     display: flex;
     justify-content: center;
-    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
+    padding: clamp(30px, 5vw, 64px) clamp(16px, 6vw, 128px) clamp(20px, 5vw, 48px);
     align-items: center;
     height: 90vh;
     text-align: left;
@@ -917,95 +911,93 @@ html {
         }
         }
 
-.nav { 
-    position: fixed;
+/* Navigation Bar */
+.nav {
     display: flex;
-    flex-direction: column;
-    font-size: clamp(1rem, 0.35vw + 1.1rem, 1.75rem);
-    top: 42px;
-    right: 82px;
-    cursor: pointer;
-    }
-
-.nav a{
-    color: #BEE38D;
-    text-decoration: none;
-    padding: 20px;
-    display: block;
-    }
-
-.nav a:hover {
-    color: #8FFF00;
-    }
-
-.nav a.active {
-    color: #8FFF00;
-    text-decoration: underline;
-    }
-
-.dark-mode .nav a {
-    color: #808080;
-    }
-    
-.dark-mode .nav a:hover {
-    color: #000000;
-    }
-    
-.dark-mode .nav a.active {
-    color: #000000;
-    }
-    
-.contrast-button {
+    flex-direction: row;
+    justify-content: center;
     position: fixed;
-    align-self: flex-end;
-    margin-top: auto;
-    bottom: 42px;
-    right: 102px;
-    border: none; 
-    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
-    background-color: transparent;
-    z-index: 9999;
-    cursor: pointer;
-    }
-    @media only screen and (min-width: 601px) and (max-width: 1024px) {
-        .contrast-button {
-            right: 62px;
-            bottom: 24px;
-        }
-         }
-
-.contrast-button img {
-    width: 32px;
-    height: auto;
-    color: #BEE38D;
-    transition: transform 0.35s ease-in-out; 
-    }
-
-    @media only screen and (min-width: 601px) and (max-width: 1024px) {
-        .contrast-button img{
-            width: 24px;
-            height: auto;
-        }
-        }
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .nav{
-        top: 12px;
-        font-size: clamp(1.125rem, 0.8vw + 1rem, 1.5rem);
-        padding: 10px;
-        right: 42px;
-    }
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: clamp(20px, 2vw, 32px); 
+    gap: 0;
+    transition: all 0.1s ease;
 }
 
+/* Containers */
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
 
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    gap: clamp(6px, 1.5vw, 20px);
+    margin: 0 auto;
+}
 
-@media only screen and (max-width: 600px) {
-    .nav,
-    .column-left,
-    .column-right {
-    display: none;
-    }
-    }
+/* Buttons - Inactive: transparent background */
+.nav-button {
+    flex: 0 1 auto;
+    border: none;
+    padding: clamp(4px, 1vw, 12px) clamp(8px, 1.5vw, 16px) clamp(2px, 0.5vw, 6px);
+    font-family: inherit;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 500;
+    text-align: center;
+    color: #8FFF00;
+    background: transparent !important;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.nav-button {
+    padding: clamp(6px, 0.5vw, 10px) clamp(10px, 0.8vw, 14px) clamp(5px, 0.2vw, 8px);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+/* Active button should not change on hover */
+.nav-button.active:hover {
+    background-color: rgba(143, 255, 0, 0.3) !important;
+    color: #8FFF00;
+    box-shadow: none;
+    transform: scale(1.2);
+}
+
+/* Click state */
+.nav-button:active {
+    background-color: rgba(143, 255, 0, 0.3) !important;
+}
+
+/* Scrolled state */
+.nav.scrolled .nav-button {
+    padding: clamp(1px, 0.5vw, 8px) clamp(3px, 0.8vw, 10px) clamp(1px, 0.2vw, 3px);
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+/* Focus state */
+.nav-button:focus-visible {
+    background-color: #8FFF0080;
+    border-radius: 1px;
+}
 
 .column-banner {
     height: 2200vh;
@@ -1081,7 +1073,7 @@ html {
 .footer {
     display: flex;
     height: 10%;
-    padding: clamp(30px, 5vw, 64px) clamp(64px, 4vw, 128px) clamp(20px, 5vw, 48px) clamp(16px, 1vw, 32px);
+    padding: clamp(30px, 5vw, 64px) clamp(16px, 6vw, 128px) clamp(20px, 5vw, 48px);
     text-align: left;
     font-size:  clamp(0.875rem, 0.4vw + 0.8rem, 1.0625rem); 
     line-height: 1.5;
@@ -1215,19 +1207,6 @@ html {
 
 
 
-
-  <div class="menu-button" onclick="toggleMenu()">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-
-  <nav class="dropdown-menu">
-    <a href="#About" class="nav-link-mobile">About</a>
-    <a href="#Art" class="nav-link-mobile">Feed</a>
-    <a href="#Exhibitions" class="nav-link-mobile">Exhibitions</a>
-    <a href="#Contact" class="nav-link-mobile">Contact</a>
-  </nav>
   
 
 
@@ -1241,14 +1220,31 @@ html {
     </div>
 
     <div class="column-mid">
-         <section id="About" class="about">  
-                  <div class="row-0">
-                       <img src="icons/pussy-logo-lime.png" id="txt-logo" alt="Logo Crystal Pussy">
-                  </div>   
-                  <div class="row-1">Crystal Pussy is an interdisciplinary artist from Poland, currently based in the French-speaking part of Switzerland. Working across performance, site-specific installation, sculpture, painting, and multimedia, she develops an artistic language that merges camp aesthetics, minimalism, street art influences, and a dark visual sensibility inspired by underground culture&nbsp;and BDSM.</div>
-                  <div class="row-2">As a queer-feminist artist, Crystal Pussy explores the symbolism of the vagina as a powerful emblem of creativity, knowledge, freedom, and empowerment. Her work belongs to the artistic movement often referred to as vaginal art, in which the body becomes both a political and poetic space for reflection, resistance,&nbsp;and transformation.</div>
-                  <div class="row-3">Her compositions combine minimalist forms with hints of kitsch and subtle references to urban visual culture, resulting in immersive and emotionally charged experiences that invite introspection and dialogue. Drawing from her background in art education and art therapy, Crystal Pussy approaches her practice with a deep belief in the transformative power of creativity. Through her installations, performances, and visual works, she seeks to challenge social norms, reclaim marginalized narratives, and create spaces for emotional and&nbsp;collective empowerment.</div>
-        </section>  
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-buttons">
+                    <button class="nav-button" onclick="location.href='#Art'">Works</button>
+                    <button class="nav-button" onclick="location.href='#About'">About</button>
+                    <button class="nav-button" onclick="location.href='#Exhibitions'">Exhibitions</button>
+                    <button class="nav-button" onclick="location.href='#Contact'">Contact</button>
+                </div>
+            </div>
+        </nav>
+        <section id="Start" class="start">  
+            <img src="/zuzanna 02/pussy_logo_lime_2.png" id="txt-logo" alt="Logo Crystal Pussy">
+            
+            <div class="row-1">
+                Crystal Pussy is an interdisciplinary artist from Poland, currently based in the French-speaking part of Switzerland, working across performance, site-specific installation, sculpture, painting, and multimedia.
+            </div>
+        </section> 
+        
+        <section id="About" class="about">  
+            <div class="row-1-small">
+                Crystal Pussy is an interdisciplinary artist from Poland, currently based in the French-speaking part of Switzerland, working across performance, site-specific installation, sculpture, painting, and multimedia.
+            </div>
+            <div class="row-2">She develops an artistic language that merges camp aesthetics, minimalism, street art influences, and a dark visual sensibility inspired by underground culture&nbsp;and BDSM. As a queer-feminist artist, Crystal Pussy explores the symbolism of the vagina as a powerful emblem of creativity, knowledge, freedom, and empowerment. Her work belongs to the artistic movement often referred to as vaginal art, in which the body becomes both a political and poetic space for reflection, resistance,&nbsp;and transformation.</div>
+            <div class="row-3">Her compositions combine minimalist forms with hints of kitsch and subtle references to urban visual culture, resulting in immersive and emotionally charged experiences that invite introspection and dialogue. Drawing from her background in art education and art therapy, Crystal Pussy approaches her practice with a deep belief in the transformative power of creativity. Through her installations, performances, and visual works, she seeks to challenge social norms, reclaim marginalized narratives, and create spaces for emotional and&nbsp;collective empowerment.</div>
+    </section>  
 
         <section id="Art">
             <div class="box">
@@ -1757,19 +1753,7 @@ html {
 
 </section>
 
-    </div>
-
-    <div class="column-right">
-       <nav class="nav">
-        <a href="#About" class="nav-link">About</a>
-        <a href="#Art" class="nav-link">Feed</a>
-        <a href="#Exhibitions" class="nav-link">Exhibitions</a>
-        <a href="#Contact" class="nav-link">Contact</a>
-
-    </nav>
-
-
-    </div>
+ 
 
     <div class="column-banner">
   <p class="vertical-text button-text">
@@ -1828,25 +1812,51 @@ html {
     </script>
 
 <script>
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-  
-    function highlightNavLink() {
-        let index = sections.length;
-  
-        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
-  
-        navLinks.forEach((link) => link.classList.remove('active'));
-        navLinks[index].classList.add('active');
-    }
-  
-    highlightNavLink();
-    window.addEventListener('scroll', highlightNavLink);
-  });
-  
+    document.addEventListener('DOMContentLoaded', function () {
+      const navButtons = document.querySelectorAll('.nav-button');
+      
+      function highlightNavLink() {
+          const scrollPosition = window.scrollY + 100;
+          
+          // Get sections in visual order
+          const startSection = document.getElementById('Start');
+          const artSection = document.getElementById('Art');
+          const aboutSection = document.getElementById('About');
+          const exhibitionsSection = document.getElementById('Exhibitions');
+          const contactSection = document.getElementById('Contact');
+          
+          // Get positions
+          const startBottom = startSection.offsetTop + startSection.offsetHeight;
+          const artBottom = artSection.offsetTop + artSection.offsetHeight;
+          const aboutBottom = aboutSection.offsetTop + aboutSection.offsetHeight;
+          const exhibitionsBottom = exhibitionsSection.offsetTop + exhibitionsSection.offsetHeight;
+          
+          // Remove active from all buttons
+          navButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Check which section is visible
+          if (scrollPosition >= artSection.offsetTop && scrollPosition < artBottom) {
+              // In Art section - highlight Works button (index 0)
+              navButtons[0].classList.add('active');
+          }
+          else if (scrollPosition >= aboutSection.offsetTop && scrollPosition < aboutBottom) {
+              // In About section - highlight About button (index 1)
+              navButtons[1].classList.add('active');
+          }
+          else if (scrollPosition >= exhibitionsSection.offsetTop && scrollPosition < exhibitionsBottom) {
+              // In Exhibitions section - highlight Exhibitions button (index 2)
+              navButtons[2].classList.add('active');
+          }
+          else if (scrollPosition >= contactSection.offsetTop) {
+              // In Contact section - highlight Contact button (index 3)
+              navButtons[3].classList.add('active');
+          }
+          // Start section - no button active
+      }
+      
+      highlightNavLink();
+      window.addEventListener('scroll', highlightNavLink);
+    });
   </script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1911,14 +1921,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </script>
 
-        
-<script>
-  const colorToggle = document.getElementById('color-toggle');
-
-  colorToggle.addEventListener('click', function() {
-      document.body.classList.toggle('dark-mode');
-  });
-</script>
+    
 
 
 
