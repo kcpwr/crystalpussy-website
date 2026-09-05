@@ -932,7 +932,8 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: right;
-    width: auto;
+    width: clamp(320px, 50vw, 480px);
+    max-width: clamp(500px, 90vw, 1400px);
     margin: 0;
     padding: 0;
 }
@@ -950,9 +951,9 @@ html {
 .nav-button {
     flex: 0 1 auto;
     border: none;
-    padding: clamp(9px, 0.8vw, 14px) clamp(8px, 2vw, 18px) clamp(7px, 0.4vw, 12px);
+    padding: clamp(12px, 1vw, 16px) clamp(8px, 2vw, 18px) clamp(10px, 0.6vw, 14px);
     font-family: inherit;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(2.1rem, 4vw, 2.8rem);
     font-weight: 500;
     text-align: center;
     color: #8FFF00;
