@@ -994,7 +994,23 @@ html {
                     <section id="Art" class="art-gallery-section">
                         <div class="gallery-grid">
                     
-                            <div class="gallery-item" data-src="photo-gallery/A11.2-Atelier-Roseville_2026_Vevey.jpg">
+                            
+                            <div class="gallery-item" 
+                                data-src-small="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png"
+                                data-src-large="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey.png">
+                                    <div class="media-container">
+                                        <img src="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png" 
+                                            alt="Atelier Roseville — Vevey '26" 
+                                            loading="lazy">
+                                                <div class="text-overlay">
+                                                    <div class="caption-pill">
+                                                        <span class="description">Atelier Roseville — Vevey '26</span>
+                                                    </div>
+                                                </div>
+                                    </div>
+                            </div>
+
+                            <div class="gallery-item" data-src="photo-gallery/boss-bitch-womens-world-2026-berlin-crystal-pussy.pn">
                                 <div class="media-container">
                                     
                                     <img src="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png" 
@@ -1009,8 +1025,6 @@ html {
                                     </div>
                                 </div>
                             </div>
-
-
 
                             <div class="gallery-item" data-src="photo-gallery/boss-bitch-womens-world-2026-berlin-crystal-pussy-small.png">
                                 <div class="media-container">
@@ -1655,129 +1669,152 @@ html {
   </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- VIEWER DISCRETION POPUP HANDLING ---
-    const popup = document.getElementById('popup');
-    const confirmBtn = document.getElementById('confirm');
-    if (confirmBtn && popup) {
-        confirmBtn.addEventListener('click', () => { 
-            popup.classList.add('fade-out'); 
-        });
-    }
-
-    // --- LIGHTBOX INDEX ENGINE ---
-    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('.lightbox-img');
-    const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
-    
-    const prevBtn = lightbox.querySelector('.lightbox-prev');
-    const nextBtn = lightbox.querySelector('.lightbox-next');
-    
-    let currentIndex = -1;
-
-    // Core content loading function based on active index position
-    const loadContent = (index) => {
-        if (index < 0 || index >= galleryItems.length) return;
-        currentIndex = index;
-
-        const activeItem = galleryItems[currentIndex];
-        const mediaSrc = activeItem.getAttribute('data-src');
-        const vimeoLink = activeItem.getAttribute('data-vimeo');
-
-        // Clear stage elements cleanly
-        lightboxImg.src = '';
-        lightboxImg.style.display = 'none';
-        lightboxVimeo.innerHTML = '';
-
-        if (vimeoLink) {
-            const videoId = vimeoLink.split('/').pop();
-            lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com{videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-        } else if (mediaSrc) {
-            lightboxImg.src = mediaSrc;
-            lightboxImg.style.display = 'block';
-        }
-    };
-
-    // Index tracking loops
-    const navigateNext = () => {
-        let nextIdx = currentIndex + 1;
-        if (nextIdx >= galleryItems.length) nextIdx = 0; // Loops back cleanly to the first photo
-        loadContent(nextIdx);
-    };
-
-    const navigatePrev = () => {
-        let prevIdx = currentIndex - 1;
-        if (prevIdx < 0) prevIdx = galleryItems.length - 1; // Loops back cleanly to the last photo
-        loadContent(prevIdx);
-    };
-
-    // Bind item click listeners
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', (e) => {
-            if (e.target.closest('.vimeo-badge')) return;
-            loadContent(index);
-            
-            lightbox.classList.add('active');
-            lightbox.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; 
-        });
-    });
-
-    // Close functionality
-    const deactivateLightbox = () => {
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-        lightboxVimeo.innerHTML = '';
-        document.body.style.overflow = ''; 
-    };
-
-    // Bind Navigation Button Actions
-    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
-    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
-    if (closeBtn) closeBtn.addEventListener('click', deactivateLightbox);
-    
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) { 
-            deactivateLightbox(); 
-        }
-    });
-
-    // Keyboard Arrow and Escape Handlers
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox || !lightbox.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') deactivateLightbox();
-        if (e.key === 'ArrowRight') navigateNext();
-        if (e.key === 'ArrowLeft') navigatePrev();
-    });
-});
-</script>
-    
-<script>
-
-document.addEventListener('DOMContentLoaded', function () {
-    const menuButton = document.querySelector('.menu-button');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-
-    menuButton.addEventListener('click', function () {
-        dropdownMenu.classList.toggle('show');
-    });
-
-    const navLinks = document.querySelectorAll('.nav-link-mobile');
-    navLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-            if (!this.classList.contains('menu-button')) {
-                dropdownMenu.classList.remove('show'); 
-            }
-        });
-    });
-});
-
-
-</script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // --- VIEWER DISCRETION POPUP HANDLING ---
+      const popup = document.getElementById('popup');
+      const confirmBtn = document.getElementById('confirm');
+      if (confirmBtn && popup) {
+          confirmBtn.addEventListener('click', () => { 
+              popup.classList.add('fade-out'); 
+          });
+      }
+  
+      // --- LIGHTBOX INDEX ENGINE ---
+      const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('.lightbox-img');
+      const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
+      const closeBtn = lightbox.querySelector('.lightbox-close');
+      
+      const prevBtn = lightbox.querySelector('.lightbox-prev');
+      const nextBtn = lightbox.querySelector('.lightbox-next');
+      
+      let currentIndex = -1;
+  
+      // Core content loading function based on active index position
+      const loadContent = (index) => {
+          if (index < 0 || index >= galleryItems.length) return;
+          currentIndex = index;
+  
+          const activeItem = galleryItems[currentIndex];
+          const mediaSrc = activeItem.getAttribute('data-src');
+          const vimeoLink = activeItem.getAttribute('data-vimeo');
+  
+          // Clear stage elements cleanly
+          lightboxImg.src = '';
+          lightboxImg.style.display = 'none';
+          lightboxVimeo.innerHTML = '';
+  
+          if (vimeoLink) {
+              const videoId = vimeoLink.split('/').pop();
+              lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+          } else if (mediaSrc) {
+              // Load the full-size image only when lightbox opens
+              lightboxImg.src = mediaSrc;
+              lightboxImg.style.display = 'block';
+              
+              // Optional: Add loading state for better UX
+              lightboxImg.onload = () => {
+                  lightboxImg.style.opacity = '1';
+              };
+              lightboxImg.style.opacity = '0.5'; // Dim while loading
+          }
+      };
+  
+      // Index tracking loops
+      const navigateNext = () => {
+          let nextIdx = currentIndex + 1;
+          if (nextIdx >= galleryItems.length) nextIdx = 0; // Loops back cleanly to the first photo
+          loadContent(nextIdx);
+      };
+  
+      const navigatePrev = () => {
+          let prevIdx = currentIndex - 1;
+          if (prevIdx < 0) prevIdx = galleryItems.length - 1; // Loops back cleanly to the last photo
+          loadContent(prevIdx);
+      };
+  
+      // Preload adjacent images for smoother navigation (optional performance enhancement)
+      const preloadAdjacent = (index) => {
+          const nextIndex = (index + 1) % galleryItems.length;
+          const prevIndex = (index - 1 + galleryItems.length) % galleryItems.length;
+          
+          [nextIndex, prevIndex].forEach(i => {
+              const item = galleryItems[i];
+              const src = item.getAttribute('data-src');
+              if (src) {
+                  const img = new Image();
+                  img.src = src;
+              }
+          });
+      };
+  
+      // Bind item click listeners
+      galleryItems.forEach((item, index) => {
+          item.addEventListener('click', (e) => {
+              if (e.target.closest('.vimeo-badge')) return;
+              
+              // Load the main content
+              loadContent(index);
+              
+              // Preload adjacent images for smoother navigation
+              preloadAdjacent(index);
+              
+              lightbox.classList.add('active');
+              lightbox.setAttribute('aria-hidden', 'false');
+              document.body.style.overflow = 'hidden'; 
+          });
+      });
+  
+      // Close functionality
+      const deactivateLightbox = () => {
+          lightbox.classList.remove('active');
+          lightbox.setAttribute('aria-hidden', 'true');
+          
+          // Clear the image source to free memory when lightbox is closed
+          lightboxImg.src = '';
+          lightboxVimeo.innerHTML = '';
+          
+          document.body.style.overflow = ''; 
+      };
+  
+      // Bind Navigation Button Actions
+      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
+      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
+      if (closeBtn) closeBtn.addEventListener('click', deactivateLightbox);
+      
+      lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) { 
+              deactivateLightbox(); 
+          }
+      });
+  
+      // Keyboard Arrow and Escape Handlers
+      document.addEventListener('keydown', (e) => {
+          if (!lightbox || !lightbox.classList.contains('active')) return;
+          
+          if (e.key === 'Escape') deactivateLightbox();
+          if (e.key === 'ArrowRight') navigateNext();
+          if (e.key === 'ArrowLeft') navigatePrev();
+      });
+  
+      // Optional: Preload first image on page load for faster initial open
+      // This loads the first image in the background when the page loads
+      const preloadFirstImage = () => {
+          if (galleryItems.length > 0) {
+              const firstItem = galleryItems[0];
+              const firstSrc = firstItem.getAttribute('data-src');
+              if (firstSrc) {
+                  const img = new Image();
+                  img.src = firstSrc;
+              }
+          }
+      };
+      preloadFirstImage();
+  
+  });
+  </script>
 
     
 
