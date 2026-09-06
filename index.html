@@ -304,7 +304,7 @@ html {
 
 .gallery-item {
     position: relative;
-
+    width: 33.333%;
     cursor: pointer;
     overflow: hidden;
     
@@ -448,6 +448,51 @@ html {
     transform: scale(1.1);
     color: #8FFF00;
 }
+
+/* --- LIGHTBOX NAVIGATION ARROWS --- */
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 1px solid rgba(143, 255, 0, 0.2);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    padding: 16px 24px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10002;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.lightbox-arrow:hover {
+    color: #8FFF00;
+    background: #000000;
+    border-color: #8FFF00;
+    box-shadow: 0 0 15px rgba(143, 255, 0, 0.4);
+}
+
+.lightbox-prev {
+    left: 24px;
+}
+
+.lightbox-next {
+    right: 24px;
+}
+
+/* Responsive adjustments to keep mobile views clean */
+@media (max-width: 600px) {
+    .lightbox-arrow {
+        padding: 8px 16px;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+}
+
 
 /* Responsive Structural Breaks (Tablets & Mobiles) */
 @media (max-width: 900px) {
@@ -1374,13 +1419,21 @@ html {
       
        </div>
 
-       <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+
+<div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+
+    <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">&#10094;</button>
+    
+    <div class="lightbox-content-wrapper">
         <span class="lightbox-close">&times;</span>
-        <div class="lightbox-content-wrapper">
-            <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
-            <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
-        </div>
+        <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
+        <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
     </div>
+
+
+    <button class="lightbox-arrow lightbox-next" aria-label="Next image">&#10095;</button>
+</div>
+
     
         </section>
             <div class="modal-container" id="modal-container">
@@ -1582,65 +1635,105 @@ html {
       window.addEventListener('scroll', highlightNavLink);
     });
   </script>
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const galleryItems = document.querySelectorAll('.gallery-item');
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- VIEWER DISCRETION POPUP HANDLING ---
+    const popup = document.getElementById('popup');
+    const confirmBtn = document.getElementById('confirm');
+    if (confirmBtn && popup) {
+        confirmBtn.addEventListener('click', () => { 
+            popup.classList.add('fade-out'); 
+        });
+    }
+
+    // --- LIGHTBOX INDEX ENGINE ---
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('.lightbox-img');
     const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
     const closeBtn = lightbox.querySelector('.lightbox-close');
+    
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    
+    let currentIndex = -1;
 
-    galleryItems.forEach(item => {
+    // Core content loading function based on active index position
+    const loadContent = (index) => {
+        if (index < 0 || index >= galleryItems.length) return;
+        currentIndex = index;
+
+        const activeItem = galleryItems[currentIndex];
+        const mediaSrc = activeItem.getAttribute('data-src');
+        const vimeoLink = activeItem.getAttribute('data-vimeo');
+
+        // Clear stage elements cleanly
+        lightboxImg.src = '';
+        lightboxImg.style.display = 'none';
+        lightboxVimeo.innerHTML = '';
+
+        if (vimeoLink) {
+            const videoId = vimeoLink.split('/').pop();
+            lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com{videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+        } else if (mediaSrc) {
+            lightboxImg.src = mediaSrc;
+            lightboxImg.style.display = 'block';
+        }
+    };
+
+    // Index tracking loops
+    const navigateNext = () => {
+        let nextIdx = currentIndex + 1;
+        if (nextIdx >= galleryItems.length) nextIdx = 0; // Loops back cleanly to the first photo
+        loadContent(nextIdx);
+    };
+
+    const navigatePrev = () => {
+        let prevIdx = currentIndex - 1;
+        if (prevIdx < 0) prevIdx = galleryItems.length - 1; // Loops back cleanly to the last photo
+        loadContent(prevIdx);
+    };
+
+    // Bind item click listeners
+    galleryItems.forEach((item, index) => {
         item.addEventListener('click', (e) => {
-            // Safe escape: If a user clicks directly on the external Vimeo badge link, don't open the image lightbox modal background
             if (e.target.closest('.vimeo-badge')) return;
-
-            const mediaSrc = item.getAttribute('data-src');
-            const vimeoLink = item.getAttribute('data-vimeo');
-
-            // Clear previous lightbox data contents safely
-            lightboxImg.src = '';
-            lightboxImg.style.display = 'none';
-            lightboxVimeo.innerHTML = '';
-
-            if (vimeoLink) {
-                // Extract video ID from standard link arrays
-                const videoId = vimeoLink.split('/').pop();
-                lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com{videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-                lightboxImg.style.display = 'none';
-            } else if (mediaSrc) {
-                lightboxImg.src = mediaSrc;
-                lightboxImg.style.display = 'block';
-            }
-
+            loadContent(index);
+            
             lightbox.classList.add('active');
             lightbox.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Locks body scrolling
+            document.body.style.overflow = 'hidden'; 
         });
     });
 
+    // Close functionality
     const deactivateLightbox = () => {
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
-        lightboxImg.src = '';
         lightboxVimeo.innerHTML = '';
-        document.body.style.overflow = ''; // Restores standard view navigation scrolling
+        document.body.style.overflow = ''; 
     };
 
-    closeBtn.addEventListener('click', deactivateLightbox);
+    // Bind Navigation Button Actions
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
+    if (closeBtn) closeBtn.addEventListener('click', deactivateLightbox);
     
-    // Close lightbox modal upon background backdrop canvas space clicks
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
-            deactivateLightbox();
+        if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) { 
+            deactivateLightbox(); 
         }
     });
 
-    // Native Accessibility: Close modal when pressing Escape key
+    // Keyboard Arrow and Escape Handlers
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            deactivateLightbox();
-        }
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') deactivateLightbox();
+        if (e.key === 'ArrowRight') navigateNext();
+        if (e.key === 'ArrowLeft') navigatePrev();
     });
 });
 </script>
