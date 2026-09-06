@@ -369,6 +369,18 @@ html {
     opacity: 1;
 }
 
+/* Tablet and Mobile: Always show text overlay */
+@media (max-width: 992px) {
+    .text-overlay {
+        opacity: 1 !important; /* Override the hover state */
+    }
+    
+    /* Remove hover effect on mobile since it's always visible */
+    .gallery-item:hover .text-overlay {
+        opacity: 1; /* Keep it visible on hover too */
+    }
+}
+
 /* Styled Text Caption Pill */
 .caption-pill {
     max-width: 90%;
@@ -477,9 +489,7 @@ html {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
     color: #ffffff;
-    border: 1px solid rgba(143, 255, 0, 0.2);
     font-size: clamp(2rem, 4vw, 3.5rem);
     padding: 16px 24px;
     cursor: pointer;
@@ -487,8 +497,7 @@ html {
     z-index: 10002;
     border-radius: 50px;
     transition: all 0.2s ease;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+
 }
 
 .lightbox-arrow:hover {
@@ -531,13 +540,6 @@ html {
         gap: 20px;
     }
     
-    /* Make text descriptions natively visible under images on smartphones */
-    .text-overlay {
-        opacity: 1;
-        position: relative;
-        background: transparent;
-        padding: 8px 0 0 0;
-    }
     
     .caption-pill {
         max-width: 100%;
