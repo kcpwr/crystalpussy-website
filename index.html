@@ -422,54 +422,51 @@ html {
 .lightbox-content-wrapper {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.15);
     display: flex;
-    align-items: flex-end;
-    padding: 16px;
-    opacity: 1; /* Always visible in lightbox */
-    transition: opacity 0.25s ease-in-out;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
     z-index: 2;
-    pointer-events: none; /* Allows clicking through to the image */
+    pointer-events: none; /* Allows clicking through empty spaces to close backdrop */
 }
 
 .lightbox-content-wrapper .caption-pill {
-    max-width: 90%;
-    width: max-content;
-    background-color: #D1A3B7;
-    color: #8FFF00;
-    padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2vw, 18px);
-    border-radius: 30px;
-    font-size: clamp(0.75rem, 1vw, 0.85rem);
-    font-weight: 500;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    white-space: normal;
-    word-wrap: break-word;
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: auto; /* Re-enable clicking interactions for the pill */
+    z-index: 3;
 }
 
-/* Make sure the media container is positioned correctly */
 .lightbox-content-wrapper .media-container {
     position: relative;
+    width: 90vw;             /* Leaves room for left/right directional arrows */
+    height: 90vh;            /* Leaves room for bottom pill and top spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;     /* Re-enable container actions */
+}
+
+.lightbox-img {
+    max-width: 100%;         /* Fits neatly within the media container boundaries */
+    max-height: 100%;        /* Fits neatly within the media container boundaries */
+    width: auto;             /* Retains proper aspect-ratio sizing rules */
+    height: auto;            /* Retains proper aspect-ratio sizing rules */
+    display: block;
+    object-fit: contain;     /* Ensures images never crop, slice, or stretch */
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.lightbox-vimeo-holder {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.lightbox-img {
-    max-width: auto;
-    max-height: auto;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-}
-
-.lightbox-vimeo-holder iframe {
-    width: 70vw;
-    height: 39.375vw; /* Perfectly maintains a 16:9 cinematic aspect ratio */
-    max-width: 1000px;
-    max-height: 562px;
-    border: none;
 }
 
 .lightbox-close {
