@@ -240,9 +240,7 @@ body {
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
+    
     }
 
 .dropdown-menu {
@@ -402,7 +400,50 @@ html {
         }
         }
 
-        
+
+
+
+
+.about-container {
+    margin: clamp(80px, 12vw, 120px) auto 0;
+    padding: 0 clamp(16px, 6vw, 128px);
+    box-sizing: border-box;
+    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+}
+
+.about-content {
+    line-height: 1.5;
+}
+.about-content p {
+    margin-top: clamp(32px, 5vw, 56px); 
+}
+
+#txt-logo {
+    float: left; /* Magic element: forces text to wrap tightly to its right side */
+    
+    /* Takes up exactly 50% width on desktop, leaving 50% for paragraph 1 */
+    width: calc(50% - 20px); 
+    max-width: 500px; /* Caps the image size on massive displays */
+    height: auto;
+    
+    /* Space between the image and the text on its right / bottom */
+    margin-right: 40px; 
+    margin-bottom: 24px; 
+    
+    box-sizing: border-box;
+}
+
+/* Smartphone Adjustments */
+@media (max-width: 768px) {
+    #txt-logo {
+        float: none; /* Disables wrapping on small mobile screens */
+        display: block;
+        width: 75%; /* Scales down perfectly on phone layouts */
+        margin: 0 auto 32px; /* Centers the logo above all text blocks */
+    }
+}
+
+      
 
 .row-1 {
     display: flex;
@@ -1262,21 +1303,26 @@ html {
                 </div>
             </div>
         </nav>
-        <section id="Start" class="start">  
-            <img src="/icons/logo-scaled.png" id="txt-logo" alt="Logo Crystal Pussy">
-            
-            <div class="row-1">
-                Crystal Pussy is an interdisciplinary artist from Poland, currently based in the French-speaking part of Switzerland, working across performance, site-specific installation, sculpture, painting, and multimedia.
+        <section id="about" class="about-container">  
+            <div class="about-content">
+                <!-- The image is placed inside the text block to allow the wrap effect -->
+                <img src="/icons/logo-scaled.png" id="txt-logo" alt="Logo Crystal Pussy">
+                
+                <p class="bio-intro">
+                    Crystal Pussy is an interdisciplinary artist from Poland, currently based in the French-speaking part of Switzerland, working across performance, site-specific installation, sculpture, painting, and multimedia.
+                </p>
+                
+                <p>
+                    She develops an artistic language that merges camp aesthetics, minimalism, street art influences, and a dark visual sensibility inspired by underground culture and BDSM. As a queer-feminist artist, Crystal Pussy explores the symbolism of the vagina as a powerful emblem of creativity, knowledge, freedom, and empowerment. Her work belongs to the artistic movement often referred to as vaginal art, in which the body becomes both a political and poetic space for reflection, resistance, and transformation.
+                </p>
+                
+                <p>
+                    Her compositions combine minimalist forms with hints of kitsch and subtle references to urban visual culture, resulting in immersive and emotionally charged experiences that invite introspection and dialogue. Drawing from her background in art education and art therapy, Crystal Pussy approaches her practice with a deep belief in the transformative power of creativity. Through her installations, performances, and visual works, she seeks to challenge social norms, reclaim marginalized narratives, and create spaces for emotional and collective empowerment.
+                </p>
             </div>
-        </section> 
+        </section>
         
-        <section id="About" class="about">  
-            <div class="row-1-small">
-                Crystal Pussy is an interdisciplinary artist from Poland, currently based in the French-speaking part of Switzerland, working across performance, site-specific installation, sculpture, painting, and multimedia.
-            </div>
-            <div class="row-2">She develops an artistic language that merges camp aesthetics, minimalism, street art influences, and a dark visual sensibility inspired by underground culture&nbsp;and BDSM. As a queer-feminist artist, Crystal Pussy explores the symbolism of the vagina as a powerful emblem of creativity, knowledge, freedom, and empowerment. Her work belongs to the artistic movement often referred to as vaginal art, in which the body becomes both a political and poetic space for reflection, resistance,&nbsp;and transformation.</div>
-            <div class="row-3">Her compositions combine minimalist forms with hints of kitsch and subtle references to urban visual culture, resulting in immersive and emotionally charged experiences that invite introspection and dialogue. Drawing from her background in art education and art therapy, Crystal Pussy approaches her practice with a deep belief in the transformative power of creativity. Through her installations, performances, and visual works, she seeks to challenge social norms, reclaim marginalized narratives, and create spaces for emotional and&nbsp;collective empowerment.</div>
-    </section>  
+        
 
         <section id="Art">
             <div class="box">
