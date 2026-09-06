@@ -292,14 +292,11 @@ html {
 .art-gallery-section {
 
     margin: 0 auto;
-    box-sizing: border-box;
 }
 
 .gallery-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-    align-items: start;
+    column-count: 3;
+    width: 100%;
 }
 
 /* Reusable Item Container Blocks */
@@ -308,12 +305,16 @@ html {
     width: 100%;
     cursor: pointer;
     overflow: hidden;
+    break-inside: avoid; 
+    margin-bottom: 32px; /* Controls the exact gap sticking top to bottom */
+    display: inline-block; /* Forces stable block stacking calculations */
 }
 
 .media-container {
     position: relative;
     width: 100%;
     overflow: hidden;
+    border-radius: 4px;
 }
 
 .media-container img {
