@@ -927,55 +927,60 @@ html {
     transition: all 0.1s ease;
 }
 
-/* Containers */
 .nav-container {
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    width: clamp(320px, 50vw, 480px);
-    max-width: clamp(500px, 90vw, 1400px);
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 600px;
     margin: 0;
-    padding: 0;
+    padding: 0 clamp(0px, 4vw, 16px); 
+    box-sizing: border-box;
 }
 
 .nav-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: auto;
+    justify-content: flex-end; 
+    width: 100%; 
     gap: clamp(6px, 1.5vw, 20px);
-    margin: 0 auto;
+    margin: 0;
 }
 
-/* Buttons - Inactive: transparent background */
 .nav-button {
-    flex: 0 1 auto;
-    border: none;
-    padding: clamp(12px, 1vw, 16px) clamp(8px, 2vw, 18px) clamp(10px, 0.6vw, 14px);
+    
+    flex: 0 1 auto; 
+    width: 100%;
+    max-width: max-content; 
+    
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    box-sizing: border-box;
+    white-space: nowrap;
+    
+    padding: clamp(8.4px, 0.6vw, 12px) clamp(14.4px, 1.8vw, 16px) clamp(7.2px, 0.3vw, 10px);
+    margin: 0;
+    
     font-family: inherit;
-    font-size: clamp(2.1rem, 4vw, 2.8rem);
+    font-size: clamp(1rem, 3.8vw, 1.8rem);
     font-weight: 500;
     text-align: center;
     color: #8FFF00;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    
+    border: none;
     background: transparent !important;
     border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+
     cursor: pointer;
     transition: all 0.1s ease;
 }
 
-.nav-button {
-    padding: clamp(7px, 0.6vw, 12px) clamp(6px, 1.8vw, 16px) clamp(6px, 0.3vw, 10px);
-    font-size: clamp(1rem, 3.8vw, 1.8rem);
-    box-sizing: border-box;
-    white-space: nowrap;
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-}
 
 
-/* Active button should not change on hover */
+/* Active button on hover */
 .nav-button.active:hover {
     background-color: rgba(143, 255, 0, 0.3) !important;
     color: #8FFF00;
