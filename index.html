@@ -301,35 +301,23 @@ html {
     width: 100%;
 }
 
-.gallery-item {
-    position: relative;
-    width: 33.333%;
-    cursor: pointer;
-    overflow: hidden;
-    
-    aspect-ratio: 1 / 1; /* Retains the perfect mosaic square container */
-}
-
-.media-container {
+/* This targets ONLY the thumbnail container inside the grid */
+.gallery-item .media-container {
     display: flex; 
     justify-content: center;
     align-items: center; 
     position: relative;
-    
     width: 100%;
     height: 100%; 
 }
 
-.media-container img {
-    /* FIX: Changed from auto/max constraints to force images to fully fill the 100% grid space */
+/* This targets ONLY the thumbnail images inside the grid */
+.gallery-item .media-container img {
     width: 100%;
     height: 100%;
     display: block;
-    
-    /* FIX: Changed from 'contain' to 'cover' so photos scale to completely fill the tile */
     object-fit: cover; 
-    object-position: center center; /* Guarantees the absolute center of your artwork is pinned inside the frame */
-    
+    object-position: center center;
     transition: transform 0.3s ease;
 }
 
