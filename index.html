@@ -994,22 +994,16 @@ html {
                     <section id="Art" class="art-gallery-section">
                         <div class="gallery-grid">
                     
-                            
-                            <div class="gallery-item" 
-                                data-src-small="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png"
-                                data-src-large="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey.png">
-                                    <div class="media-container">
-                                        <img src="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png" 
-                                            alt="Atelier Roseville — Vevey '26" 
-                                            loading="lazy">
-                                                <div class="text-overlay">
-                                                    <div class="caption-pill">
-                                                        <span class="description">Atelier Roseville — Vevey '26</span>
-                                                    </div>
-                                                </div>
-                                    </div>
-                            </div>
 
+                            <div class="gallery-item" data-src="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png">
+                                <div class="media-container">
+                                    <img src="photo-gallery/photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png" alt="Lokum Stonwell — Przesiew II '25" loading="lazy">
+                                    <div class="text-overlay">
+                                        <div class="caption-pill"><span class="description">Atelier Roseville — Vevey '26</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
 
                             <div class="gallery-item" data-src="photo-gallery/boss-bitch-womens-world-2026-berlin-crystal-pussy-small.png">
                                 <div class="media-container">
@@ -1665,11 +1659,10 @@ html {
           });
       }
   
-      // --- LIGHTBOX INDEX ENGINE ---
+      // --- LIGHTBOX ENGINE ---
       const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = lightbox.querySelector('.lightbox-img');
-      const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
       const closeBtn = lightbox.querySelector('.lightbox-close');
       
       const prevBtn = lightbox.querySelector('.lightbox-prev');
@@ -1677,55 +1670,20 @@ html {
       
       let currentIndex = -1;
   
-      // Core content loading function based on active index position
+      // Load content function
       const loadContent = (index) => {
           if (index < 0 || index >= galleryItems.length) return;
           currentIndex = index;
   
           const activeItem = galleryItems[currentIndex];
-          const mediaSrc = activeItem.getAttribute('data-src');
-          const vimeoLink = activeItem.getAttribute('data-vimeo');
+          const imgSrc = activeItem.querySelector('img').src; // Get the image source from the gallery
   
-          console.log('Loading content for index:', index);
-          console.log('data-src:', mediaSrc);
-          console.log('data-vimeo:', vimeoLink);
-  
-          // Clear stage elements cleanly
-          lightboxImg.src = '';
-          lightboxImg.style.display = 'none';
-          lightboxVimeo.innerHTML = '';
-  
-          if (vimeoLink) {
-              // FIXED: Correct Vimeo URL format
-              const videoId = vimeoLink.split('/').pop();
-              lightboxVimeo.innerHTML = `<iframe src="https://player.vimeo.com/video/${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-              console.log('Loading Vimeo video ID:', videoId);
-          } else if (mediaSrc) {
-              // Load the full-size image only when lightbox opens
-              console.log('Loading image:', mediaSrc);
-              lightboxImg.src = mediaSrc;
-              lightboxImg.style.display = 'block';
-              
-              // Add loading state and error handling
-              lightboxImg.style.opacity = '0.5';
-              
-              lightboxImg.onload = function() {
-                  console.log('Image loaded successfully:', mediaSrc);
-                  this.style.opacity = '1';
-              };
-              
-              lightboxImg.onerror = function() {
-                  console.error('Failed to load image:', mediaSrc);
-                  this.style.opacity = '1';
-                  // Optional: Show a fallback or error message
-                  this.alt = 'Image failed to load';
-              };
-          } else {
-              console.warn('No media source found for item:', index);
-          }
+          // Set the lightbox image
+          lightboxImg.src = imgSrc;
+          lightboxImg.style.display = 'block';
       };
   
-      // Index tracking loops
+      // Navigation
       const navigateNext = () => {
           let nextIdx = currentIndex + 1;
           if (nextIdx >= galleryItems.length) nextIdx = 0;
@@ -1738,88 +1696,43 @@ html {
           loadContent(prevIdx);
       };
   
-      // Preload adjacent images for smoother navigation
-      const preloadAdjacent = (index) => {
-          const nextIndex = (index + 1) % galleryItems.length;
-          const prevIndex = (index - 1 + galleryItems.length) % galleryItems.length;
-          
-          [nextIndex, prevIndex].forEach(i => {
-              const item = galleryItems[i];
-              const src = item.getAttribute('data-src');
-              if (src) {
-                  const img = new Image();
-                  img.src = src;
-                  console.log('Preloading adjacent image:', src);
-              }
-          });
-      };
-  
-      // Bind item click listeners
+      // Gallery item click listeners
       galleryItems.forEach((item, index) => {
-          item.addEventListener('click', (e) => {
-              if (e.target.closest('.vimeo-badge')) return;
-              
-              console.log('Gallery item clicked:', index);
-              
-              // Load the main content
+          item.addEventListener('click', () => {
               loadContent(index);
-              
-              // Preload adjacent images for smoother navigation
-              preloadAdjacent(index);
-              
               lightbox.classList.add('active');
               lightbox.setAttribute('aria-hidden', 'false');
-              document.body.style.overflow = 'hidden'; 
+              document.body.style.overflow = 'hidden';
           });
       });
   
-      // Close functionality
+      // Close lightbox
       const deactivateLightbox = () => {
-          console.log('Closing lightbox');
           lightbox.classList.remove('active');
           lightbox.setAttribute('aria-hidden', 'true');
-          
-          // Clear the image source to free memory when lightbox is closed
-          lightboxImg.src = '';
-          lightboxImg.style.display = 'none';
-          lightboxVimeo.innerHTML = '';
-          
-          document.body.style.overflow = ''; 
+          document.body.style.overflow = '';
       };
   
-      // Bind Navigation Button Actions
+      // Button listeners
       if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
       if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
       if (closeBtn) closeBtn.addEventListener('click', deactivateLightbox);
       
+      // Click outside to close
       lightbox.addEventListener('click', (e) => {
-          if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) { 
-              deactivateLightbox(); 
+          if (e.target === lightbox) {
+              deactivateLightbox();
           }
       });
   
-      // Keyboard Arrow and Escape Handlers
+      // Keyboard controls
       document.addEventListener('keydown', (e) => {
-          if (!lightbox || !lightbox.classList.contains('active')) return;
+          if (!lightbox.classList.contains('active')) return;
           
           if (e.key === 'Escape') deactivateLightbox();
           if (e.key === 'ArrowRight') navigateNext();
           if (e.key === 'ArrowLeft') navigatePrev();
       });
-  
-      // Optional: Preload first image on page load for faster initial open
-      const preloadFirstImage = () => {
-          if (galleryItems.length > 0) {
-              const firstItem = galleryItems[0];
-              const firstSrc = firstItem.getAttribute('data-src');
-              if (firstSrc) {
-                  const img = new Image();
-                  img.src = firstSrc;
-                  console.log('Preloading first image on page load:', firstSrc);
-              }
-          }
-      };
-      preloadFirstImage();
   
   });
   </script>
