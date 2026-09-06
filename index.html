@@ -1010,21 +1010,6 @@ html {
                                     </div>
                             </div>
 
-                            <div class="gallery-item" data-src="photo-gallery/boss-bitch-womens-world-2026-berlin-crystal-pussy.pn">
-                                <div class="media-container">
-                                    
-                                    <img src="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png" 
-                                         srcset="photo-gallery/crystal-pussy-atelier-roseville-2026-vevey-small.png 400w, 
-                                                 photo-gallery/crystal-pussy-atelier-roseville-2026-vevey.png 1200w"
-                                         sizes="(max-width: 600px) 100vw, (max-width: 992px) 50vw, 33vw"
-                                         alt="Atelier Roseville — Vevey '26" 
-                                         loading="lazy">
-                                    
-                                    <div class="text-overlay">
-                                        <div class="caption-pill"><span class="description">Atelier Roseville — Vevey '26</span></div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="gallery-item" data-src="photo-gallery/boss-bitch-womens-world-2026-berlin-crystal-pussy-small.png">
                                 <div class="media-container">
@@ -1701,41 +1686,59 @@ html {
           const mediaSrc = activeItem.getAttribute('data-src');
           const vimeoLink = activeItem.getAttribute('data-vimeo');
   
+          console.log('Loading content for index:', index);
+          console.log('data-src:', mediaSrc);
+          console.log('data-vimeo:', vimeoLink);
+  
           // Clear stage elements cleanly
           lightboxImg.src = '';
           lightboxImg.style.display = 'none';
           lightboxVimeo.innerHTML = '';
   
           if (vimeoLink) {
+              // FIXED: Correct Vimeo URL format
               const videoId = vimeoLink.split('/').pop();
-              lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+              lightboxVimeo.innerHTML = `<iframe src="https://player.vimeo.com/video/${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+              console.log('Loading Vimeo video ID:', videoId);
           } else if (mediaSrc) {
               // Load the full-size image only when lightbox opens
+              console.log('Loading image:', mediaSrc);
               lightboxImg.src = mediaSrc;
               lightboxImg.style.display = 'block';
               
-              // Optional: Add loading state for better UX
-              lightboxImg.onload = () => {
-                  lightboxImg.style.opacity = '1';
+              // Add loading state and error handling
+              lightboxImg.style.opacity = '0.5';
+              
+              lightboxImg.onload = function() {
+                  console.log('Image loaded successfully:', mediaSrc);
+                  this.style.opacity = '1';
               };
-              lightboxImg.style.opacity = '0.5'; // Dim while loading
+              
+              lightboxImg.onerror = function() {
+                  console.error('Failed to load image:', mediaSrc);
+                  this.style.opacity = '1';
+                  // Optional: Show a fallback or error message
+                  this.alt = 'Image failed to load';
+              };
+          } else {
+              console.warn('No media source found for item:', index);
           }
       };
   
       // Index tracking loops
       const navigateNext = () => {
           let nextIdx = currentIndex + 1;
-          if (nextIdx >= galleryItems.length) nextIdx = 0; // Loops back cleanly to the first photo
+          if (nextIdx >= galleryItems.length) nextIdx = 0;
           loadContent(nextIdx);
       };
   
       const navigatePrev = () => {
           let prevIdx = currentIndex - 1;
-          if (prevIdx < 0) prevIdx = galleryItems.length - 1; // Loops back cleanly to the last photo
+          if (prevIdx < 0) prevIdx = galleryItems.length - 1;
           loadContent(prevIdx);
       };
   
-      // Preload adjacent images for smoother navigation (optional performance enhancement)
+      // Preload adjacent images for smoother navigation
       const preloadAdjacent = (index) => {
           const nextIndex = (index + 1) % galleryItems.length;
           const prevIndex = (index - 1 + galleryItems.length) % galleryItems.length;
@@ -1746,6 +1749,7 @@ html {
               if (src) {
                   const img = new Image();
                   img.src = src;
+                  console.log('Preloading adjacent image:', src);
               }
           });
       };
@@ -1754,6 +1758,8 @@ html {
       galleryItems.forEach((item, index) => {
           item.addEventListener('click', (e) => {
               if (e.target.closest('.vimeo-badge')) return;
+              
+              console.log('Gallery item clicked:', index);
               
               // Load the main content
               loadContent(index);
@@ -1769,11 +1775,13 @@ html {
   
       // Close functionality
       const deactivateLightbox = () => {
+          console.log('Closing lightbox');
           lightbox.classList.remove('active');
           lightbox.setAttribute('aria-hidden', 'true');
           
           // Clear the image source to free memory when lightbox is closed
           lightboxImg.src = '';
+          lightboxImg.style.display = 'none';
           lightboxVimeo.innerHTML = '';
           
           document.body.style.overflow = ''; 
@@ -1800,7 +1808,6 @@ html {
       });
   
       // Optional: Preload first image on page load for faster initial open
-      // This loads the first image in the background when the page loads
       const preloadFirstImage = () => {
           if (galleryItems.length > 0) {
               const firstItem = galleryItems[0];
@@ -1808,6 +1815,7 @@ html {
               if (firstSrc) {
                   const img = new Image();
                   img.src = firstSrc;
+                  console.log('Preloading first image on page load:', firstSrc);
               }
           }
       };
