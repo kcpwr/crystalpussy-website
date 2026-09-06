@@ -301,7 +301,13 @@ html {
     width: 100%;
 }
 
-/* This targets ONLY the thumbnail container inside the grid */
+.gallery-item {
+    position: relative;
+    width: 33.333%;
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* Retains the perfect mosaic square container */
+}
 .gallery-item .media-container {
     display: flex; 
     justify-content: center;
