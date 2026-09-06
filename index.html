@@ -1646,114 +1646,114 @@ html {
   </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // --- VIEWER DISCRETION POPUP HANDLING ---
-      const popup = document.getElementById('popup');
-      const confirmBtn = document.getElementById('confirm');
-      if (confirmBtn && popup) {
-          confirmBtn.addEventListener('click', () => { 
-              popup.classList.add('fade-out'); 
-          });
-      }
-  
-      // --- LIGHTBOX ENGINE ---
-      const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = lightbox.querySelector('.lightbox-img');
-      const lightboxDescription = lightbox.querySelector('.lightbox-content-wrapper .description');
-      const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
-      const closeBtn = lightbox.querySelector('.lightbox-close');
-      
-      const prevBtn = lightbox.querySelector('.lightbox-prev');
-      const nextBtn = lightbox.querySelector('.lightbox-next');
-      
-      let currentIndex = -1;
-  
-      // Load content function
-      const loadContent = (index) => {
-          if (index < 0 || index >= galleryItems.length) return;
-          currentIndex = index;
-  
-          const activeItem = galleryItems[currentIndex];
-          const imgSrc = activeItem.querySelector('img')?.src || '';
-          const vimeoLink = activeItem.getAttribute('data-vimeo');
-          const caption = activeItem.querySelector('.description')?.textContent || '';
-  
-          // Clear previous content
-          lightboxImg.src = '';
-          lightboxImg.style.display = 'none';
-          lightboxVimeo.innerHTML = '';
-  
-          // Load image or video
-          if (vimeoLink) {
-              const videoId = vimeoLink.split('/').pop();
-              lightboxVimeo.innerHTML = `<iframe src="https://player.vimeo.com/video/${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-          } else if (imgSrc) {
-              lightboxImg.src = imgSrc;
-              lightboxImg.style.display = 'block';
-          }
-  
-          // Set the caption description
-          if (lightboxDescription) {
-              lightboxDescription.textContent = caption;
-          }
-      };
-  
-      // Navigation
-      const navigateNext = () => {
-          let nextIdx = currentIndex + 1;
-          if (nextIdx >= galleryItems.length) nextIdx = 0;
-          loadContent(nextIdx);
-      };
-  
-      const navigatePrev = () => {
-          let prevIdx = currentIndex - 1;
-          if (prevIdx < 0) prevIdx = galleryItems.length - 1;
-          loadContent(prevIdx);
-      };
-  
-      // Gallery item click listeners
-      galleryItems.forEach((item, index) => {
-          item.addEventListener('click', () => {
-              loadContent(index);
-              lightbox.classList.add('active');
-              lightbox.setAttribute('aria-hidden', 'false');
-              document.body.style.overflow = 'hidden';
-          });
-      });
-  
-      // Close lightbox
-      const deactivateLightbox = () => {
-          lightbox.classList.remove('active');
-          lightbox.setAttribute('aria-hidden', 'true');
-          lightboxVimeo.innerHTML = '';
-          document.body.style.overflow = '';
-      };
-  
-      // Button listeners
-      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
-      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
-      if (closeBtn) closeBtn.addEventListener('click', deactivateLightbox);
-      
-      // Click outside to close
-      lightbox.addEventListener('click', (e) => {
-          if (e.target === lightbox) {
-              deactivateLightbox();
-          }
-      });
-  
-      // Keyboard controls
-      document.addEventListener('keydown', (e) => {
-          if (!lightbox.classList.contains('active')) return;
-          
-          if (e.key === 'Escape') deactivateLightbox();
-          if (e.key === 'ArrowRight') navigateNext();
-          if (e.key === 'ArrowLeft') navigatePrev();
-      });
-  
-  });
-  </script>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- VIEWER DISCRETION POPUP HANDLING ---
+    const popup = document.getElementById('popup');
+    const confirmBtn = document.getElementById('confirm');
+    if (confirmBtn && popup) {
+        confirmBtn.addEventListener('click', () => { 
+            popup.classList.add('fade-out'); 
+        });
+    }
+
+    // --- LIGHTBOX ENGINE ---
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxDescription = lightbox.querySelector('.lightbox-content-wrapper .description');
+    const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    
+    let currentIndex = -1;
+
+    // Load content function
+    const loadContent = (index) => {
+        if (index < 0 || index >= galleryItems.length) return;
+        currentIndex = index;
+
+        const activeItem = galleryItems[currentIndex];
+        const imgSrc = activeItem.querySelector('img')?.src || '';
+        const vimeoLink = activeItem.getAttribute('data-vimeo');
+        const caption = activeItem.querySelector('.description')?.textContent || '';
+
+        // Clear previous content
+        lightboxImg.src = '';
+        lightboxImg.style.display = 'none';
+        lightboxVimeo.innerHTML = '';
+
+        // Load image or video
+        if (vimeoLink) {
+            const videoId = vimeoLink.split('/').pop();
+            lightboxVimeo.innerHTML = `<iframe src="https://player.vimeo.com/video/${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+        } else if (imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightboxImg.style.display = 'block';
+        }
+
+        // Set the caption description
+        if (lightboxDescription) {
+            lightboxDescription.textContent = caption;
+        }
+    };
+
+    // Navigation
+    const navigateNext = () => {
+        let nextIdx = currentIndex + 1;
+        if (nextIdx >= galleryItems.length) nextIdx = 0;
+        loadContent(nextIdx);
+    };
+
+    const navigatePrev = () => {
+        let prevIdx = currentIndex - 1;
+        if (prevIdx < 0) prevIdx = galleryItems.length - 1;
+        loadContent(prevIdx);
+    };
+
+    // Gallery item click listeners
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            loadContent(index);
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close lightbox
+    const deactivateLightbox = () => {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxVimeo.innerHTML = '';
+        document.body.style.overflow = '';
+    };
+
+    // Button listeners
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
+    if (closeBtn) closeBtn.addEventListener('click', deactivateLightbox);
+    
+    // Click outside to close
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            deactivateLightbox();
+        }
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') deactivateLightbox();
+        if (e.key === 'ArrowRight') navigateNext();
+        if (e.key === 'ArrowLeft') navigatePrev();
+    });
+
+});
+</script>
 
     
 
