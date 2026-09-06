@@ -295,19 +295,22 @@ html {
 
 .gallery-grid {
     column-count: 3;
-    column-gap: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
     width: 100%;
 }
 
-/* Reusable Item Container Blocks */
 .gallery-item {
     position: relative;
-    width: 100%;
+    /* Exactly 3 items per row on desktop */
+    width: 33.333%; 
     cursor: pointer;
-    margin-bottom: 0;
     overflow: hidden;
-    break-inside: avoid; 
-    display: inline-block;
+    
+    /* Forces a perfectly square frame for every single slot */
+    aspect-ratio: 1 / 1; 
 }
 
 .media-container {
@@ -1169,6 +1172,31 @@ html {
                             </div>
 
 
+                            <div class="gallery-item" data-src="photo-gallery/9-Palm tree — painted stainless steel, 2017.png">
+                                <div class="media-container">
+                                    <img src="photo-gallery/9-Palm tree — painted stainless steel, 2017.png" alt="Palm tree — painted stainless steel '17" loading="lazy">
+                                    <div class="text-overlay">
+                                        <div class="caption-pill"><span class="description">Palm tree — painted stainless steel '17</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Video Item -->
+                            <div class="gallery-item" data-src="photo-gallery/10-Pussy on fire, 2021.gif" data-vimeo="https://vimeo.com/886838395">
+                                <div class="media-container">
+                                    <img src="photo-gallery/10-Pussy on fire, 2021.gif" alt="Pussy on fire '21" loading="lazy">
+                                        <div class="vimeo-badge">
+                                            <a href="https://vimeo.com/886838395" target="_blank" rel="noopener">See on Vimeo</a>
+                                        </div>
+                                        <div class="text-overlay">
+                                            <div class="caption-pill">
+                                                <span class="description">Pussy on fire '21</span>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+
                             <!-- Video Item Example (With embedded Vimeo logic data-vimeo) -->
                             <div class="gallery-item" data-src="photo-gallery/photo-8.jpeg" data-vimeo="https://vimeo.com">
                                 <div class="media-container">
@@ -1183,33 +1211,6 @@ html {
                                         </div>
                                 </div>
                             </div>
-
-
-                    <div class="photo-8" data-description="You don't have to be cool II — Berlin, 2023">
-                        <img src="photo-gallery/8-You don't have to be cool II — Berlin, 2023.gif" height="100%" width="100%" alt="photo-8">
-            
-                          <div class="vimeo-button">
-                            <a href="https://vimeo.com/886890976">
-                              <img src="icons/vimeo-icon.svg" alt="See on Vimeo" class="vimeo-icon"> 
-                            </a>
-                          </div>
-            
-                <div class="text-overlay">
-                    <div class="text">
-                      <div class="description">You don't have to be cool II — Berlin '23
-                  </div>
-                </div>
-            </div>
-          </div>
-
-          <div class="photo-9" data-description="Palm tree — painted stainless steel, 2017">
-            <img src="photo-gallery/9-Palm tree — painted stainless steel, 2017.png" height="100%" width="100%" alt="photo-9">
-            <div class="text-overlay">
-              <div class="text">
-                <div class="description">Palm tree — painted stainless steel '17</div>
-              </div>
-            </div>
-          </div>
           
 
           <div class="photo-10" data-description="Pussy on fire, 2021">
