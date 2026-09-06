@@ -312,18 +312,22 @@ html {
 }
 
 .media-container {
-    position: relative;
+    display: flex; 
     justify-content: center;
+    align-items: center; 
+    position: relative;
     align-items: center;
     width: 100%;
 }
 
 .media-container img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
     display: block;
-    object-fit: cover;
     object-position: center center; 
+    object-fit: contain; 
     transition: transform 0.3s ease;
 }
 
