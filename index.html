@@ -736,18 +736,23 @@ html {
 
 .start #txt-logo,
 .start .row-1 {
-    width: 100%;
+    /* Safari Fix: Changed from 100% to auto so it doesn't fight the 40px gap */
+    width: auto; 
     line-height: 1.5;
     
+    /* Safari Definite Sizing Fix: Tells Safari to divide space cleanly 50/50 */
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0px; 
+    
+    /* Safari Layout Safety Override */
+    min-width: 0; 
     
     box-sizing: border-box;
     padding: 20px;
 }
 
-/* Hide the element */
+/* Hide the element by default on larger screens */
 .row-1-small {
     display: none;
 }
@@ -759,7 +764,6 @@ html {
     }
 
     .start #txt-logo {
-
         flex: 0 0 auto !important; 
         width: 75vw;      
         padding: 4vw;     
@@ -772,11 +776,13 @@ html {
 
     .row-1-small {
         display: block;
+        
+        /* Safari Mobile Fix: Overrides the zero-basis row rules when shifting to columns */
         width: 100%;
-    
-        flex: 0 0 auto; 
+        flex: 0 0 auto !important; 
     }
 }
+
 
 
 
