@@ -30,6 +30,7 @@
     transition: all 0.3s ease-in-out;
     pointer-events: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    -webkit-backdrop-filter: blur(10px); 
     backdrop-filter: blur(10px);
     
     bottom: clamp(24px, 2.5vw, 32px);
@@ -472,6 +473,7 @@ html {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.85);
+    -webkit-backdrop-filter: blur(10px); 
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
@@ -729,45 +731,48 @@ html {
   gap: 40px;
   padding: 0 clamp(8px, 6vw, 128px) 0;
   align-items: center;
+  flex-direction: row;
 }
 
 .start #txt-logo,
 .start .row-1 {
     width: 100%;
     line-height: 1.5;
-    flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%; 
     box-sizing: border-box;
     padding: 20px;
 }
-
 
 /* Hide the element by default on larger screens */
 .row-1-small {
     display: none;
 }
-/* Your new tablet/mobile styles */
-@media (max-width: 992px) {
-    .start #txt-logo {
-        flex: none;       /* Disables the equal 50/50 split */
-        width: 75vw;      /* Fills 75% of the viewport width */
-        
-        /* Adds proportional padding that shrinks beautifully with the screen */
-        padding: 4vw;     
-        box-sizing: border-box; /* Prevents padding from making the width larger than 75vw */
-    }
-}
 
+/* Consolidated tablet/mobile styles */
 @media (max-width: 992px) {
+    .start {
+        flex-direction: column; 
+    }
+
+    .start #txt-logo {
+        flex: 0 0 auto !important; 
+        width: 75vw;      
+        padding: 4vw;     
+        box-sizing: border-box; 
+    }
+
     .row-1 {
         display: none; 
     }
-}
 
-@media (max-width: 992px) {
     .row-1-small {
         display: block;
+        width: 100%;
     }
 }
+
 
 
 .about {
@@ -942,7 +947,7 @@ html {
     flex-direction: row;
     justify-content: center; 
     width: 100%; 
-    gap: clamp(4px, 1.5vw, 20px);
+    gap: clamp(3px, 1.5vw, 20px);
     margin: 0;
 }
 
@@ -961,7 +966,7 @@ html {
     margin: 0;
     
     font-family: inherit;
-    font-size: clamp(1rem, 3.8vw, 1.8rem);
+    font-size: clamp(1.1rem, 3.8vw, 1.8rem);
     font-weight: 500;
     text-align: center;
     color: #8FFF00;
@@ -971,6 +976,7 @@ html {
     background: transparent !important;
     border-radius: 50px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    -webkit-backdrop-filter: blur(10px); 
     backdrop-filter: blur(10px);
 
     cursor: pointer;
@@ -998,6 +1004,7 @@ html {
     font-size: clamp(1rem, 3vw, 1.8rem);
     border-radius: 50px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    -webkit-backdrop-filter: blur(10px); 
     backdrop-filter: blur(10px);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
