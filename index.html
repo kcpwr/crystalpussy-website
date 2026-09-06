@@ -37,28 +37,26 @@
     gap: clamp(8px, 5vw, 64px);
     border-radius: clamp(24px, 4vw, 38px);
     width: clamp(320px, 50vw, 480px);
-    max-width: clamp(500px, 90vw, 1400px);
-
-    
-}
+    max-width: clamp(500px, 90vw, 1400px); 
+    }
 
 .popup-content {
     display: flex;
     align-items: center;
-}
+    }
 
 .popup-icon {
     flex-shrink: 0; 
-}
+    }
 
-    .popup-icon img {
+.popup-icon img {
     width: clamp(42px, 9vw, 50px);
     padding: clamp(6px, 1.75vw, 10px);
     height: auto;
     display: block;
     height: auto;
     display: block;
-}
+    }
 
 .popup-text {
     flex: 1;
@@ -67,8 +65,7 @@
     gap: clamp(0px, 0.5vw, 4px);
     text-align: left;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-
-}
+    }
         
 .popup-1 .h3 {
     color: #8FFF00; 
@@ -76,7 +73,7 @@
     font-weight: 650;
     width: auto; 
     max-width: fit-content;
-}
+    }
 
 .popup-1 .h4 {
     color: #8FFF00; 
@@ -85,19 +82,18 @@
     font-weight: 450;
     width: auto; 
     max-width: fit-content;
-}
-
+    }
 
 .popup-buttons   {
-display: flex;
-flex: 1;
-flex-direction: row;
-gap: clamp(8px, 1.5vw, 12px);
-align-items: center;
-justify-content: right;
-flex-wrap: nowrap;
-width: 100%;
-}
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: clamp(8px, 1.5vw, 12px);
+    align-items: center;
+    justify-content: right;
+    flex-wrap: nowrap;
+    width: 100%;
+    }
 
 @media (min-width: 768px) {
     .popup-1-buttons {
@@ -106,9 +102,9 @@ width: 100%;
     grid-template-columns: auto 1fr; 
     align-items: center;
     max-width: 128px;
-    
     }
-}
+    }
+
 .popup-1 button {
     font-size: clamp(0.9rem, 1.8vw + 0.3rem, 0.95rem);
     font-weight: 600;
@@ -127,192 +123,65 @@ width: 100%;
     height: 100%;
     flex: 1; 
     text-align: center;
-}
+    }
         
-            .popup-1 button#confirm {
-                background-color: rgba(143, 255, 0, 0.5);
-                color: #8FFF00; 
-                text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
-                
-            }
-            .popup-1 button#confirm:hover {
-                background-color: #8FFF00; 
-                color: #D1A3B7;
-                text-shadow: 0 0 5px rgba(0, 0, 0, 0);
-                box-shadow: 0 0 8px #8FFF00; 
-            }
+.popup-1 button#confirm {
+    background-color: rgba(143, 255, 0, 0.5);
+    color: #8FFF00; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    }
+.popup-1 button#confirm:hover {
+    background-color: #8FFF00; 
+    color: #D1A3B7;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 8px #8FFF00; 
+    }
 
 .overlay-1.fade-out {
-  opacity: 0;
-  backdrop-filter: blur(0);
-}
+    opacity: 0;
+    backdrop-filter: blur(0);
+    }
 
 .popup-1.fade-out {
-  opacity: 0;
-  transform: scale(0.95);
-}
+    opacity: 0;
+    transform: scale(0.95);
+    }
 
 .hidden {
     display: none;
-}
+    }
 
-
-            * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif; 
-}
-
+    }
 
 :root {
     --main-text-color: #8FFF00; 
     --secondary-text-color: #BEE38D;
     --main-bg-color: #D1A3B7;
-}
+    }
 
 body {
     color: var(--main-text-color);
     background-color: var(--main-bg-color);
     transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-}
-
-.dark-mode {
-    --main-text-color: #000; 
-    --main-bg-color: #efefef; 
-    color: var(--main-text-color);
-    background-color: var(--main-bg-color);
-    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-}
-
-
-.dark-mode .container {
-    color: var(--main-text-color);
-    background-color: var(--main-bg-color);
-    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-}
-  
-  .dark-mode .container,
-  .dark-mode .column-left,
-  .dark-mode .column-mid,
-  .dark-mode .row-1,
-  .dark-mode .row-2,
-  .dark-mode .row-3,
-  .dark-mode .art,
-  .dark-mode .box,
-  .dark-mode .gallery-column-left-1,
-  .dark-mode .gallery-column-middle-1,
-  .dark-mode .gallery-column-right-1,
-  .dark-mode .photo-1,
-  .dark-mode .photo-2,
-  .dark-mode .photo-3,
-  .dark-mode .photo-4,
-  .dark-mode .photo-5,
-  .dark-mode .photo-6,
-  .dark-mode .photo-7,
-  .dark-mode .photo-8,
-  .dark-mode .photo-9,
-  .dark-mode .photo-10,
-  .dark-mode .text-overlay,
-  .dark-mode .text,
-  .dark-mode .exhibitions,
-  .dark-mode .contact,
-  .dark-mode .address-column,
-  .dark-mode .email-phone-column,
-  .dark-mode .email-button,
-  .dark-mode .phone-button,
-  .dark-mode .column-right,
-  .dark-mode .nav,
-  .dark-mode .nav a,
-  .dark-mode .contrast-button,
-  .dark-mode .footer,
-  .dark-mode .copyright-column,
-  .dark-mode .back-to-top-column {
-    color: var(--main-text-color);
-    background-color: var(--main-bg-color);
-    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-  }
+    }
 
   a {
     all: unset;
-}
+    }
 
 html {
     scroll-behavior: smooth;
-    
     }
-
-.dropdown-menu {
-    position: fixed;
-    width: 100%;
-    display: none;
-    justify-content: flex-end; 
-    top: 52px;
-    right: 0;
-    background-color: #D1A3B7;
-    box-shadow: 0px 20px 20px #9248683c;
-    z-index: 9996;
-}
 
 .show {
     display: block;
-}
-
-.menu-button {
-    position: fixed;
-    width: 100%;
-    display: none;
-    cursor: pointer;
-    background-color: #D1A3B7;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 18px;
-    box-shadow: 0px 3px 3px #9248683c;
-    z-index: 9997;
-}
-
-
-.dark-mode .menu-button {
-    background-color: #efefef; /* Dark mode background color */
-    box-shadow: 0px 3px 3px #0000004c; /* Dark mode box shadow color */
-    color: #000; /* Dark mode text color */
-}
-
-.temp-logo {
-    display: none;
-    position: fixed;
-    height: 42px;
-    width: auto;
-    top: 8px; /* Adjust as needed */
-    left: 16px; /* Adjust as needed */
-    z-index: 9999; /* Ensure it's above other content */
-}
-
-@media only screen and (min-width: 601px) {
-    .temp-logo {
-        display: none;
     }
-}
-
-        
-
-.bar {
-    width: 40px;
-    height: 3px;
-    margin: 0;
-    background-color: #8FFF00;
-    margin: 5px;
-    margin-left: auto;
-    }
-
-.dark-mode .bar {
-    background-color: #000000; /* Dark mode background color */
-    }
-
-
-
-
 
 .container {
     display: flex;
@@ -338,7 +207,7 @@ html {
     }
       
 
-    .column-left {
+.column-left {
     position: absolute;  
     height: 100vh;
     flex-direction: column;
@@ -348,8 +217,9 @@ html {
     overflow: visible;
     opacity: 0;
     transition: opacity 2s ease-in-out, height 2s ease-in-out 2s;
-}
-    .column-left.show{
+    }
+
+.column-left.show{
         opacity: 1;
     }
 
@@ -360,47 +230,6 @@ html {
     top: 24px;
     left: 0px;
     }
-
-
-.column-mid {
-    display: flex;
-    flex-direction: column;
-    flex: 65%;
-    height: fit-content;
-    opacity: 1;
-    }
-
-    @media only screen and (min-width: 601px) and (max-width: 1024px) {
-        .column-mid {
-            flex: 60%;
-            height: auto;
-        }
-        }
-
-.row-0 {
-    display: flex;
-    width: 70%;
-    justify-content: left;
-    align-items: left;
-    color: #8FFF00;
-    margin-top: 64px; /* Make sure the unit 'px' is included */
-    margin-bottom: 0px;
-    left: 0;
-}
-
-@media only screen and (max-width: 600px) {
-    .row-0 {
-
-        width: 40%;
-        height: auto;
-        justify-content: left;
-        align-items: left;
-        margin-top: 82px;
-        padding: 0 8px;
-        }
-        }
-
-
 
 
 
@@ -444,387 +273,208 @@ html {
     }
 }
 
-      
 
-.row-1 {
-    display: flex;
-    margin: clamp(20px, 3vw, 40px) 0;
-    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
-    line-height: 1.6;
-    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Gallery Main Section Base Grid Layout */
+.art-gallery-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: clamp(60px, 10vw, 120px) clamp(16px, 4vw, 64px);
+    box-sizing: border-box;
 }
 
-.row-1-small {
-    display: flex;
-    margin: clamp(20px, 3vw, 40px) 0;
-    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
-    line-height: 1.6;
-    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
+.gallery-grid {
+    display: grid;
+    /* Native 3-column architecture that shrinks cleanly */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: start;
 }
 
-.row-1.show {
-    opacity: 1;
-    }
-
-
-.row-2 {
-    display: flex;
-    margin: clamp(20px, 3vw, 40px) 0;
-    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
-    line-height: 1.6;
-    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
-}
-
-
-.row-2.show{
-    opacity: 1;
-    }
-
-
-.row-3 {
-    display: flex;
-    margin: clamp(20px, 3vw, 40px) 0;
-    font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
-    line-height: 1.6;
-    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out 0.5s;
-}
-
-.row-3.show{
-    opacity: 1;
-    }
-            
-
-.art {
-    display: flex;
-    flex: wrap;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 9999;
-    padding-right: clamp(16px, 3vw, 32px);
-    }
-
-.box {  
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: flex-start; 
-    padding: clamp(80px, 15vw, 164px) 0;
-    overflow: hidden;
+/* Reusable Item Container Blocks */
+.gallery-item {
+    position: relative;
+    width: 100%;
     cursor: pointer;
-    }
+    overflow: hidden;
+}
 
-.lightbox {
+.media-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.media-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .media-container img {
+    transform: scale(1.02);
+}
+
+/* Simplified Text Overlay Module (Targets ALL cards dynamically) */
+.text-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    z-index: 2;
+}
+
+.gallery-item:hover .text-overlay {
+    opacity: 1;
+}
+
+/* Styled Text Caption Pill */
+.caption-pill {
+    max-width: 90%;
+    width: max-content;
+    background-color: #D1A3B7;
+    color: #8FFF00;
+    padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2vw, 18px);
+    border-radius: 30px;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Clean Vimeo Video Badges */
+.vimeo-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+}
+
+.vimeo-badge a {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #8FFF00;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.vimeo-badge a:hover {
+    background-color: #000000;
+    border-color: #8FFF00;
+}
+
+/* Lightbox Base Setup Overrides */
+.lightbox-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    -webkit-backdrop-filter: blur(10px); 
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
+    -webkit-backdrop-filter: blur(12px); 
+    backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    z-index: 9999;
+    z-index: 10000;
 }
 
-.lightbox.active {
+.lightbox-overlay.active {
     opacity: 1;
     pointer-events: auto;
 }
 
-.lightbox-img {
+.lightbox-content-wrapper {
+    position: relative;
     max-width: 90vw;
-    max-height: 90vh;
+    max-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
     object-fit: contain;
-    box-shadow: 0 0 40px rgba(0,0,0,0.8);
-    border-radius: 6px;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.lightbox-vimeo-holder iframe {
+    width: 70vw;
+    height: 39.375vw; /* Perfectly maintains a 16:9 cinematic aspect ratio */
+    max-width: 1000px;
+    max-height: 562px;
+    border: none;
 }
 
 .lightbox-close {
     position: absolute;
-    top: 30px;
-    right: 40px;
-    font-size: 42px;
-    color: white;
+    top: 24px;
+    right: 32px;
+    font-size: 3rem;
+    color: #ffffff;
     cursor: pointer;
-    z-index: 10000;
-    transition: transform 0.2s ease;
+    user-select: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    z-index: 10001;
 }
 
 .lightbox-close:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    color: #8FFF00;
 }
 
-.gallery-column-left-1,
-.gallery-column-middle-1,
-.gallery-column-right-1 {
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start; 
-    width: 34%; 
-    overflow: hidden;
+/* Responsive Structural Breaks (Tablets & Mobiles) */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Snaps cleanly to 2 columns on tablets */
+        gap: 24px;
     }
+}
 
-@media only screen and (max-width: 600px) {
-.box {
-    flex-direction: column; 
-    align-items: center;
-    padding: clamp(80px, 15vw, 164px) 0;
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Snaps cleanly to 1 single full-width column on mobile phones */
+        gap: 20px;
     }
     
-.gallery-column-left-1,
-.gallery-column-middle-1,
-.gallery-column-right-1 {
-    width: 100%; 
-    overflow: hidden;
-    }
-    }
-    
-.gallery-column-left-1 img,
-.gallery-column-middle-1 img,
-.gallery-column-right-1 img {
-    position: relative;
-    overflow: hidden;
-    }
-    
-.text-overlay {
-    position: relative;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out 0s;
-    z-index: 1;
-}
-
-
-.photo-1:hover .text-overlay,
-.photo-2:hover .text-overlay,
-.photo-3:hover .text-overlay,
-.photo-4:hover .text-overlay,
-.photo-5:hover .text-overlay,
-.photo-6:hover .text-overlay,
-.photo-7:hover .text-overlay,
-.photo-8:hover .text-overlay,
-.photo-9:hover .text-overlay,
-.photo-10:hover .text-overlay,
-.photo-11:hover .text-overlay,
-.photo-12:hover .text-overlay,
-.photo-13:hover .text-overlay,
-.photo-14:hover .text-overlay,
-.photo-15:hover .text-overlay,
-.photo-16:hover .text-overlay,
-.photo-17:hover .text-overlay,
-.photo-18:hover .text-overlay,
-.photo-19:hover .text-overlay,
-.photo-20:hover .text-overlay,
-.photo-21:hover .text-overlay,
-.photo-22:hover .text-overlay,
-.photo-28:hover .text-overlay,
-.photo-29:hover .text-overlay,
-.photo-27:hover .text-overlay,
-.photo-28:hover .text-overlay,
-.photo-30:hover .text-overlay,
-.photo-31:hover .text-overlay,
-.photo-32:hover .text-overlay,
-.photo-33:hover .text-overlay,
-.photo-34:hover .text-overlay,
-.photo-A11:hover .text-overlay,
-.photo-A10:hover .text-overlay,
-.photo-B11:hover .text-overlay,
-.photo-B10:hover .text-overlay,
-.photo-C11:hover .text-overlay,
-.photo-C10:hover .text-overlay,
-.photo-A111:hover .text-overlay {
-    opacity: 1;
-    transition-delay: 0s;
-}
-
-.text {
-    position: absolute;
-    max-width: 90%;
-    min-width: 40px; /* Prevents collapse on empty content */
-    width: max-content; /* Allows horizontal expansion */
-    height: auto; /* Remove fixed height */
-    min-height: clamp(16px, 3.5vh, 28px); /* Minimum height */
-    bottom: 14px;
-    left: 10px;
-    padding: clamp(0.25rem, 0.5vw, 0.5rem) clamp(0.5rem, 1vw, 0.75rem);
-    gap: 5px;
-    background-color: #D1A3B7;
-    box-shadow: 0 0 4px 3px #D1A3B7;
-    color: #8FFF00; 
-    display: flex;
-    align-items: center;
-    border-radius: 30px;
-    font-size: clamp(0.75rem, 0.3vw + 0.7rem, 0.75rem);
-    transition: all 0.15s ease-in-out;
-    white-space: normal; /* Allows text wrapping */
-    word-wrap: break-word; /* Breaks long words */
-    overflow: visible; /* Shows overflow content */
-}
-.camera-ico {
-    padding: 0;
-}
-.icon img {
-    min-height: clamp(12px, 1.5vh, 18px)
-}
-
-@media only screen and (max-width: 600px) {
+    /* Make text descriptions natively visible under images on smartphones */
     .text-overlay {
         opacity: 1;
-        transition: none;
+        position: relative;
+        background: transparent;
+        padding: 8px 0 0 0;
     }
     
-
-.photo-1:hover .text-overlay,
-.photo-2:hover .text-overlay,
-.photo-3:hover .text-overlay,
-.photo-4:hover .text-overlay,
-.photo-5:hover .text-overlay,
-.photo-6:hover .text-overlay,
-.photo-7:hover .text-overlay,
-.photo-8:hover .text-overlay,
-.photo-9:hover .text-overlay,
-.photo-10:hover .text-overlay,
-.photo-11:hover .text-overlay,
-.photo-12:hover .text-overlay,
-.photo-13:hover .text-overlay,
-.photo-14:hover .text-overlay,
-.photo-15:hover .text-overlay,
-.photo-16:hover .text-overlay,
-.photo-17:hover .text-overlay,
-.photo-18:hover .text-overlay,
-.photo-19:hover .text-overlay,
-.photo-20:hover .text-overlay,
-.photo-21:hover .text-overlay,
-.photo-22:hover .text-overlay,
-.photo-28:hover .text-overlay,
-.photo-29:hover .text-overlay,
-.photo-27:hover .text-overlay,
-.photo-34:hover .text-overlay,
-.photo-A11:hover .text-overlay,
-.photo-A10:hover .text-overlay,
-.photo-B11:hover .text-overlay,
-.photo-B10:hover .text-overlay,
-.photo-C11:hover .text-overlay,
-.photo-C10:hover .text-overlay,
-.photo-A111:hover .text-overlay  {
-        opacity: 1; 
-        transition: none; 
-    }
-}
-.photo-8,
-.photo-10,
-.photo-18
- {
-  position: relative; /* Add this line */
-  display: inline-block; /* Or 'block' depending on layout */
-  width: 100%; /* Ensure container spans image width */
-}
-
-
-.vimeo-button {
-    position: absolute;
-    top: 0px;
-    right: 8px;
-    cursor: pointer;
-    z-index: 1; /* Ensure the button appears above the modal image */
-}
-
-.vimeo-button a {
-    position: relative; /* Ensure pseudo-element is positioned relative to the link */
-}
-
-.vimeo-button a:hover::after {
-    content: ''; 
-    position: absolute;
-    left: 0;
-    bottom: 1px; 
-    width: 100%;
-    height: 2px; 
-    background-color: #8FFF00; 
-}
-
-.vimeo-button-modal {
-    position: absolute;
-    top: 8px; /* Adjust top positioning */
-    right: 8px; /* Adjust right positioning */
-    z-index: 1; /* Ensure the button appears above the modal image */
-}
-
-.vimeo-button-modal a {
-    display: block; /* Make the link occupy the entire button area */
-}
-
-.vimeo-button-modal a:hover::after {
-    content: ''; /* Create the pseudo-element */
-    position: absolute;
-    left: 0;
-    bottom: 0px; /* Adjust the position to align with the bottom of the link */
-    width: 100%;
-    height: 2px; /* Adjust the height as needed */
-    background-color: #8FFF00; /* Set the color of the underline */
-}
-
-.start {
-  display: flex;
-  justify-content: center;
-  margin-top: clamp(80px, 12vw, 120px);
-  gap: 40px;
-  padding: 0 clamp(8px, 6vw, 128px) 0;
-  align-items: center;
-  flex-direction: row;
-}
-
-.start #txt-logo,
-.start .row-1 {
-    /* Safari Fix: Changed from 100% to auto so it doesn't fight the 40px gap */
-    width: auto; 
-    line-height: 1.5;
-    
-    /* Safari Definite Sizing Fix: Tells Safari to divide space cleanly 50/50 */
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0px; 
-    
-    /* Safari Layout Safety Override */
-    min-width: 0; 
-    
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-/* Hide the element by default on larger screens */
-.row-1-small {
-    display: none;
-}
-
-/* Consolidated tablet/mobile styles */
-@media (max-width: 992px) {
-    .start {
-        flex-direction: column; 
-    }
-
-    .start #txt-logo {
-        flex: 0 0 auto !important; 
-        width: 75vw;      
-        padding: 4vw;     
-        box-sizing: border-box; 
-    }
-
-    .row-1 {
-        display: none; 
-    }
-
-    .row-1-small {
-        display: block;
-        
-        /* Safari Mobile Fix: Overrides the zero-basis row rules when shifting to columns */
-        width: 100%;
-        flex: 0 0 auto !important; 
+    .caption-pill {
+        max-width: 100%;
+        box-shadow: none;
     }
 }
 
@@ -832,14 +482,15 @@ html {
 
 
 
-.about {
 
-    display: flex;
-    flex-direction: column;
-    padding: 0 clamp(8px, 6vw, 128px) 0;
-    font-size: clamp(1rem, calc(0.6vw + 0.9rem), 1.25rem);
-    line-height: 1.5;
-}
+
+
+
+
+
+
+
+
     
 
 .exhibitions {
@@ -953,25 +604,6 @@ html {
     }
 
 
-.column-right {
-    display: flex;
-    text-align: right;
-    flex-direction: column;
-    flex: 12%;
-    justify-content: space-between;
-    height: 100vh;
-    padding-top: 110px;
-    padding-bottom: 24px;
-    }
-
-
-    
-    @media only screen and (max-width: 1024px) {
-        .column-left,
-        .column-right {
-        display: none;
-        }
-        }
 
 /* Navigation Bar */
 .nav {
@@ -1160,10 +792,6 @@ html {
     color: #BEE38D;
     }
 
-.dark-mode .copyright-column {
-    color: #808080; 
-    }
-
 .back-to-top-column {
     display: block;
     text-align: left;
@@ -1179,16 +807,6 @@ html {
 
 .back-to-top-column :hover {
     color: #8FFF00;
-    text-decoration: underline;
-    }
-
-.dark-mode .back-to-top-column {
-    color: #808080; 
-    text-decoration: underline;
-    }
-
-.dark-mode .back-to-top-column :hover{
-    color: #000; 
     text-decoration: underline;
     }
 
@@ -1286,14 +904,14 @@ html {
 
 <div class="container">
 
-    <div class="column-left">
+ 
         <div id="logo">
           <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.64/build/spline-viewer.js"></script>
           <spline-viewer loading-anim-type="spinner-small-light" url="https://prod.spline.design/2f3FMFCq1-0erjMs/scene.splinecode"></spline-viewer>
         </div>
     </div>
 
-    <div class="column-mid">
+
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-buttons">
@@ -1325,9 +943,42 @@ html {
         
         
 
-        <section id="Art">
-            <div class="box">
-                <div class="gallery-column-left-1">
+                    <section id="Art" class="art-gallery-section">
+                        <div class="gallery-grid">
+                    
+                            <!-- Mapped Item 1 -->
+                            <div class="gallery-item" data-src="photo-gallery/A11.2-Atelier-Roseville_2026_Vevey.jpg">
+                                <div class="media-container">
+                                    <img src="photo-gallery/A11.2-Atelier-Roseville_2026_Vevey.jpg" alt="Atelier Roseville — Vevey '26" loading="lazy">
+                                    <div class="text-overlay">
+                                        <div class="caption-pill"><span class="description">Atelier Roseville — Vevey '26</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mapped Item 2 -->
+                            <div class="gallery-item" data-src="photo-gallery/A11.2-Atelier-Roseville_2026_Vevey.jpg">
+                                <div class="media-container">
+                                    <img src="photo-gallery/A11.1-Boss_bitch_Women's World_2026_berlin.JPEG" alt="Boss Bitch — Berlin '26" loading="lazy">
+                                    <div class="text-overlay">
+                                        <div class="caption-pill"><span class="description">Boss Bitch — Berlin '26</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video Item Example (With embedded Vimeo logic data-vimeo) -->
+                            <div class="gallery-item" data-src="photo-gallery/photo-8.jpeg" data-vimeo="https://vimeo.com">
+                                <div class="media-container">
+                                    <img src="photo-gallery/photo-8.jpeg" alt="You don't have to be cool II" loading="lazy">
+                                        <div class="vimeo-badge">
+                                            <a href="https://vimeo.com" target="_blank" rel="noopener">See on Vimeo</a>
+                                        </div>
+                                        <div class="text-overlay">
+                                            <div class="caption-pill">
+                                                <span class="description">You don't have to be cool II — Berlin '23</span>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
 
 
                     <div class="photo-A111" data-description="A112-Atelier Roseville, Vevey, 2026">
@@ -1474,7 +1125,7 @@ html {
 
         </div>
 
-    <div class="gallery-column-middle-1">
+
 
         <div class="photo-B11" data-description="-">
             <img src="photo-gallery/B11-Boss Bitch Camping Reception, Festival HORS LIT XI,  La Maladaire, 2025.01.jpeg" height="100%" width="100%" alt="Untitled, 2025">
@@ -1611,7 +1262,7 @@ html {
           </div>
         </div>
 
-        <div class="gallery-column-right-1">
+
 
             <div class="photo-C11" data-description="-">
                 <img src="photo-gallery/C11-Boss Bitch Camping Reception, Festival HORS LIT XI,  La Maladaire, 2025.02.jpeg" height="100%" width="100%" alt="Untitled, 2025">
@@ -1737,6 +1388,14 @@ html {
       
        </div>
 
+       <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content-wrapper">
+            <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
+            <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
+        </div>
+    </div>
+    
         </section>
             <div class="modal-container" id="modal-container">
             <div class="modal-content" id="modal-content">          
@@ -1937,45 +1596,68 @@ html {
       window.addEventListener('scroll', highlightNavLink);
     });
   </script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-    
-        const images = document.querySelectorAll('.box img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const closeBtn = document.querySelector('.lightbox-close');
-    
-        // Stop if elements missing
-        if (!lightbox || !lightboxImg || !closeBtn) {
-            console.error('Lightbox elements missing');
-            return;
-        }
-    
-        // Open
-        images.forEach(img => {
-            img.addEventListener('click', () => {
-                lightbox.classList.add('active');
-                lightboxImg.src = img.src;
-                document.body.style.overflow = 'hidden';
-            });
-        });
-    
-        // Close button
-        closeBtn.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    
-        // Background click
-        lightbox.addEventListener('click', e => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Safe escape: If a user clicks directly on the external Vimeo badge link, don't open the image lightbox modal background
+            if (e.target.closest('.vimeo-badge')) return;
+
+            const mediaSrc = item.getAttribute('data-src');
+            const vimeoLink = item.getAttribute('data-vimeo');
+
+            // Clear previous lightbox data contents safely
+            lightboxImg.src = '';
+            lightboxImg.style.display = 'none';
+            lightboxVimeo.innerHTML = '';
+
+            if (vimeoLink) {
+                // Extract video ID from standard link arrays
+                const videoId = vimeoLink.split('/').pop();
+                lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com{videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+                lightboxImg.style.display = 'none';
+            } else if (mediaSrc) {
+                lightboxImg.src = mediaSrc;
+                lightboxImg.style.display = 'block';
             }
+
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Locks body scrolling
         });
-    
     });
-    </script>
+
+    const deactivateLightbox = () => {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+        lightboxVimeo.innerHTML = '';
+        document.body.style.overflow = ''; // Restores standard view navigation scrolling
+    };
+
+    closeBtn.addEventListener('click', deactivateLightbox);
+    
+    // Close lightbox modal upon background backdrop canvas space clicks
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
+            deactivateLightbox();
+        }
+    });
+
+    // Native Accessibility: Close modal when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            deactivateLightbox();
+        }
+    });
+});
+</script>
     
 <script>
 
@@ -2010,15 +1692,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 
-document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(function () {
-      document.querySelector('.column-left').classList.add('show');
-      document.querySelector('.row-1').classList.add('show');
-      document.querySelector('.row-2').classList.add('show');
-      document.querySelector('.row-3').classList.add('show');
-      
-  }, 500); 
-});
+
 
 
   function copyEmailToClipboard() {
