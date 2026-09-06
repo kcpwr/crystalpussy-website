@@ -368,16 +368,46 @@ html {
 .gallery-item:hover .text-overlay {
     opacity: 1;
 }
+/* Lightbox Caption */
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #D1A3B7;
+    color: #8FFF00;
+    padding: clamp(8px, 1.5vw, 12px) clamp(16px, 2.5vw, 24px);
+    border-radius: 30px;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 500;
+    text-align: center;
+    max-width: 80%;
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    display: none; /* Hidden by default, shown via JS */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none; /* Allows clicking through to the image */
+}
 
-/* Tablet and Mobile: Always show text overlay */
-@media (max-width: 992px) {
-    .text-overlay {
-        opacity: 1 !important; /* Override the hover state */
+/* Mobile: Allow text to wrap */
+@media (max-width: 600px) {
+    .lightbox-caption {
+        bottom: 20px;
+        white-space: normal;
+        max-width: 90%;
+        padding: 10px 16px;
+        font-size: 0.85rem;
     }
-    
-    /* Remove hover effect on mobile since it's always visible */
-    .gallery-item:hover .text-overlay {
-        opacity: 1; /* Keep it visible on hover too */
+}
+
+/* Tablet: Adjust caption */
+@media (max-width: 992px) {
+    .lightbox-caption {
+        bottom: 25px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
 
@@ -1404,19 +1434,20 @@ html {
        </div>
 
 
-<div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+       <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
 
-    <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">&#10094;</button>
+        <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">&#10094;</button>
+        
+        <div class="lightbox-content-wrapper">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
+            <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
+            
+            <div class="lightbox-caption"></div>
+        </div>
     
-    <div class="lightbox-content-wrapper">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
-        <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
+        <button class="lightbox-arrow lightbox-next" aria-label="Next image">&#10095;</button>
     </div>
-
-
-    <button class="lightbox-arrow lightbox-next" aria-label="Next image">&#10095;</button>
-</div>
 
     
         </section>
