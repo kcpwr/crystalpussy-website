@@ -419,14 +419,12 @@ html {
 }
 
 #txt-logo {
-    float: left; /* Magic element: forces text to wrap tightly to its right side */
-    
-    /* Takes up exactly 50% width on desktop, leaving 50% for paragraph 1 */
+    float: left; 
+
     width: calc(50% - 20px); 
-    max-width: 500px; /* Caps the image size on massive displays */
+    max-width: 500px;
     height: auto;
     
-    /* Space between the image and the text on its right / bottom */
     margin-right: 40px; 
     margin-bottom: 24px; 
     
@@ -436,10 +434,10 @@ html {
 /* Smartphone Adjustments */
 @media (max-width: 768px) {
     #txt-logo {
-        float: none; /* Disables wrapping on small mobile screens */
+        float: none; /* Disable wrapping */
         display: block;
-        width: 75%; /* Scales down perfectly on phone layouts */
-        margin: 0 auto 32px; /* Centers the logo above all text blocks */
+        width: 75%;
+        margin: 0 auto 32px;
     }
 }
 
@@ -1306,7 +1304,7 @@ html {
         <section id="about" class="about-container">  
             <div class="about-content">
                 <!-- The image is placed inside the text block to allow the wrap effect -->
-                <img src="/icons/logo-scaled.png" id="txt-logo" alt="Logo Crystal Pussy">
+                <img src="/icons/logo-scaled-opt.png" id="txt-logo" alt="Logo Crystal Pussy">
                 
                 <p class="bio-intro">
                     Crystal Pussy is an interdisciplinary artist from Poland, currently based in the French-speaking part of Switzerland, working across performance, site-specific installation, sculpture, painting, and multimedia.
