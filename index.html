@@ -368,48 +368,7 @@ html {
 .gallery-item:hover .text-overlay {
     opacity: 1;
 }
-/* Lightbox Caption */
-.lightbox-caption {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #D1A3B7;
-    color: #8FFF00;
-    padding: clamp(8px, 1.5vw, 12px) clamp(16px, 2.5vw, 24px);
-    border-radius: 30px;
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-    font-weight: 500;
-    text-align: center;
-    max-width: 80%;
-    z-index: 10;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    display: none; /* Hidden by default, shown via JS */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    pointer-events: none; /* Allows clicking through to the image */
-}
 
-/* Mobile: Allow text to wrap */
-@media (max-width: 600px) {
-    .lightbox-caption {
-        bottom: 20px;
-        white-space: normal;
-        max-width: 90%;
-        padding: 10px 16px;
-        font-size: 0.85rem;
-    }
-}
-
-/* Tablet: Adjust caption */
-@media (max-width: 992px) {
-    .lightbox-caption {
-        bottom: 25px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-}
 
 /* Styled Text Caption Pill */
 .caption-pill {
@@ -473,12 +432,40 @@ html {
 }
 
 .lightbox-content-wrapper {
-    position: relative;
-    max-width: 95vw;
-    max-height: 98vh;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    padding: 16px;
+    opacity: 1; /* Always visible in lightbox */
+    transition: opacity 0.25s ease-in-out;
+    z-index: 2;
+    pointer-events: none; /* Allows clicking through to the image */
+}
+
+.lightbox-content-wrapper .caption-pill {
+    max-width: 90%;
+    width: max-content;
+    background-color: #D1A3B7;
+    color: #8FFF00;
+    padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2vw, 18px);
+    border-radius: 30px;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Make sure the media container is positioned correctly */
+.lightbox-content-wrapper .media-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .lightbox-img {
@@ -1440,10 +1427,17 @@ html {
         
         <div class="lightbox-content-wrapper">
             <span class="lightbox-close">&times;</span>
-            <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
-            <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
-            
-            <div class="lightbox-caption"></div>
+            <div class="media-container" style="position: relative; width: 100%; height: 100%;">
+                <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
+                <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
+                
+                <!-- Text overlay inside lightbox -->
+                <div class="text-overlay">
+                    <div class="caption-pill">
+                        <span class="description"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     
         <button class="lightbox-arrow lightbox-next" aria-label="Next image">&#10095;</button>
@@ -1667,6 +1661,8 @@ html {
       const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = lightbox.querySelector('.lightbox-img');
+      const lightboxDescription = lightbox.querySelector('.lightbox-content-wrapper .description');
+      const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
       const closeBtn = lightbox.querySelector('.lightbox-close');
       
       const prevBtn = lightbox.querySelector('.lightbox-prev');
@@ -1680,11 +1676,28 @@ html {
           currentIndex = index;
   
           const activeItem = galleryItems[currentIndex];
-          const imgSrc = activeItem.querySelector('img').src; // Get the image source from the gallery
+          const imgSrc = activeItem.querySelector('img')?.src || '';
+          const vimeoLink = activeItem.getAttribute('data-vimeo');
+          const caption = activeItem.querySelector('.description')?.textContent || '';
   
-          // Set the lightbox image
-          lightboxImg.src = imgSrc;
-          lightboxImg.style.display = 'block';
+          // Clear previous content
+          lightboxImg.src = '';
+          lightboxImg.style.display = 'none';
+          lightboxVimeo.innerHTML = '';
+  
+          // Load image or video
+          if (vimeoLink) {
+              const videoId = vimeoLink.split('/').pop();
+              lightboxVimeo.innerHTML = `<iframe src="https://player.vimeo.com/video/${videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+          } else if (imgSrc) {
+              lightboxImg.src = imgSrc;
+              lightboxImg.style.display = 'block';
+          }
+  
+          // Set the caption description
+          if (lightboxDescription) {
+              lightboxDescription.textContent = caption;
+          }
       };
   
       // Navigation
@@ -1714,6 +1727,7 @@ html {
       const deactivateLightbox = () => {
           lightbox.classList.remove('active');
           lightbox.setAttribute('aria-hidden', 'true');
+          lightboxVimeo.innerHTML = '';
           document.body.style.overflow = '';
       };
   
