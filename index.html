@@ -437,10 +437,14 @@ html {
 .lightbox-content-wrapper {
     position: absolute;
     inset: 0;
+    
+    /* CORE CENTERING FIX: Forces the inner .media-container grid box 
+       to center vertically and horizontally across the screen */
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
     align-items: center;
     justify-content: center;
+    
     padding: 24px;
     z-index: 2;
     pointer-events: none; /* Let empty space clicks fall cleanly to backdrop */
@@ -456,30 +460,26 @@ html {
     pointer-events: auto;
 }
 
-/* FIX: Prevents container layout breakdown from natural high-res bounds */
+/* FIXED: Unified centering engine using CSS Grid to lock content positions */
 .lightbox-content-wrapper .media-container {
     position: relative;
     width: 80vw;             
     height: 70vh;            
     display: grid;
-    justify-content: center;
-    place-items: center;
-    align-items: center;
+    place-items: center;    /* Perfect horizontal and vertical centering alignment */
     pointer-events: auto;
 }
 
-/* FIX: Absolute maximum viewport safety guidelines using object-fit contain */
+/* FIXED: Replaced conflicting rules to naturally comply with parent Grid positioning */
 .lightbox-img {
     max-width: 100%;         
     max-height: 100%;        
     width: auto !important;             
     height: auto !important;            
     display: block;
-    margin: auto;
-    object-fit: contain;
-    align-items: center;     
+    object-fit: contain;     
     border-radius: 4px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
 
@@ -509,15 +509,19 @@ html {
     color: #ffffff;
     cursor: pointer;
     user-select: none;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     z-index: 10001;
     pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.lightbox-close:hover {
-    color: #8FFF00;
-    background-color: #8FFF0080;
-    box-shadow: 0 0 15px rgba(143, 255, 0, 1);
+/* FIXED: Wrapped in hover filter media blocks to eliminate mobile sticky highlights */
+@media (hover: hover) {
+    .lightbox-close:hover {
+        color: #8FFF00;
+        background-color: #8FFF0080;
+        box-shadow: 0 0 15px rgba(143, 255, 0, 1);
+    }
 }
 
 .lightbox-arrow {
@@ -536,20 +540,24 @@ html {
     pointer-events: auto;
     border: none;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.lightbox-arrow:hover {
-    color: #8FFF00;
-    background-color: #8FFF0080;
-    box-shadow: 0 0 15px rgba(143, 255, 0, 1);
+/* FIXED: Wrapped in hover filter media blocks to eliminate mobile sticky highlights */
+@media (hover: hover) {
+    .lightbox-arrow:hover {
+        color: #8FFF00;
+        background-color: #8FFF0080;
+        box-shadow: 0 0 15px rgba(143, 255, 0, 1);
+    }
 }
+
 .lightbox-arrow:active {
-    /* Your exact visual styles, now triggering ONLY while pressed down */
     color: #8FFF00;
     background-color: #8FFF0080;
     box-shadow: 0 0 15px rgba(143, 255, 0, 1);
+    transform: translateY(-50%) scale(0.95); /* Active press tactile shrinking feedback */
 }
-
 
 .lightbox-prev { left: 24px; }
 .lightbox-next { right: 24px; }
@@ -561,28 +569,26 @@ html {
     .lightbox-content-wrapper .media-container { width: 95vw; height: 60vh; }
 }
 
-
-
 /* Responsive Structural Breaks (Tablets & Mobiles) */
 @media (max-width: 900px) {
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* Snaps cleanly to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 24px;
     }
 }
 
 @media (max-width: 600px) {
     .gallery-grid {
-        grid-template-columns: 1fr; /* Snaps cleanly to 1 single full-width column on mobile phones */
+        grid-template-columns: 1fr; 
         gap: 20px;
     }
-    
     
     .caption-pill {
         max-width: 100%;
         box-shadow: none;
     }
 }
+
 
 
 
