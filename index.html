@@ -231,10 +231,16 @@ html {
     left: 0px;
     }
 
+    @media (max-width: 768px) {
+    #logo {
+        display: none;
+    }
+}
+
 
 
 .about-container {
-    margin: clamp(80px, 12vw, 120px) auto clamp(80px, 12vw, 120px);
+    margin: clamp(80px, 24vw, 248px) auto clamp(80px, 12vw, 120px);
     padding: 0 clamp(16px, 6vw, 128px);
     box-sizing: border-box;
     font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
@@ -578,26 +584,32 @@ html {
     
 
 .exhibitions {
-    padding: 0 clamp(12px, 6vw, 128px) 0;
-
-    font-size: clamp(1rem, calc(0.6vw + 0.9rem), 1.25rem);
     line-height: 1.5;
+    padding: 0 clamp(12px, 6vw, 128px) 0;
 }
     
     .light-green-text {
+        font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+        line-height: 1.5;
         color: #8FFF00; /* Default text color for light green */
     }
     
     .light-yellow-text {
+        font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+        line-height: 1.5;
         color: #BEE38D; /* Default text color for light yellow */
     }
     
     /* Dark mode styles */
     .dark-mode .light-green-text {
+        font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+        line-height: 1.5;
         color: #000000; /* Text color for light green in dark mode */
     }
     
     .dark-mode .light-yellow-text {
+        font-size: clamp(1.4rem, 1.1vw + 1.15rem, 2rem);
+        line-height: 1.5;
         color: #808080; /* Text color for light yellow in dark mode */
     }
 
