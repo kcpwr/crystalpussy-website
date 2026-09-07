@@ -1021,20 +1021,19 @@ html {
         </section>
         
         
-     <!-- THE RUNTIME LIGHTBOX DISPLAY TARGET DOM -->
-<div id="lightbox" class="lightbox-overlay">
-    <div class="lightbox-close">&times;</div>
-    <div class="lightbox-arrow lightbox-prev">&#10094;</div>
-    <div class="lightbox-arrow lightbox-next">&#10095;</div>
-    
-    <div class="lightbox-content-wrapper">
-        <div class="media-container">
-            <img class="lightbox-img" src="" alt="Active Item Content Display">
-            <div id="lightbox-vimeo-target"></div>
+        <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
+
+            <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">&#10094;</button>
+            
+            <div class="lightbox-content-wrapper">
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-img" src="" alt="Enlarged gallery presentation view">
+                <div id="lightbox-vimeo-target" class="lightbox-vimeo-holder"></div>
+            </div>
+        
+        
+            <button class="lightbox-arrow lightbox-next" aria-label="Next image">&#10095;</button>
         </div>
-        <span class="caption-pill description"></span>
-    </div>
-</div>
 
                     <section id="Art" class="art-gallery-section">
                         <div class="gallery-grid">
@@ -1636,103 +1635,106 @@ html {
   </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- VIEWER DISCRETION POPUP HANDLING ---
-    const popup = document.getElementById('popup');
-    const confirmBtn = document.getElementById('confirm');
-    if (confirmBtn && popup) {
-        confirmBtn.addEventListener('click', () => { 
-            popup.classList.add('fade-out'); 
-        });
-    }
-
-    // --- LIGHTBOX ENGINE ---
-    // --- LIGHTBOX INTERACTION CONTROLS ---
-const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('.lightbox-img');
-const lightboxDescription = lightbox.querySelector('.lightbox-content-wrapper .description');
-const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
-const closeBtn = lightbox.querySelector('.lightbox-close');
-const prevBtn = lightbox.querySelector('.lightbox-prev');
-const nextBtn = lightbox.querySelector('.lightbox-next');
-
-let currentIndex = -1;
-
-const loadContent = (index) => {
-    if (index < 0 || index >= galleryItems.length) return;
-    currentIndex = index;
-
-    const activeItem = galleryItems[currentIndex];
-    const imgSrc = activeItem.querySelector('img')?.src || '';
-    const vimeoLink = activeItem.getAttribute('data-vimeo');
-    const caption = activeItem.querySelector('.description')?.textContent || '';
-
-    // Clear out previous media content states safely
-    lightboxImg.src = '';
-    lightboxImg.style.display = 'none';
-    lightboxVimeo.innerHTML = '';
-
-    if (vimeoLink) {
-        const videoId = vimeoLink.split('/').pop().split('?');
-        lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com{videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-    } else if (imgSrc) {
-        lightboxImg.src = imgSrc;
-        lightboxImg.style.display = 'block';
-    }
-
-    if (lightboxDescription) {
-        lightboxDescription.textContent = caption;
-    }
-};
-
-// Attach launch triggers to mosaic grid assets
-galleryItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        loadContent(index);
-        lightbox.classList.add('active');
-    });
-});
-
-const navigateNext = () => {
-    let nextIndex = currentIndex + 1;
-    if (nextIndex >= galleryItems.length) nextIndex = 0;
-    loadContent(nextIndex);
-};
-
-const navigatePrev = () => {
-    let prevIndex = currentIndex - 1;
-    if (prevIndex < 0) prevIndex = galleryItems.length - 1;
-    loadContent(prevIndex);
-};
-
-nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
-prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
-
-const closeLightbox = () => {
-    lightbox.classList.remove('active');
-    lightboxVimeo.innerHTML = ''; 
-    lightboxImg.src = '';
-};
-
-closeBtn.addEventListener('click', closeLightbox);
-
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
-        closeLightbox();
-    }
-});
-
-// Global Keyboard Controls
-document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') navigateNext();
-    if (e.key === 'ArrowLeft') navigatePrev();
-});
-
-</script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // --- VIEWER DISCRETION POPUP HANDLING ---
+      const popup = document.getElementById('popup');
+      const confirmBtn = document.getElementById('confirm');
+      if (confirmBtn && popup) {
+          confirmBtn.addEventListener('click', () => { 
+              popup.classList.add('fade-out'); 
+          });
+      }
+  
+      // --- LIGHTBOX INDEX ENGINE ---
+      const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('.lightbox-img');
+      const lightboxVimeo = document.getElementById('lightbox-vimeo-target');
+      const closeBtn = lightbox.querySelector('.lightbox-close');
+      
+      const prevBtn = lightbox.querySelector('.lightbox-prev');
+      const nextBtn = lightbox.querySelector('.lightbox-next');
+      
+      let currentIndex = -1;
+  
+      // Core content loading function based on active index position
+      const loadContent = (index) => {
+          if (index < 0 || index >= galleryItems.length) return;
+          currentIndex = index;
+  
+          const activeItem = galleryItems[currentIndex];
+          const mediaSrc = activeItem.getAttribute('data-src');
+          const vimeoLink = activeItem.getAttribute('data-vimeo');
+  
+          // Clear stage elements cleanly
+          lightboxImg.src = '';
+          lightboxImg.style.display = 'none';
+          lightboxVimeo.innerHTML = '';
+  
+          if (vimeoLink) {
+              const videoId = vimeoLink.split('/').pop();
+              lightboxVimeo.innerHTML = `<iframe src="https://vimeo.com{videoId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+          } else if (mediaSrc) {
+              lightboxImg.src = mediaSrc;
+              lightboxImg.style.display = 'block';
+          }
+      };
+  
+      // Index tracking loops
+      const navigateNext = () => {
+          let nextIdx = currentIndex + 1;
+          if (nextIdx >= galleryItems.length) nextIdx = 0; // Loops back cleanly to the first photo
+          loadContent(nextIdx);
+      };
+  
+      const navigatePrev = () => {
+          let prevIdx = currentIndex - 1;
+          if (prevIdx < 0) prevIdx = galleryItems.length - 1; // Loops back cleanly to the last photo
+          loadContent(prevIdx);
+      };
+  
+      // Bind item click listeners
+      galleryItems.forEach((item, index) => {
+          item.addEventListener('click', (e) => {
+              if (e.target.closest('.vimeo-badge')) return;
+              loadContent(index);
+              
+              lightbox.classList.add('active');
+              lightbox.setAttribute('aria-hidden', 'false');
+              document.body.style.overflow = 'hidden'; 
+          });
+      });
+  
+      // Close functionality
+      const deactivateLightbox = () => {
+          lightbox.classList.remove('active');
+          lightbox.setAttribute('aria-hidden', 'true');
+          lightboxVimeo.innerHTML = '';
+          document.body.style.overflow = ''; 
+      };
+  
+      // Bind Navigation Button Actions
+      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateNext(); });
+      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigatePrev(); });
+      if (closeBtn) closeBtn.addEventListener('click', deactivateLightbox);
+      
+      lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) { 
+              deactivateLightbox(); 
+          }
+      });
+  
+      // Keyboard Arrow and Escape Handlers
+      document.addEventListener('keydown', (e) => {
+          if (!lightbox || !lightbox.classList.contains('active')) return;
+          
+          if (e.key === 'Escape') deactivateLightbox();
+          if (e.key === 'ArrowRight') navigateNext();
+          if (e.key === 'ArrowLeft') navigatePrev();
+      });
+  });
+  </script>
 
     
 
