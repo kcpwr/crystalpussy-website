@@ -465,16 +465,36 @@ html {
     width: 100%;             
     height: 100%;            
     display: flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: auto;
 }
 
-/* Safe sizing guidelines using object-fit contain */
+/* FIX: Added text-align and margin auto to force centering */
 .lightbox-img {       
-      
     display: block;
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
     object-fit: contain;     
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
     z-index: 1;
+    margin: auto !important;  /* Force override any other margins */
+    text-align: center;       /* Fallback for inline elements */
+    flex-shrink: 0;           /* Prevent shrinking */
+}
+
+/* Alternative: If the image is inside a container that's causing issues */
+.lightbox-content-wrapper .media-container img {
+    display: block;
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    margin: auto !important;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* Keeps floating text centered below the image wrapper boundaries */
@@ -571,9 +591,12 @@ html {
     .lightbox-prev { left: 8px; }
     .lightbox-next { right: 8px; }
     .lightbox-content-wrapper { width: 95vw; height: 60vh; }
+    .lightbox-img, 
+    .lightbox-content-wrapper .media-container img { 
+        max-width: 95vw; 
+        max-height: 55vh; 
+    }
 }
-
-
 
 
 
