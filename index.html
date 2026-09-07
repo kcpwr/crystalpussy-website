@@ -498,9 +498,11 @@ html {
 
 .lightbox-close {
     position: absolute;
-    top: 24px;
-    right: 32px;
-    font-size: 3rem;
+    top: clamp(12px, 2.5vw, 24px);
+    right: clamp(16px, 3.5vw, 32px);
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: clamp(2.5rem, 3.75vw, 4rem);
     color: #ffffff;
     cursor: pointer;
     user-select: none;
@@ -510,8 +512,9 @@ html {
 }
 
 .lightbox-close:hover {
-    transform: scale(1.1);
     color: #8FFF00;
+    background-color: #8FFF0080;
+    box-shadow: 0 0 15px rgba(143, 255, 0, 1);
 }
 
 .lightbox-arrow {
@@ -519,20 +522,23 @@ html {
     top: 50%;
     transform: translateY(-50%);
     color: #ffffff;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    padding: 16px 24px;
+    background-color: transparent;
+    font-size: clamp(1.75rem, 3.25vw, 3.5rem);
+    padding: 12px 20px;
     cursor: pointer;
     user-select: none;
     z-index: 10002;
     border-radius: 50px;
     transition: all 0.2s ease;
     pointer-events: auto;
+    border: none;
+    outline: none;
 }
 
 .lightbox-arrow:hover {
     color: #8FFF00;
-    background: #000000;
-    box-shadow: 0 0 15px rgba(143, 255, 0, 0.4);
+    background-color: #8FFF0080;
+    box-shadow: 0 0 15px rgba(143, 255, 0, 1);
 }
 
 .lightbox-prev { left: 24px; }
